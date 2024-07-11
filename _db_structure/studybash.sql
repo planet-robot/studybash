@@ -436,7 +436,7 @@ CREATE TABLE `sb_institutions` (
 -- Dumping data for table `sb_institutions`
 --
 
-INSERT INTO `sb_institutions` VALUES(1, 'Universal Univerality University', 'uuu.ca');
+INSERT INTO `sb_institutions` VALUES(1, 'Universal Universality University', 'uuu.ca');
 
 -- --------------------------------------------------------
 
