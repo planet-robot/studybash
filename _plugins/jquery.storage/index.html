@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Storage</title>
+
+    <!-- CSS
+    ********************* -->
+
+    <!-- required -->
+    <link href='http://getbootstrap.com/dist/css/bootstrap.css' rel='stylesheet'>
+
+    <!-- project-specific -->
+
+    <!-- JAVASCRIPT
+    ********************* -->
+
+    <!-- required -->
+    <script src="http://code.jquery.com/jquery-2.0.2.js"></script>
+    <script src='http://underscorejs.org/underscore.js'></script>
+    <script src='http://backbonejs.org/backbone.js'></script>
+    <script src='http://getbootstrap.com/dist/js/bootstrap.js'></script>
+    <script src='http://plasticthoughts.com/plugins/jquery.types/jquery.types.js'></script>
+    <script src='http://plasticthoughts.com/plugins/jquery.storage/jquery.storage.js'></script>
+
+    <!-- project-specific -->
+    <script src='jquery.storage.js'></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+            if ( $.storage.supported() ) {
+
+                // demonstrate its usage.
+
+                function demoUsage() {
+
+                    $("#content").html("");                    
+
+                    // looking for past value
+
+                    var val = $.storage.get("test.storage");
+                    $("<div></div>")
+                    .html("Value left last time had value of: "+val)
+                    .appendTo("#content");                    
+
+                    // basic object test
+
+                    var d = {age:36,name:"mike",male:true,classes:[{name:"PSYC 101",code:101},{name:"BISC 102",code:102}]};
+                    $.storage.set("safe.object",d);
+
+                    var amountNeeded = JSON.stringify(d).length;
+                    $("<div></div>")
+                    .html("Safe object used up "+amountNeeded+" byte(s) of space.")
+                    .appendTo($("#content"));
+
+                    var r = $.storage.get("safe.object");
+                    $("<div></div>")
+                    .html("Before save, age was ("+d.age+", number). Returned, after $.storage did JSON stringify/decode (internally), as: ("+r.age+", "+$.gettype(r.age).base+")")
+                    .appendTo($("#content"));
+
+                    // try to break it with endless recursion.
+
+                    d = [];
+                    d[0] = d;
+                    $.storage.set("dangerous.object",d);
+
+                    // save for next time (people can try to clear through brower, etc.)
+                    $.storage.set("test.storage","I'm still here!");
+                }
+
+                // simply display everything we have.
+
+                function demoDisplay() {
+
+                    $("#content").html("");
+
+                    // capacity.
+
+                    var capacity = $.storage.getCapacityInKb();
+                    $("<div></div>")
+                    .html("You have " + capacity + " kb(s) available [" + (Math.round((capacity/1024)*100)/100) + " MB(s)]")
+                    .appendTo($("#content"));
+
+                    // show everything.
+
+                    var keys = $.storage.keys();
+
+                    for ( x=0; x < keys.length; x++ ) {
+                        
+                        $("<div></div>")
+                        .html("<strong>Key</strong>: " + keys[x] + ", <strong>Value</strong>: " + JSON.stringify($.storage.get(keys[x])))
+                        .appendTo("#content");
+                    }
+                }
+
+                // init.
+
+                $.storage.settings.BASE = "jquery.plugins.storage.";
+
+                $("#button-usage").on("click",function(event){
+                    demoUsage();
+                });
+
+                $("#button-display").on("click",function(event){
+                    demoDisplay();
+                });
+
+                $("#button-clear").on("click",function(event){
+                    $.storage.clear(true);
+                });
+            }
+            else {
+                
+                alert("window.localStorage is NOT supported in this browser");
+            }
+
+        }); // end ready
+
+    </script>
+</head>
+
+<body>
+    <div id='wrapper-body' class='container'>
+
+        <div id='toolbar'>
+            <button id="button-usage">Demo Usage</button>
+            <button id="button-display">Display Content</button>
+            <button id="button-clear">Clear ALL Content</button>
+        </div>
+
+        <div id='content'>                        
+        </div>        
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+/* source for text-align: http://css-tricks.com/almanac/properties/t/text-align/ */
+
+div#colorbox_dialog {	
+	text-align: center;
+	font-family: "Trebuchet MS", Tahoma, Verdana, Arial, sans-serif;
+	font-size: 1.2em;
+}
+
+/* source: http://getbootstrap.com/dist/css/bootstrap.css */
+div#colorbox_dialog .colorbox-btn {
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+div#colorbox_dialog .colorbox-btn:focus {
+	outline: thin dotted #333;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+div#colorbox_dialog .colorbox-btn:focus, div#colorbox_dialog .colorbox-btn:hover {
+	color: #333333;
+	text-decoration: none;
+}
