@@ -1,0 +1,5 @@
+div.activity span {
+	display: inline-block;
+	padding-right: 10px;
+	font-weight: bold;
+}
