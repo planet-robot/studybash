@@ -11,6 +11,6 @@ The website was built around the idea of flashcards (i.e., notes taken in a Q/A 
 - Create tests based upon flashcard filters (e.g., only include cards from "Chapter 1" and "Chapter 4" that are "difficult")
 - Share your flashcards, and tests, with the whole class or just a private studygroup (or not at all)
 - Create and share traditional-style notes (a flashcard with an empty answer field is automatically tagged as a "note").
-- Designed to work on mobile, tablets, laptops, and desktops (I test myself on my phone while going to/from University on the bus).
+- Designed to work on mobile, tablets, laptops, and desktops (I tested myself on my phone while going to/from University on the bus).
 
 It worked just fine in 2014. No promises for today. And I did consider it to be a work-in-progress...
