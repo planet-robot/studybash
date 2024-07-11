@@ -1,0 +1,17 @@
+/*
+	CSS:			page.studying.browse.tests.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* record-editable */
+
+div#page-studying-browse-tests div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-edit */
+
+div#page-studying-browse-tests div.widget-record-editable-edit > form {
+	border: 0;
+	padding-top: 0;
+}

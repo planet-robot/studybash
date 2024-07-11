@@ -1,0 +1,23 @@
+/*
+	CSS:			section.browserfail.css
+	DESCRIPTION:	All of the styles that belong to the 'browserfail' section.
+*/
+
+/* panel */
+
+div#section-page-browserfail div.page-content {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 518px;
+}
+
+div#section-page-browserfail div.page-content img {
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+}
+
+div#section-page-browserfail div.page-content p {
+	margin: 0 auto;
+	margin-top: 10px;
+}

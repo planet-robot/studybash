@@ -1,0 +1,17 @@
+/*
+	CSS:			section.notfound.css
+	DESCRIPTION:	All of the styles that belong to the 'notfound' (i.e., 404) section.
+*/
+
+/* panel */
+
+div#page-notfound div.widget-panel {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 518px;
+}
+
+div#page-notfound div.widget-panel > img {
+	display: block;
+	margin: auto;
+}

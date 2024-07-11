@@ -1,0 +1,175 @@
+/*
+	CSS:			app.css
+	DESCRIPTION:	This houses all of the styles that are applied globally
+*/
+
+body {
+	overflow-y: scroll;
+	height: 100%;
+	background-color: #eee;
+}
+
+div.imagePreload {
+	display: none;
+}
+
+/* see: https://github.com/ivaynberg/select2/issues/2078 */
+.form-hidden-select2 {
+	display: block;
+	width: 100%;
+}
+
+/* drop all pages down from the menu a bit */
+div.section-page {
+	margin-top: 20px;
+}
+
+/* styling external links */
+a.navigate.newtab,
+a.navigate:not([href*="studybash"]) {
+	background: url("../../img/link_new_window.png") no-repeat right center;
+	padding-right: 14px;
+}
+
+/* bootstrap dialogs */
+
+div.modal div.modal-dialog div.modal-content div.modal-body > h2:first-of-type {
+	margin-top: 0;
+}
+
+/* disabled buttons */
+
+.btn[disabled] {
+	opacity: 0.3;
+}
+
+/* record-editable */
+
+div.widget-record-editable {
+
+	background-color: #fff;
+
+	width: 100%;
+	margin: 0 auto;
+
+	margin-top: 20px;	
+	border: 1px solid #bbb;
+}
+
+/* record-editable-toolbar */
+
+div.widget-record-editable > div.toolbar {
+	width: 100%;
+	border-bottom: 1px solid #bbb;
+	padding: 4px;
+}
+
+div.widget-record-editable > div.toolbar > div.widget-toolbar {
+	float: right;
+}
+
+div.widget-record-editable > div.toolbar > div.widget-toolbar button.btn {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	padding:2px 8px;
+}
+
+/* record-editable-display */
+
+div.widget-record-editable > div.record-content > div.widget-record-editable-display {
+	padding: 10px;
+}
+
+div.widget-record-editable-display h1 {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+div.widget-record-editable-display h2 {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+	font-weight: none;
+}
+
+div.widget-record-editable-display p {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	line-height: 1.1;
+}
+
+div.widget-record-editable-display p:first-of-type {
+	margin-top: 4px;
+}
+
+div.widget-record-editable-display p > span {
+	font-style: italic;
+}
+
+div.widget-record-editable-display > a,
+div.widget-record-editable-display > a:hover,
+div.widget-record-editable-display > a:visited,
+div.widget-record-editable-display > a:focus {
+	text-decoration: none;
+	color: inherit;
+	display:block;
+}
+
+div.widget-record-editable-display > div.footer {
+	
+	border-top: 1px dotted #666;
+	margin-top: 6px;
+	padding-top: 4px;
+
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	color: #228c23;
+}
+
+div.widget-record-editable-display > div.footer > span,
+div.widget-record-editable-display > div.footer > div, 
+div.widget-record-editable-display > div.footer > p {
+	cursor:default;
+}
+
+div.widget-record-editable-selected {
+
+	border: 1px solid #428bca;
+	-webkit-box-shadow: 0 0 10px #428bca; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #428bca; /* horz, vert, blur, col */
+}
+
+/* record-editable-edit */
+
+div.widget-record-editable > div.record-content > div.widget-record-editable-edit {
+	padding: 10px;
+}
+
+div.widget-record-editable-edit > p {
+	padding:0;
+	margin:0;
+	font-style: italic;
+}
+
+div.widget-record-editable-edit > form {
+	border-top: 1px dotted #666;
+	margin-top: 6px;
+	padding-top: 10px;
+}
+
+div.widget-record-editable-edit > form p.help-block {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+div.widget-record-editable-edit > form > div.footer {
+	border-top: 1px dotted #666;
+	margin-top: 6px;
+	padding-top: 10px;
+}

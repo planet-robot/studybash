@@ -1,0 +1,44 @@
+/*
+	CSS:			page.studying.browse.cards.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* page breadcrumb */
+
+div#page-studying-browse-cards div.content-breadcrumb ol.breadcrumb {
+	max-width: 100%;
+}
+
+/* page toolbar */
+
+div#page-studying-browse-cards div.content-toolbar div.widget-toolbar {
+	max-width: 100%;
+}
+
+@media (min-width: 768px) {
+	div#page-studying-browse-cards div.content-toolbar div.widget-toolbar div.row div.col-sm-6:first-of-type {
+		text-align: right;
+	}
+	div#page-studying-browse-cards div.content-toolbar div.widget-toolbar div.row div.col-sm-6:nth-of-type(2) {
+		text-align: left;
+	}
+}
+
+/* page list-headings */
+
+div#page-studying-browse-cards div.content-list-headings {
+	max-width: 100%;
+}
+
+/* record-editable */
+
+div#page-studying-browse-cards div.widget-record-editable {
+	max-width: 100%;
+}
+
+/* record-editable-edit */
+
+div#page-studying-browse-cards div.widget-record-editable-edit > form {
+	border: 0;
+	padding-top: 0;
+}

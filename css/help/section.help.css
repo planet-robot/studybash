@@ -1,0 +1,56 @@
+/*
+	CSS:			help.css
+	DESCRIPTION:	All of the styles that belong to the help section.
+*/
+
+/*
+	page content.
+	make sure this is all set UNDERNEATH the tabs on top.
+*/
+
+div#section-help div.page-content > div.sb-tabs {
+}
+
+div#section-help div.page-content > div.content {	
+	background-color: #fff;
+	border: 1px solid #bbb;
+	padding: 20px;
+}
+
+/*
+	panel content
+*/
+
+div#section-help div.widget-panel > div.bs-callout:first-child {
+	margin-top: 0;
+}
+
+div#section-help div.widget-panel > h1 {
+	font-size: 20px;
+	font-weight: bold;	
+}
+
+div#section-help div.widget-panel > h1:first-of-type {
+	margin-top: 0px;
+}
+
+div#section-help div.widget-panel > h2 {
+	font-size: 18px;
+	font-weight: bold;	
+	font-style: italic;
+	margin-top: 6px;
+}
+
+div#section-help div.widget-panel > h3 {
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 6px;
+}
+
+div#section-help div.widget-panel span.field-label {
+	font-weight: bold;
+}
+
+div#section-help div.widget-panel span.field-text {
+	font-style: italic;
+}

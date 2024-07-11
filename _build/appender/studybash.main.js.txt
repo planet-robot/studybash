@@ -1,0 +1,174 @@
+<!-- account -->
+
+..\..\js\account\section.account.js
+..\..\js\account\login\page.account.login.js
+..\..\js\account\login\widget.account.login.form.js
+..\..\js\account\register\page.account.register.js
+..\..\js\account\register\widget.account.register.form.js
+..\..\js\account\reset\page.account.reset.js
+..\..\js\account\reset\widget.account.reset.form.js
+..\..\js\account\verify\page.account.verify.js
+..\..\js\account\verify\widget.account.verify.form.js
+
+<!-- dash -->
+
+..\..\js\dash\page.dash.profile.js
+..\..\js\dash\section.dash.js
+..\..\js\dash\widget.dash.profile.panel.js
+
+<!-- classes -->
+
+..\..\js\classes\page.classes.js
+..\..\js\classes\section.classes.js
+..\..\js\classes\widget.classes.form.add.js
+..\..\js\classes\widget.classes.list.js
+..\..\js\classes\widget.classes.record.editable.display.js
+..\..\js\classes\widget.classes.record.editable.edit.js
+..\..\js\classes\widget.classes.record.editable.js
+..\..\js\classes\widget.classes.record.editable.toolbar.js
+..\..\js\classes\widget.classes.toolbar.js
+
+<!-- help -->
+
+..\..\js\help\base.page.help.js
+..\..\js\help\page.help.classes.js
+..\..\js\help\page.help.contact.js
+..\..\js\help\page.help.flashcards.js
+..\..\js\help\page.help.general.js
+..\..\js\help\page.help.groups.js
+..\..\js\help\page.help.studying.js
+..\..\js\help\page.help.tests.js
+..\..\js\help\section.help.js
+
+..\..\js\help\widget.help.general.panel.js
+..\..\js\help\widget.help.classes.panel.js
+..\..\js\help\widget.help.studying.panel.js
+..\..\js\help\widget.help.groups.panel.js
+..\..\js\help\widget.help.flashcards.panel.js
+..\..\js\help\widget.help.tests.panel.js
+..\..\js\help\widget.help.form.contact.js
+
+<!-- logout -->
+
+..\..\js\logout\page.logout.js
+..\..\js\logout\section.logout.js
+..\..\js\logout\widget.logout.panel.js
+
+<!-- the rest -->
+
+..\..\js\error\browserfail\section.browserfail.js
+..\..\js\error\notfound\page.notfound.js
+..\..\js\error\notfound\section.notfound.js
+..\..\js\error\notfound\widget.notfound.panel.js
+
+<!-- studying -->
+
+..\..\js\studying\browse\base.page.browse.js
+..\..\js\studying\browse\base.widget.browse.form.filter.js
+..\..\js\studying\browse\section.studying.browse.js
+
+<!-- studying:browse-modules -->
+
+..\..\js\studying\browse\modules\page.studying.browse.modules.js
+..\..\js\studying\browse\modules\widget.studying.browse.modules.list.js
+..\..\js\studying\browse\modules\widget.studying.browse.modules.record.editable.display.js
+..\..\js\studying\browse\modules\widget.studying.browse.modules.record.editable.js
+..\..\js\studying\browse\modules\widget.studying.browse.modules.toolbar.js
+
+<!-- studying:browse-groups -->
+
+..\..\js\studying\browse\groups\page.studying.browse.groups.js
+..\..\js\studying\browse\groups\widget.studying.browse.groups.breadcrumb.js
+..\..\js\studying\browse\groups\widget.studying.browse.groups.form.code.js
+..\..\js\studying\browse\groups\widget.studying.browse.groups.list.js
+..\..\js\studying\browse\groups\widget.studying.browse.groups.record.editable.display.js
+..\..\js\studying\browse\groups\widget.studying.browse.groups.record.editable.edit.js
+..\..\js\studying\browse\groups\widget.studying.browse.groups.record.editable.js
+..\..\js\studying\browse\groups\widget.studying.browse.groups.record.editable.toolbar.js
+..\..\js\studying\browse\groups\widget.studying.browse.groups.toolbar.js
+
+<!-- studying:browse users -->
+
+..\..\js\studying\browse\users\page.studying.browse.users.js
+..\..\js\studying\browse\users\widget.studying.browse.users.breadcrumb.js
+..\..\js\studying\browse\users\widget.studying.browse.users.form.filter.js
+..\..\js\studying\browse\users\widget.studying.browse.users.list.js
+..\..\js\studying\browse\users\widget.studying.browse.users.record.editable.display.js
+..\..\js\studying\browse\users\widget.studying.browse.users.record.editable.js
+..\..\js\studying\browse\users\widget.studying.browse.users.toolbar.js
+
+<!-- studying:browse types -->
+
+..\..\js\studying\browse\types\page.studying.browse.types.js
+..\..\js\studying\browse\types\widget.studying.browse.types.breadcrumb.js
+..\..\js\studying\browse\types\widget.studying.browse.types.form.filter.js
+..\..\js\studying\browse\types\widget.studying.browse.types.list.js
+..\..\js\studying\browse\types\widget.studying.browse.types.record.editable.display.js
+..\..\js\studying\browse\types\widget.studying.browse.types.record.editable.js
+..\..\js\studying\browse\types\widget.studying.browse.types.toolbar.js
+
+<!-- studying:browse-sets -->
+
+..\..\js\studying\browse\sets\page.studying.browse.sets.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.breadcrumb.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.form.create.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.form.filter.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.form.save.test.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.list.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.record.editable.display.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.record.editable.edit.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.record.editable.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.record.editable.toolbar.js
+..\..\js\studying\browse\sets\widget.studying.browse.sets.toolbar.js
+
+<!-- studying:browse cards -->
+
+..\..\js\studying\browse\cards\page.studying.browse.cards.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.breadcrumb.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.form.batch.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.form.create.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.form.filter.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.form.save.test.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.list.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.record.editable.display.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.record.editable.edit.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.record.editable.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.record.editable.toolbar.js
+..\..\js\studying\browse\cards\widget.studying.browse.cards.toolbar.js
+
+<!-- studying:browse tests -->
+
+..\..\js\studying\browse\tests\page.studying.browse.tests.js
+..\..\js\studying\browse\tests\widget.studying.browse.tests.breadcrumb.js
+..\..\js\studying\browse\tests\widget.studying.browse.tests.list.js
+..\..\js\studying\browse\tests\widget.studying.browse.tests.record.editable.display.js
+..\..\js\studying\browse\tests\widget.studying.browse.tests.record.editable.edit.js
+..\..\js\studying\browse\tests\widget.studying.browse.tests.record.editable.js
+..\..\js\studying\browse\tests\widget.studying.browse.tests.record.editable.toolbar.js
+..\..\js\studying\browse\tests\widget.studying.browse.tests.toolbar.js
+
+<!-- studying:taketest -->
+
+..\..\js\studying\taketest\section.studying.taketest.js
+
+..\..\js\studying\taketest\intro\page.tests.take.intro.js
+..\..\js\studying\taketest\intro\widget.tests.take.intro.form.settings.js
+..\..\js\studying\taketest\intro\widget.tests.take.intro.panel.js
+
+..\..\js\studying\taketest\doing\page.tests.take.doing.js
+..\..\js\studying\taketest\doing\widget.tests.take.doing.panel.details.js
+..\..\js\studying\taketest\doing\widget.tests.take.doing.panel.timer.js
+..\..\js\studying\taketest\doing\widget.tests.take.doing.record.editable.display.js
+..\..\js\studying\taketest\doing\widget.tests.take.doing.record.editable.edit.js
+..\..\js\studying\taketest\doing\widget.tests.take.doing.record.editable.js
+..\..\js\studying\taketest\doing\widget.tests.take.doing.record.editable.toolbar.js
+..\..\js\studying\taketest\doing\widget.tests.take.doing.slideshow.js
+..\..\js\studying\taketest\doing\widget.tests.take.doing.slideshow.toolbar.js
+
+..\..\js\studying\taketest\outro\page.tests.take.outro.js
+..\..\js\studying\taketest\outro\widget.tests.take.outro.panel.js
+
+<!-- main application -->
+
+..\..\js\app.js
+..\..\js\router.js

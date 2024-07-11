@@ -1,0 +1,59 @@
+/*
+	CSS:			classes.css
+	DESCRIPTION:	All of the styles that belong to the classes section (which is only one page now).
+*/
+
+/* page toolbar */
+
+div#page-classes div.widget-classes-toolbar {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 740px;
+	margin: 0 auto;
+
+	border: 1px solid #bbb;
+	padding: 10px;
+
+	/*	
+		could also consider using .btn-group-justified. sticking with this approach,
+		solution from: http://stackoverflow.com/questions/21392834/centering-bootstrap-button-group-in-an-element
+	*/
+	text-align: center;	
+}
+
+div#page-classes div.widget-classes-toolbar > .btn {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+/* page form */
+
+div#page-classes div.widget-form-create {
+	margin-top: 20px;
+}
+
+/* record-editable */
+
+div#page-classes div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-display */
+
+div.widget-classes-record-editable-display > p {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+}
+
+div.widget-classes-record-editable-display > p.codes {
+	font-weight: bold;
+}
+
+div.widget-classes-record-editable-display > p.optional {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}

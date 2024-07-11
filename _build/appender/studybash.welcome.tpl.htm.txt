@@ -1,0 +1,4 @@
+..\..\tpl\js\account.tpl.htm
+..\..\tpl\js\base.tpl.htm
+..\..\tpl\js\general.tpl.htm
+..\..\tpl\js\notfound.tpl.htm

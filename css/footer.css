@@ -1,0 +1,30 @@
+/*
+	CSS:			footer.css
+	DESCRIPTION:	All pages use the same footer class, but they differ on their layout and content.
+*/
+
+div.sb-footer {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+div.sb-footer > div.copyright {	
+	width: 100%;
+	margin:0;
+	border-top: 1px solid #89a;
+	padding-top: 10px;
+}
+
+div.sb-footer > div.copyright a:hover {	
+	text-decoration: none;
+}
+
+div.sb-footer > div.copyright p {
+	margin:0;
+}
+
+div.sb-footer > div.copyright p.blurb {
+	margin-top: 6px;
+}

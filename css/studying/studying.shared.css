@@ -1,0 +1,141 @@
+/*
+	CSS:			studying.shared.css
+	DESCRIPTION:	Any styles that are shared within the various sections of "studying" super-section
+*/
+
+/* record-editable-toolbar */
+
+div#page-studying-browse-sets div.widget-record-editable div.widget-toolbar button.btn[name=flag],
+div#page-studying-browse-cards div.widget-record-editable div.widget-toolbar button.btn[name=flag],
+div#page-studying-browse-tests div.widget-record-editable div.widget-toolbar button.btn[name=flag],
+div#page-tests-take-doing div.widget-record-editable div.widget-toolbar button.btn[name=flag] {
+	color:#de0d0d;
+}
+
+div#page-studying-browse-sets div.widget-record-editable div.widget-toolbar button.btn[name=flag][disabled],
+div#page-studying-browse-cards div.widget-record-editable div.widget-toolbar button.btn[name=flag][disabled],
+div#page-studying-browse-tests div.widget-record-editable div.widget-toolbar button.btn[name=flag][disabled],
+div#page-tests-take-doing div.widget-record-editable div.widget-toolbar button.btn[name=flag][disabled] {
+	color:inherit;
+}
+
+/*
+	record-editable-display-flashcard
+
+	Shared in "browse cards" and "taketest-doing"
+
+	This is particularly large because, due to pagedown, we have a lot of tags that can show up in here.
+	And we want to style them all.
+*/
+
+/* footer */
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.footer p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.footer p {
+	font-size: 13px;	
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.footer span.tag,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.footer span.tag {
+	display: inline-block;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+
+/* "question" and "answer" headings */
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.heading,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.heading {
+	font-size: 12px;
+	font-weight: bold;
+	font-style: italic;
+	margin: 0;
+	padding: 0;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer div.heading,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer div.heading {
+	margin-top: 10px;
+}
+
+/* content */
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer {
+	padding:0;
+	margin:0;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question p,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer p,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question ol,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer ol,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question ol,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer ol,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question ul,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer ul,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question ul,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer ul {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 12px;	
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question p,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer p {
+	margin-top: 10px;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question p:first-of-type,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer p:first-of-type,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question p:first-of-type,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer p:first-of-type {
+	margin: 0;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h1,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h1,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h1,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h1 {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h2,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h2,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h2,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h2 {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 16px;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h3,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h4,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h5,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h6,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h3,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h4,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h5,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h6,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h3,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h4,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h5,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h6,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h3,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h4,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h5,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h6 {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 14px;
+}

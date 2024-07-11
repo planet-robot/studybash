@@ -1,0 +1,33 @@
+<!-- data types -->	
+
+..\..\js\_datatypes\collection.cards.js
+..\..\js\_datatypes\collection.cards.unsorted.js
+..\..\js\_datatypes\collection.enrollment.js
+..\..\js\_datatypes\collection.groups.js
+..\..\js\_datatypes\collection.sets.js
+..\..\js\_datatypes\collection.tests.js
+..\..\js\_datatypes\collection.types.js
+..\..\js\_datatypes\collection.users.js
+..\..\js\_datatypes\model.card.js
+..\..\js\_datatypes\model.enrollment.js
+..\..\js\_datatypes\model.group.js
+..\..\js\_datatypes\model.set.js
+..\..\js\_datatypes\model.test.js
+..\..\js\_datatypes\model.type.js
+..\..\js\_datatypes\model.user.js
+
+<!-- base -->
+
+..\..\js\_base\view.base.page.js
+..\..\js\_base\view.base.section.js
+..\..\js\_base\view.base.widget.breadcrumb.crumb.js
+..\..\js\_base\view.base.widget.breadcrumb.js
+..\..\js\_base\view.base.widget.form.js
+..\..\js\_base\view.base.widget.form.create.js
+..\..\js\_base\view.base.widget.list.js
+..\..\js\_base\view.base.widget.panel.js
+..\..\js\_base\view.base.widget.record.editable.display.js
+..\..\js\_base\view.base.widget.record.editable.edit.js
+..\..\js\_base\view.base.widget.record.editable.js
+..\..\js\_base\view.base.widget.slideshow.js
+..\..\js\_base\view.base.widget.toolbar.js
