@@ -1,0 +1,122 @@
+	<!-- file: tests.take.intro -->
+
+	<!-- PAGE-CONTENT -->
+	<script type='text/template' id='tpl-page-content-tests-take-intro'>
+
+		<h1>Take a Test</h1>
+
+		<div class="content-panel">
+		</div>
+
+		<div class="content-form">
+		</div>
+
+	</script>
+
+	<!-- PANEL -->
+	
+	<script type='text/template' id='tpl-widget-tests-take-intro-panel'>
+
+		<h1><%- test_name %></h1>
+
+		<% if ( description ) { %> <h2><%- description %></h2> <% } %>
+
+		<% if ( is_auto_test ) { %>			
+			<p>
+				<span>Total Sets:</span> 1 (auto)
+			</p>
+			<p>
+				<span>Total cards:</span>
+				<%= num_cards %>
+			</p>
+		<% } %>
+
+		<% if ( !is_auto_test ) { %>
+			<p>
+				<span>Total Sets:</span> 
+				<%= setIDs.length %> (<%= setsInfo.length %>)
+			</p>
+			<p>
+				<span>Total cards:</span>
+				<%= num_cards %>
+			</p>
+			<p>
+				<span>Keywords:</span> 
+				<%- keywordsText %>
+			</p>
+			<p>
+				<span>Tags:</span> 
+				<%- tagsText %>
+			</p>
+		<% } %>
+
+		<div class='footer'>
+			<button class='btn btn-info' name='button_ok'>More Info</button>
+		</div>
+
+	</script>
+
+	<!-- PANEL (MORE INFO) -->
+	
+	<script type='text/template' id='tpl-widget-tests-take-intro-panel-more-info'>
+
+		<p>
+			<span>Total Sets:</span> 
+			<%= setIDs.length %> (<%= setsInfo.length %>)
+		</p>
+		<ul class='list-group'>
+			<% for ( var x=0; x < setsInfo.length; x++ ) { %>
+				<li class='list-group-item'>
+					<%- setsInfo[x].set_name %><br>
+					<%- setsInfo[x].description %>
+				</li>
+			<% } %>
+		</ul>
+
+	</script>
+
+	<!-- FORM -->
+
+	<script type='text/template' id='tpl-widget-tests-take-intro-form-settings'>
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Test Settings
+			</div>
+
+			<form role='form'>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='randomize' checked> Randomize
+					</label>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='display_set_name'> Display Set Names
+					</label>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='display_card_tags'> Display Card Tags
+					</label>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='show_remaining' checked> Show Remaining Count
+					</label>
+				</div>					
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Start Test</button>
+				</div>
+
+			</form>			
+
+		</div>
+
+	</script>

@@ -1,0 +1,228 @@
+	<!-- file: studying.forms -->	
+
+	<!-- GROUPS: SET CODE -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-form-code">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Find Private Studygroup
+			</div>
+
+			<form role='form'>
+
+	  			<div class='form-group'>
+					<label for='code' class='control-label'>Search Code:</label>
+					<input type='text' class='form-control' name='code' value='<%- code %>'>
+					<p class='help-block'>You will have to get this from the owner of the group.</p>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-warning' name='button_clear'>Clear</button>
+					<button type='button' class='btn btn-success' name='button_save'>Search</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- SETS: SAVE TEST -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-form-save-test">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Save As Test
+			</div>
+
+			<form role='form'>
+
+	  			<div class='form-group'>
+					<label for='test_name' class='control-label'>Name:</label>
+					<input type='text' class='form-control' name='test_name' placeholder='e.g., Exam 01'>
+					<p class='help-block'>Sets: <%= numSets %>. Tags: <%= numTags %>. Keywords: <%= numKeywords %></p>
+				</div>
+
+				<div class='form-group'>
+					<label for='description' class='control-label'>Description (optional):</label>
+					<input type='text' class='form-control' name='description' placeholder='e.g., Chapters 01-05'>
+				</div>
+
+				<div class='form-group'>
+					<label for='sharing' class='control-label'>Sharing:</label>
+					<input type='hidden' class='form-hidden-select2' name='sharing'/>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- SETS: ADD -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-form-create">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Add Set
+			</div>
+
+			<form role='form'>
+
+	  			<div class='form-group'>
+					<label for='set_name' class='control-label'>Set Name:</label>
+					<input type='text' class='form-control' name='set_name' placeholder='e.g., Chapter 1'>
+				</div>
+
+				<div class='form-group'>
+					<label for='description' class='control-label'>Set Description (optional):</label>
+					<input type='text' class='form-control' name='description' placeholder='e.g., Introduction'>
+				</div>
+
+				<div class='form-group'>
+					<label for='sharing' class='control-label'>Sharing:</label>
+					<input type='hidden' class='form-hidden-select2' name='sharing'/>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='has_auto_test'> Create Auto Test
+					</label>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- CARDS: SAVE TEST -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-form-save-test">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Save As Test
+			</div>
+
+			<form role='form'>
+
+	  			<div class='form-group'>
+					<label for='test_name' class='control-label'>Name:</label>
+					<input type='text' class='form-control' name='test_name' placeholder='e.g., Exam 01'>
+					<p class='help-block'>Sets: <%= numSets %>. Tags: <%= numTags %>. Keywords: <%= numKeywords %></p>
+				</div>
+
+				<div class='form-group'>
+					<label for='description' class='control-label'>Description (optional):</label>
+					<input type='text' class='form-control' name='description' placeholder='e.g., Chapters 01-05'>
+				</div>
+
+				<div class='form-group'>
+					<label for='sharing' class='control-label'>Sharing:</label>
+					<input type='hidden' class='form-hidden-select2' name='sharing'/>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- CARDS: ADD SINGLE CARD -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-form-create">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Add Flashcard
+			</div>
+
+			<form role='form'>
+
+				<div class='form-group'>
+					<label for='tags' class='control-label'>Tags:</label>
+					<input type='hidden' class='form-hidden-select2' name='tags'/>
+				</div>
+
+	  			<div class='form-group'>
+					<label for='question_text' class='control-label'>Question:</label>
+					<textarea class='form-control' name='question_text' rows='5'></textarea>
+					<p class='help-block'>The question and answer fields use 'Markdown' formatting. Click <a href='http://stackoverflow.com/editing-help' class='navigate'>here</a> for detailed help.</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='answer_text' class='control-label'>Answer (optional):</label>
+					<textarea class='form-control' name='answer_text' rows='5'></textarea>
+					<p class='help-block'>Leave answer field empty to make this card a 'note'.</p>
+				</div>					
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- CARDS: ADD CARD BATCH -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-form-batch">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Add Multiple Flashcards
+			</div>
+
+			<form role='form'>
+
+				<div class='form-group'>
+					<label for='tags' class='control-label'>Tags:</label>
+					<input type='hidden' class='form-hidden-select2' name='tags'/>
+					<p class='help-block'>These are applied to every card created.</p>
+				</div>
+
+	  			<div class='form-group'>
+					<label for='parse_text' class='control-label'>Text:</label>
+					<textarea class='form-control' name='parse_text' rows='5'></textarea>
+					<p class='help-block'>Questions are marked with {{q}}. Answers are marked with {{a}}.</p>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>

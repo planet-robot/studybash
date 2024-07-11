@@ -1,0 +1,433 @@
+	<!-- file: studying.records -->
+
+	<!-- BROWSE MODULES -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-modules-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-modules-record-editable-display">
+
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<h1><%- subject_code %> <%- class_code %></h1>
+			<h2><%- semester %>, <%- year %></h2>
+			<% if ( class_name ) { %>
+				<p><span><%- class_name %></span></p>
+			<% } %>
+			<% if ( lecturer_name ) { %>
+				<p><span><%- lecturer_name %></span></p>
+			<% } %>
+		</a>
+
+		<% if ( completed ) { %>
+			<div class='footer'>
+				<span class='glyphicon glyphicon-ok' data-toggle="tooltip" title="Completed" data-placement="auto top"></span>
+			</div>
+		<% } %>
+
+	</script>
+
+	<!-- BROWSE GROUPS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="join">Join</button>
+			<button type="button" class="btn btn-default toolbar_action" name="leave">Leave</button>
+			<button type="button" class="btn btn-default toolbar_action" name="members" data-toggle="tooltip" title="View members" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-user'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-record-editable-display">
+		
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<% if ( id === "self" ) { %>
+				<h1>My Stuff</h1>
+			<% } %>
+			<% if ( id === "pub" ) { %>
+				<h1>Public Studygroup</h1>
+			<% } %>
+			<% if ( +id === id ) { %>
+				<h1>Private Studygroup</h1>
+				<% if ( !is_user_owner ) { %>
+					<p><span>Owner:</span> <%- owner_first_name %> <%- owner_last_name %></p>
+				<% } %>
+				<p><span>Search Code:</span> <%- code %></p>
+			<% } %>				
+			<% if ( id !== "self" ) { %>
+				<p><span>Num Members:</span> <%- num_members %></p>
+			<% } %>
+		</a>
+
+		<% if ( ( id !== "self" ) && ( is_user_member || is_user_owner ) ) { %>
+			<div class='footer'>
+				<% if ( ( id === "pub" ) || ( is_user_member && !is_user_owner ) ) { %>
+					<span class='glyphicon glyphicon-user' data-toggle="tooltip" title="Member" data-container="body" data-placement="auto top"></span>
+				<% } %>
+				<% if ( ( id === "self" ) || ( is_user_owner ) ) { %>
+					<span class='glyphicon glyphicon-home' data-toggle="tooltip" title="Owner" data-container="body" data-placement="auto top"></span>				
+				<% } %>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-record-editable-edit">
+
+		<form role='form'>
+
+  			<div class='form-group'>
+				<label for='code' class='control-label'>Search Code:</label>
+				<input type='text' class='form-control' name='code' value="<%- typeof code !== 'undefined' ? code : '' %>">
+			</div>
+
+			<div class='footer'>
+				<button type='button' class='btn btn-warning' name='button_generate'>Generate</button>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<!-- BROWSE USERS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-users-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-users-record-editable-display">
+
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<h1><%- full_name %></h1>
+			<p><span>Num Cards:</span> <%- num_filtered_cards %></p>
+			<p><span>Num Tests:</span> <%- num_tests %></p>
+		</a>
+
+	</script>
+
+	<!-- BROWSE TYPES -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-types-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-types-record-editable-display">
+
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<h1><%- type_name %></h1>
+			<p><span>Count:</span> <%- count %></p>
+		</a>
+
+	</script>
+
+	<!-- BROWSE SETS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="select">Select</button>
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="flag" data-toggle="tooltip" title="Flag as inappropriate" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-flag'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-record-editable-display">
+
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<h1><%- set_name %></h1>
+			<% if ( description ) { %> <h2><%- description %></h2> <% } %>
+			<p><span>Cards:</span>  <%- num_filtered_cards %></p>			
+		</a>
+
+		<% if ( ( sharing === "none" ) || ( sharing === "studygroup" ) || ( has_auto_test ) ) { %>
+			<div class='footer'>
+				<% if ( sharing === 'none' ) { %> 
+					<span class='glyphicon glyphicon-lock' data-toggle="tooltip" title="Not shared" data-placement="auto top"></span>
+				<% } %>
+				<% if ( sharing === 'studygroup' ) { %> 
+					<span class='glyphicon glyphicon-book' data-toggle="tooltip" title="Studygroup" data-placement="auto top"></span>
+				<% } %>
+				<% if ( has_auto_test ) { %>
+					<span class='glyphicon glyphicon-font' data-toggle="tooltip" title="Auto test" data-placement="auto top"></span>
+				<% } %>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-record-editable-edit">
+
+		<form role='form'>
+
+  			<div class='form-group'>
+				<label for='set_name' class='control-label'>Set Name:</label>
+				<input type='text' class='form-control' name='set_name' value="<%- typeof set_name !== 'undefined' ? set_name : '' %>">
+			</div>
+
+			<div class='form-group'>
+				<label for='description' class='control-label'>Set Description (optional):</label>
+				<input type='text' class='form-control' name='description' value="<%- typeof description !== 'undefined' ? description : '' %>">
+			</div>
+
+			<div class='form-group'>
+				<label for='sharing' class='control-label'>Sharing:</label>
+				<input type='hidden' class='form-hidden-select2' name='sharing'/>
+			</div>
+
+			<div class='checkbox'>
+				<label>
+					<input type='checkbox' name='has_auto_test' <%= typeof has_auto_test !== 'undefined' ? ( has_auto_test ? 'checked' : '' ) : '' %>> Create Auto Test
+				</label>
+			</div>
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<!-- BROWSE CARDS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="select">Select</button>
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="flag" data-toggle="tooltip" title="Flag as inappropriate" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-flag'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-record-editable-display">		
+		
+		<div class='question'>
+			<% if ( answer_text ) { %>
+				<div class='heading'>Question:</div>
+			<% } %>
+			<%= question_text %>
+		</div>
+		<% if ( answer_text ) { %>			
+			<div class='answer'>
+				<div class='heading'>Answer:</div>
+				<%= answer_text %>
+			</div>
+		<% } %>
+		<div class='footer'>
+			<p class='order_id'><%- order_id %></p>
+			<% if ( tags.length ) { %>
+				<div class='row'>
+					<% for ( x=0; x < tags.length; x++ ) { %> <div class='tag col-xs-12'><%- tags[x].tag_text %></div> <% } %>
+				</div>
+			<% } %>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-record-editable-edit">
+
+		<form role='form'>
+
+			<div class='form-group'>
+				<label for='tags' class='control-label'>Tags:</label>
+				<input type='hidden' class='form-hidden-select2' name='tags'/>
+			</div>
+
+			<div class='form-group'>
+				<label for='order_id' class='control-label'>Order ID:</label>
+				<input type='text' class='form-control' name='order_id' value="<%- typeof order_id !== 'undefined' ? order_id : '' %>">				
+			</div>
+
+			<div class='form-group'>
+				<label for='question_text' class='control-label'>Question:</label>
+				<textarea class='form-control' name='question_text' rows='5'><%- typeof question_text !== 'undefined' ? question_text : '' %></textarea>				
+				<p class='help-block'>The question and answer fields use 'Markdown' formatting. Click <a href='http://stackoverflow.com/editing-help' class='navigate'>here</a> for detailed help.</p>
+			</div>
+
+			<div class='form-group'>
+				<label for='answer_text' class='control-label'>Answer:</label>
+				<textarea class='form-control' name='answer_text' rows='5'><%- typeof answer_text !== 'undefined' ? answer_text : '' %></textarea>
+				<p class='help-block'>Leave answer field empty to make this card a 'note'.</p>
+			</div>			
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<!-- BROWSE TESTS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="select">Select</button>
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="flag" data-toggle="tooltip" title="Flag as inappropriate" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-flag'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="info" data-toggle="tooltip" title="Info" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-info-sign'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="take">Take Test</button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable-display">
+
+		<h1><%- test_name %></h1>
+		<% if ( description ) { %> <h2><%- description %></h2> <% } %>
+		<p><span>Sets:</span>  <%- setIDs.length %></p>
+		<p><span>Cards:</span>  <%- num_filtered_cards %></p>
+
+		<% if ( ( sharing === "none" ) || ( sharing === "studygroup" ) || ( is_auto_test ) || ( ( tags.length ) || ( keywords.length ) ) ) { %>
+			<div class='footer'>
+				<% if ( sharing === 'none' ) { %> 
+					<span class='glyphicon glyphicon-lock' data-toggle="tooltip" title="Not shared" data-container="body" data-placement="auto top"></span>
+				<% } %>
+				<% if ( sharing === 'studygroup' ) { %> 
+					<span class='glyphicon glyphicon-book' data-toggle="tooltip" title="Studygroup" data-container="body" data-placement="auto top"></span>
+				<% } %>
+				<% if ( is_auto_test ) { %>
+					<span class='glyphicon glyphicon-font' data-toggle="tooltip" title="Auto test" data-container="body" data-placement="auto top"></span>
+				<% } %>
+				<% if ( tags.length || keywords.length ) { %>
+					<span class='glyphicon glyphicon-filter' data-toggle="tooltip" title="Filter" data-container="body" data-placement="auto top"></span>
+				<% } %>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable-info">
+
+		<% if ( setsInfo ) { %>
+			<p>
+				<span>Total Sets:</span> 
+				<%- setIDs.length %> (<%- setsInfo.length %>)
+			</p>
+			<p>
+				<span>Keywords:</span> 
+				<%- keywordsText %>
+			</p>
+			<p>
+				<span>Tags:</span> 
+				<%- tagsText %>
+			</p>
+			<p>
+				Sets Info:
+			</p>
+
+			<ul class='list-group'>
+				<% for ( var x=0; x < setsInfo.length; x++ ) { %>
+					<li class='list-group-item'>
+						<%- setsInfo[x].set_name %><br>
+						<%- setsInfo[x].description %>
+					</li>
+				<% } %>
+			</ul>
+		<% } %>
+
+		<% if ( !setsInfo ) { %>			
+			<p>
+				<span>Total Sets:</span> 1 (auto)
+			</p>
+		<% } %>		
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable-edit">
+
+		<form role='form'>
+
+  			<div class='form-group'>
+				<label for='test_name' class='control-label'>Test Name:</label>
+				<input type='text' class='form-control test_name' name='test_name' value="<%- typeof test_name !== 'undefined' ? test_name : '' %>">
+			</div>
+
+			<div class='form-group'>
+				<label for='description' class='control-label'>Test Description (optional):</label>
+				<input type='text' class='form-control description' name='description' value="<%- typeof description !== 'undefined' ? description : '' %>">
+			</div>
+
+			<div class='form-group'>
+				<label for='sharing' class='control-label'>Sharing:</label>
+				<input type='hidden' class='form-hidden-select2 sharing' name='sharing'/>
+			</div>
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>

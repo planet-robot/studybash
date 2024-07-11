@@ -1,0 +1,168 @@
+	<!-- file: classes -->
+
+	<!-- PAGE-CONTENT -->
+	
+	<script type='text/template' id='tpl-page-classes'>
+
+		<div class='content'>
+			
+			<div class="content-toolbar">
+			</div>
+
+			<div class="content-form">
+			</div>
+
+			<div class="content-list">
+			</div>
+
+		</div>
+
+	</script>
+
+	<!-- FORM -->
+
+	<script type="text/template" id="tpl-widget-classes-form-add">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Add New Class
+			</div>
+
+			<form role='form'>
+
+				<div class='form-group'>
+					<label for='codes' class='control-label'>Subject/Class Code:</label>
+					<input type='hidden' class='form-hidden-select2' name='codes' />
+					<p class='help-block'>If the subject/class code you want is not already in the list, just type it in and press ENTER.</p>
+				</div>					
+
+				<div class='form-group'>
+					<label for='year' class='control-label'>Year:</label>
+					<input type='hidden' class='form-hidden-select2' name='year' />
+				</div>
+
+				<div class='form-group'>
+					<label for='semester' class='control-label'>Semester:</label>
+					<input type='hidden' class='form-hidden-select2' name='semester' />
+				</div>
+
+				<div class='form-group'>
+					<label for='class_name' class='control-label'>Class Name (optional):</label>
+					<input type='hidden' class='form-hidden-select2' name='class_name' />
+				</div>
+
+				<div class='form-group'>
+					<label for='lecturer_name' class='control-label'>Lecturer Name (optional):</label>
+					<input type='hidden' class='form-hidden-select2' name='lecturer_name' />
+				</div>
+
+				<div class='form-group'>
+					<label for='textbook_url' class='control-label'>Textbook URL (optional):</label>
+					<input type='hidden' class='form-hidden-select2' name='textbook_url' />
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='completed' data-toggle="tooltip" title="Is the class finished?" data-placement="auto top"> Completed
+					</label>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Add</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- TOOLBAR -->
+
+	<script type="text/template" id="tpl-widget-classes-toolbar">
+		
+		<button type="button" class="btn btn-default toolbar_action" name="add">Add New Class</button>
+
+	</script>
+
+	<!-- RECORD-EDITABLE -->
+
+	<script type="text/template" id="tpl-widget-classes-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-classes-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-classes-record-editable-display">
+
+		<p class='codes'><%- subject_code %> <%- class_code %></p>
+		<p class='semester_year'><span class='semester'><%- semester %></span>, <span class='year'><%- year %></span></p>
+		<% if ( class_name ) { %>
+			<p class='optional class_name'><%- class_name %></p>
+		<% } %>
+		<% if ( lecturer_name ) { %>
+			<p class='optional lecturer_name'><%- lecturer_name %></p>
+		<% } %>
+		<% if ( textbook_url ) { %>
+			<p class='optional textbook_url'><%- textbook_url %></p>
+		<% } %>
+
+		<% if ( completed ) { %>
+			<div class='footer'>
+				<span class='glyphicon glyphicon-ok' data-toggle="tooltip" title="Completed" data-container="body" data-placement="auto top"></span>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-classes-record-editable-edit">
+
+		<p class='codes'><%- subject_code %> <%- class_code %></p>
+		<p class='semester_year'><span class='semester'><%- semester %></span>, <span class='year'><%- year %></span></p>
+
+		<form role='form'>
+
+  			<div class='form-group'>
+				<label for='class_name' class='control-label'>Class Name:</label>
+				<input type='hidden' class='form-hidden-select2' name='class_name'/>
+			</div>
+
+			<div class='form-group'>
+				<label for='lecturer_name' class='control-label'>Lecturer Name:</label>
+				<input type='hidden' class='form-hidden-select2' name='lecturer_name'/>
+			</div>
+
+			<div class='form-group'>
+				<label for='textbook_url' class='control-label'>Textbook URL:</label>
+				<input type='hidden' class='form-hidden-select2' name='textbook_url' />
+			</div>
+
+			<div class='checkbox'>
+				<label>
+					<input type='checkbox' name='completed' <%= completed ? 'checked' : '' %>> Completed
+				</label>
+			</div>
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>

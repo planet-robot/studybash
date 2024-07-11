@@ -1,0 +1,48 @@
+	<!-- file: help-contact -->
+
+	<!-- CONTACT-FORM -->
+
+  	<script type='text/template' id='tpl-widget-help-form-contact'>  		
+
+  		<p>Please feel free to contact us using the form below. We will try to respond to all messages within 24 hours.</p>
+
+		<div class='bs-callout bs-callout-danger'>
+			<h4>Important</h4>
+			<p>
+			If you are reporting a problem with the site, please do not just tell us that "the site doesn't work" - as that's not particular helpful :) If you could take a few minutes to answer these specific questions in your message then it's much more likely that we'll be able to address the issue quickly:
+			<ul>				
+				<li>What exactly were you doing on the site (in detail) before the problem occurred?</li>
+				<li>Can you reproduce the problem? i.e., if you reload the site and then try to do the same thing you did before, does the problem happen again?
+				<li>What device, operating system, and browser are you using? (include version numbers if you can)</li>
+				<li>Had you been working on the site for a while before the problem occurred or had you just recently logged in?</li>
+			</ul>
+			</p>
+		</div>
+
+		<div class='panel panel-info'>
+
+			<div class='panel-body'>
+				<form role='form'>
+
+					<div class='form-group'>
+						<label for='subject' class='control-label'>Subject:</label>
+						<select class='form-control' name='subject'>
+							<option>Question</option>
+							<option>Comment</option>
+							<option>Request a new feature</option>
+							<option>Report a problem</option>
+						</select>
+					</div>
+
+					<div class='form-group'>
+						<label for='message' class='control-label'>Message:</label>
+						<textarea class='form-control' rows='6' name='message'></textarea>
+					</div>
+
+					<button type='button' class='btn btn-primary' name='button_save'>Send</button>
+
+				</form>
+			</div>
+		</div>
+
+	</script>

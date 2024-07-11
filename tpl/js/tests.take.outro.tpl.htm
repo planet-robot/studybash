@@ -1,0 +1,39 @@
+	<!-- file: tests.take.outro -->
+
+	<!-- PAGE-CONTENT -->
+	
+	<script type='text/template' id='tpl-page-content-tests-take-outro'>
+
+		<h1>Test Summary</h1>
+
+		<div class="content-breadcrumb">
+		</div>
+
+		<div class="content-panel">
+		</div>
+
+	</script>
+
+	<!-- PANEL -->
+	
+	<script type='text/template' id='tpl-widget-tests-take-outro-panel'>
+		
+		<h1><%- test_name %></h1>
+		<% if ( description ) { %> <h2><%- description %></h2> <% } %>
+		<p>
+			<span>Time:</span> <%= minutes_spent %>
+			<% if ( minutes_spent === 1 ) { %>
+				minute
+			<% } %>
+			<% if ( minutes_spent !== 1 ) { %>
+				minutes
+			<% } %>
+		</p>
+		<p><span>Correct:</span> <%= num_correct_string %></p>
+
+		<div class='footer'>
+			<button class='btn btn-success' name='button_ok'>Re-Take Test</button>
+			<button class='btn btn-danger' name='button_cancel'>Back To Class Content</button>
+		</div>
+
+	</script>

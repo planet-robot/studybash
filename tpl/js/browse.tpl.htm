@@ -1,0 +1,56 @@
+	<!-- file: browse -->
+
+	<!-- PAGE-CONTENT -->
+
+	<script type='text/template' id='tpl-page-browse-content'>		
+
+		<div class="content-breadcrumb">
+		</div>		
+
+		<div class="content-toolbar">
+		</div>
+
+		<div class="content-form">
+		</div>
+
+		<div class='content-list-headings'>
+			<h1><%= heading %></h1>
+		</div>
+
+		<div class="content-list">
+		</div>
+
+	</script>
+
+	<!-- BROWSE-FORM-FILTER -->
+
+	<script type="text/template" id="tpl-widget-browse-form-filter">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Set Filter
+			</div>
+
+			<form role='form'>
+
+				<div class='form-group'>
+					<label for='keywords' class='control-label'>Keywords:</label>
+					<input type='hidden' class='form-hidden-select2' name='keywords'/>
+				</div>
+
+				<div class='form-group'>
+					<label for='tags' class='control-label'>Tags:</label>
+					<input type='hidden' class='form-hidden-select2' name='tags'/>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Apply</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>

@@ -1,0 +1,1 @@
+<p class='stack_line'><span>#<?php echo $data->num;?></span><?php echo htmlspecialchars($data->text);?></p>
