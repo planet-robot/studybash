@@ -1,5 +1,5 @@
 # studybash.com
-Written ~2014 as an SPA with javascript, mysql, and php...
+Written ~2014 as an SPA with javascript, mysql, and php. Libraries utilized include bootstrap, backbone, jquery, underscore, select2, colorbox, and more...
 
 Study as individuals, in groups, and as an entire class.
 
