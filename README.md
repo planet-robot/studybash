@@ -1,9 +1,7 @@
 # studybash.com
 Written ~2014 as an SPA with javascript, mysql, and php. Libraries utilized include bootstrap, backbone, jquery, underscore, select2, colorbox, and more...
 
-Study as individuals, in groups, and as an entire class.
-
-The website was built around the idea of flashcards (i.e., notes taken in a Q/A format). Although flashcards are traditionally associated with rote memorization of simple vocabulary or definitions, I found them particularly useful for studying complex material - as constructing individual questions and answers forced me to engage more deeply with the topics covered. Some of the features of the site:
+Study as individuals, in groups, and as an entire class. Some of the features of the site:
 
 - Quickly convert pages of notes into flashcards.
 - Tag flashcards as "difficult", "follow-up", "lecture", "textbook", etc...
