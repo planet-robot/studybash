@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>dialog - plugin test</title>
+
+    <link href='http://getbootstrap.com/dist/css/bootstrap.css' rel='stylesheet'>
+
+    <script src="http://code.jquery.com/jquery-2.0.2.js"></script>
+    <script src='http://underscorejs.org/underscore.js'></script>
+    <script src='http://getbootstrap.com/dist/js/bootstrap.js'></script>
+    <script src='timer/jquery.timer.js'></script>
+    <script src='http://plasticthoughts.com/plugins/jquery.types/jquery.types.js'></script>
+    <script src='bootstrap.dialog.js'></script>
+    
+    <script>
+
+        $(document).ready(function() {
+
+            var timer = $.timer(function(){
+
+                var id = bsDialog.create({
+                    title : "Evil",
+                    msg : "MUAHAHAHAHAHA",
+                    ok : function() {console.log("evil-ok");},
+                    cancel : function() {console.log("evil-cancel");}
+                });
+
+                console.log(id);
+
+            });
+
+            timer.set({time:5000,autostart:true});
+            //timer.once(15000);
+
+            $("#load_button").on("click",function(){
+
+                var id = bsDialog.create({
+                    title : "Studybash",
+                    msg : "Hi there, how are you?",
+                    ok : function() {console.log("ok");},
+                    cancel : function() {console.log("cancel");}
+                });
+
+                console.log(id);
+                
+            });
+
+        }); // end ready
+
+    </script>
+</head>
+
+<body>
+    <div id='wrapper-body'>
+
+        <div id='content'>
+            <button id='load_button' type='button'>Load</button>
+        </div>        
+
+    </div>
+</body>
+</html>

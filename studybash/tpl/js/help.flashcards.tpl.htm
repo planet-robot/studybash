@@ -1,0 +1,117 @@
+	<!-- file: help-flashcards -->
+
+	<!-- FLASHCARDS-PANEL -->
+
+	<script type='text/template' id='tpl-widget-help-flashcards-panel'>
+
+		<h1>Overview</h1>
+
+		<p>
+			Here is one possible method for creating flashcards for a given class, using Studybash:
+			<ul>
+				<li>During lectures, copy down anything the lecturer says that expands upon what's already in the lecture slides.</li>
+				<li>Go through those notes and highlight the key points, trying to group them based upon the concepts they relate to.</li>
+				<li>Download and install the free software <a href="http://notepad-plus-plus.org/" class="navigate">Notepad++</a> (see below for tips on how to use this in collaboration with the <code>Card Batch</code> function).</li>
+				<li>Go through the groups in your notes and create a series of questions and answers for each (using Notepad++), keeping in mind the testing style of the lecturer (e.g., short-answer vs. multiple choice).</li>
+				<li>Go through the textbook, focusing on anything that expands upon what's already your my questions and answers. You might to consider following the "rule of 3s": If there aren't three points that you can say about a new concept or idea, consider leaving it out.</li>
+				<li>Using the <code>Card Batch</code> function (see below), create flashcards from your Notepad++ document.
+				<li>At this stage, all of the questions are fairly cut-and-dry - i.e., just based off of direct information from the lecture/text. Once you've learned the material, you might want to go back and come up with some more <code>creative</code> questions. For example, how is concept X different from concept Y? Even though it's not directly discussed in the class material, questions like this can really help to solidify the information.</li>
+			</ul>
+		</p>
+
+		<h1>Sets</h1>
+
+		<h2>How do I add a set?</h2>
+
+		<p>
+			Just click the <code>Add</code> button on the main toolbar. You will then be asked to enter the following information:
+			<ul>
+				<li><span class='field-label'>Set Name:</span> Your name for the set (e.g., "Lecture 1").</li>
+				<li><span class='field-label'>Description:</span> If you have multiple sets with the same name, you can provide more information here (e.g., "Notes" or "Cards").</li>
+				<li><span class='field-label'>Sharing:</span> This dictates who else will be able to access this set of yours: <span class='field-text'>public</span> (anyone in the public studygroup for that class); <span class='field-text'>studygroup</span> (only those in a private studygroup with you for that class); <span class='field-text'>none</span> (only you).</li>
+				<li><span class='field-label'>Create Auto Test:</span> If you check this box, then a test is automatically created for you, consisting only of this set. Un-checking the box removes the test.</li>
+			</ul>
+		</p>
+
+		<h2>How do I edit or delete a set?</h2>
+
+		<p>
+			Click the <code><span class="glyphicon glyphicon-pencil"></span></code> icon or the <code><span class="glyphicon glyphicon-trash"></span></code> icon on the toolbar of the set you want to edit or delete, respectively. Alternatively, you can select multiple sets and then click the <code>Delete</code button in the top toolbar.
+		</p>		
+
+		<h1>Flashcards</h2>
+
+		<h2>How do I add a flashcard?</h2>
+
+		<p>
+			Once you've chosen and clicked on a set, you will now be browsing flashcards. At this point, simply click the <code>Add</code> button on the top toolbar and select <span class='field-text'>Card</span>. You will then be asked to enter the following information:
+			<ul>
+				<li><span class='field-label'>Tags:</span> These are used in collaboration with filters (see below).</li>
+				<li><span class='field-label'>Question:</span> The question.</li>
+				<li><span class='field-label'>Answer:</span> Leave this blank if the flashcard is going to be a 'note'. Otherwise, just put the answer.</li>
+			</ul>
+		</p>
+
+		<h2>How do I edit or delete a flashcard?</h2>
+
+		<p>
+			Click the <code><span class="glyphicon glyphicon-pencil"></span></code> icon or the <code><span class="glyphicon glyphicon-trash"></span></code> icon on the toolbar of the card you want to edit or delete, respectively. Alternatively, you can select multiple flashcards and then click the <code>Delete</code button in the top toolbar.
+		</p>
+
+		<h2>How do I make a multiple choice flashcard?</h2>
+
+		<p>
+			Just put the question and possible choices in the question field and the correct choice in the answer field.
+		</p>
+
+		<h2>What does the <code>Card Batch</code> option do, under the <code>Add</code> button?</h2>
+
+		<p>
+			You will likely be using this function more than any other function here, as it allows you to add multiple flashcards at the same time, as long as you separate them with <code>{{q}}</code> and <code>{{a}}</code> strings. However, rather than entering all the text directly into the <span class='field-text'>Text</span> field, it is easier to use a program like Notepad++ to construct all of your questions and answers. Once you're finished, just copy the whole document into the <span class='field-text'>Text</span> field.
+		</p>
+
+		<p>
+			For instance, using Notepad++, you can easily setup macros that enable you to add <code>{{q}}</code> and <code>{{a}}</code> by pressing a single button. Here's how you would do it for <code>{{q}}</code>:
+			<ol>
+				<li>Click the "Start Recording" button in the top toolbar (red circle).</li>
+				<li>Type {{q}} and then click the "Stop Recording" button.</li>
+				<li>Click the "Save Current Recorded Macro" button, a few buttons to the right of the "Stop Recording" button.</li>
+				<li>Name it (e.g., "Question"), assign a keystroke (e.g., ALT+F1), and then save it.</li>
+				<li>Now, whenever you are typing in your notes, just hit ALT+F1 and it will automatically insert {{q}} into the text.</li>
+			</ol>
+		</p>
+
+		<h2>What is this 'Markdown' formatting all about?</h2>
+
+		<p>
+			A detailed description of <span class='field-label'>Markdown</span> is available <a href="http://stackoverflow.com/editing-help" class="navigate">here</a>. In brief, it lets you format your text by adding a few simple characters to it. For instance:
+			<ul>
+				<li><span class='field-label'>Bullet points:</span> Just start each one on a new line, beginning with the <code>-</code> character. You can also use numbers if you want.</li>
+				<li><span class='field-label'>Italics:</span> *italicized words*</li>
+				<li><span class='field-label'>Bold:</span> **bold words**</li>
+				<li><span class='field-label'>Heading:</span> # My Heading #</li>
+				<li><span class='field-label'>Horizontal line:</span> ---</li>
+				<li><span class='field-label'>Including an image:</span> e.g., ![Text shown before loaded](http://imageshack.us/myimage.jpg)</li>
+				<li><span class='field-label'>Including a link:</span> e.g., [Click on me](http://youclickedonme.com)
+			</ul>
+		</p>		
+
+		<h2>What does the <code>Filter</code> button do?</h2>
+
+		<p>
+			This works while browsing sets and flashcards. It allows you to filter the number of flashcards displayed. For instance, if you set the <span class='field-text'>keywords</span> field to "fluffy doggy" and the <span class='field-text'>tags</span> field to "lecture" then you will only ever be shown flashcards that have the words "fluffy" and "doggy" in them as well as being tagged with "lecture".
+		</p>
+
+		<h1>Can I cut/copy my sets to another class, or my flashcards to another set?</h1>
+
+		<p>
+			Yep! Just select the ones you want to cut/copy and click the <code>Clipboard</code> button in the top toolbar, followed by <span class='field-text'>Cut</span> or <span class='field-text'>Copy</span>. Then navigate to the class or set that you want to move them to and click the <code>Clipboard</code> button again, followed by <span class='field-text'>Paste</span>
+		</p>
+
+		<h1>What does the <code>Test</code> button do?</h1>
+
+		<p>
+			This allows you to take a test right now, based upon the sets you have selected, or to save a test to take at a later date. Take a wander over to the <a href="<%= ROOT %>#help/tests/" class="navigate">tests</a> help section for more info.
+		</p>
+
+	</script>

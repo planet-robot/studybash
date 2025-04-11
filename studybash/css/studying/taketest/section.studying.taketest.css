@@ -1,0 +1,118 @@
+/*
+	CSS:			section.tests.browse.css
+	DESCRIPTION:	The styles that are shared within this section
+*/
+
+/* page breadcrumb */
+
+div#section-tests-browse div.content-breadcrumb ol.breadcrumb {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 700px;
+	margin: 0 auto;
+
+	margin-top: 20px;
+	border: 1px solid #bbb;	
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 10px;
+
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
+
+/* page toolbar */
+
+div#section-tests-browse div.content-toolbar div.widget-toolbar {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 700px;
+	margin: 0 auto;
+
+	border: 1px solid #bbb;
+	border-top: 0;
+	padding: 10px;
+
+	/*	
+		could also consider using .btn-group-justified. sticking with this approach,
+		solution from: http://stackoverflow.com/questions/21392834/centering-bootstrap-button-group-in-an-element
+	*/
+	text-align: center;
+}
+
+div#section-tests-browse div.content-toolbar div.widget-toolbar div.btn-group .btn,
+div#section-tests-browse div.content-toolbar div.widget-toolbar div.btn-group a {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	text-align: left;
+}
+
+/* page form */
+
+div#section-tests-browse div.content-form div.widget-form {
+	margin-top: 20px;
+}
+
+/* page list-headings */
+
+div#section-tests-browse div.content-list-headings {
+	width: 100%;
+	max-width: 700px;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+div#section-tests-browse div.content-list-headings h1 {
+	display:inline-block;
+	margin:0;
+	padding:0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* record-editable */
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable {
+
+	background-color: #fff;
+
+	width: 100%;
+	max-width: 700px;
+	margin: 0 auto;
+
+	margin-top: 20px;	
+	border: 1px solid #bbb;
+	padding: 10px;
+}
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable-selected {
+
+	max-width: 680px;
+
+	border: 2px solid #428bca;
+	-webkit-box-shadow: 0 0 10px #428bca; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #428bca; /* horz, vert, blur, col */
+}
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable div.widget-toolbar {
+	float:right;
+}
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable div.widget-toolbar button {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	padding:2px 8px;
+}
+
+/* record-editable-edit */
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable div.widget-record-editable-edit form p.help-block {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}

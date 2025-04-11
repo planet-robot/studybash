@@ -1,0 +1,28 @@
+/*
+	CSS:			page.studying.browse.modules.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* page breadcrumb */
+
+div#page-studying-browse-modules div.content-breadcrumb {
+	display: none;
+}
+
+/* page toolbar */
+
+div#page-studying-browse-modules div.content-toolbar > div.widget-toolbar {
+	border-top: 1px solid #bbb; /* no breadcrumb to connect to */
+}
+
+/* record-editable */
+
+div#page-studying-browse-modules div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-toolbar */
+
+div#page-studying-browse-modules div.widget-record-editable > div.toolbar {
+	display:none;
+}

@@ -1,0 +1,9 @@
+#browser_support_test_dyn_css {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid black;
+	padding: 2px;
+	width: 200px;
+	visibility:hidden;
+}

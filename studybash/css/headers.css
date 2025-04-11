@@ -1,0 +1,163 @@
+/*
+	CSS:			headers.css
+	DESCRIPTION:	There are two headers used in studybash: welcome (i.e., not 
+					logged in) and user (i.e., logged in). Both of their styles are
+					contained here.
+*/
+
+/*
+	header "user": navigation menu.
+	The HTML for the navigation menu was taken from: http://getbootstrap.com/examples/navbar-static-top/
+	The CSS for "navbar-sb" was a modification of "navbar-inverse" from: http://getbootstrap.com/dist/css/bootstrap.css
+*/
+
+.navbar-static-top {
+	margin-bottom: 0px;
+}
+
+.navbar-sb {
+	background-color: #abc;
+	border-color: #abcdef;
+}
+
+.navbar-sb .navbar-brand {
+	color: #fff;
+	font-family: 'Paytone One', sans-serif;
+	font-size: 24px;
+}
+
+.navbar-sb .navbar-brand:hover,
+.navbar-sb .navbar-brand:focus {
+	color: #ffffff;
+	background-color: transparent;
+}
+
+.navbar-sb .navbar-text {
+	color: #999999;
+}
+
+.navbar-sb .navbar-nav > li > a {
+	color: #333;
+}
+
+.navbar-sb .navbar-nav > li > a:hover,
+.navbar-sb .navbar-nav > li > a:focus {
+	color: #ffffff;
+	background-color: transparent;
+}
+
+.navbar-sb .navbar-nav > .active > a,
+.navbar-sb .navbar-nav > .active > a:hover,
+.navbar-sb .navbar-nav > .active > a:focus {
+	color: #ffffff;
+	background-color: #89a;
+}
+
+.navbar-sb .navbar-nav > .disabled > a,
+.navbar-sb .navbar-nav > .disabled > a:hover,
+.navbar-sb .navbar-nav > .disabled > a:focus {
+	color: #444444;
+	background-color: transparent;
+}
+
+.navbar-sb .navbar-toggle {
+	border-color: #89a;
+}
+
+.navbar-sb .navbar-toggle:hover,
+.navbar-sb .navbar-toggle:focus {
+	background-color: #89a;
+}
+
+.navbar-sb .navbar-toggle .icon-bar {
+	background-color: #ffffff;
+}
+
+.navbar-sb .navbar-collapse,
+.navbar-sb .navbar-form {
+	border-color: #101010;
+}
+
+.navbar-sb .navbar-nav > .open > a,
+.navbar-sb .navbar-nav > .open > a:hover,
+.navbar-sb .navbar-nav > .open > a:focus {
+	color: #ffffff;
+	background-color: #080808;
+}
+
+@media (max-width: 767px) {
+	.navbar-sb .navbar-nav .open .dropdown-menu > .dropdown-header {
+		border-color: #080808;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu .divider {
+		background-color: #080808;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu > li > a {
+		color: #999999;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-sb .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #ffffff;
+		background-color: transparent;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu > .active > a,
+	.navbar-sb .navbar-nav .open .dropdown-menu > .active > a:hover,
+	.navbar-sb .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #ffffff;
+		background-color: #080808;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu > .disabled > a,
+	.navbar-sb .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+	.navbar-sb .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+		color: #444444;
+		background-color: transparent;
+	}
+}
+
+.navbar-sb .navbar-link {
+	color: #999999;
+}
+
+.navbar-sb .navbar-link:hover {
+	color: #ffffff;
+}
+
+/*
+	header "welcome": splash header
+*/
+
+div.header-welcome {
+	
+	width: 100%;
+	background-color: #abc;
+}
+
+div.header-welcome div.site-name {
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+div.header-welcome div.site-name a {
+	text-decoration: none;
+	display: block;
+}
+
+div.header-welcome div.site-name h1,
+div.header-welcome div.site-name h2 {
+	padding: 0;
+	margin: 0;
+}
+
+div.header-welcome div.site-name h1 {
+	font-family: 'Paytone One', sans-serif;
+	font-size: 42px;
+	color: #fff;
+}
+
+div.header-welcome div.site-name h2 {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: italic;
+	color: #333;
+}

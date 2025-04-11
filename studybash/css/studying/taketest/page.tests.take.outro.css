@@ -1,0 +1,77 @@
+/*
+	CSS:			page.tests.take.outro.css
+	DESCRIPTION:	The styles for this page
+*/
+
+/* page heading */
+
+div#page-tests-take-outro div.page-content > h1 {	
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* page panel */
+
+div#page-tests-take-outro div.widget-panel {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 740px;
+	margin: 0 auto;
+
+	margin-top: 20px;
+	border: 1px solid #bbb;	
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 10px;	
+}
+
+div#page-tests-take-outro div.widget-panel h1 {
+
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+div#page-tests-take-outro div.widget-panel h2 {
+	
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 14px;
+	font-weight: none;
+}
+
+div#page-tests-take-outro div.widget-panel p {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+	line-height: 1.1;
+}
+
+div#page-tests-take-outro div.widget-panel p:first-of-type {
+	margin-top: 4px;
+}
+
+div#page-tests-take-outro div.widget-panel p span {
+	font-style: italic;
+}
+
+div#page-tests-take-outro div.widget-panel div.footer {
+	border-top: 1px dotted #666;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+
+div#page-tests-take-outro div.widget-tests-take-outro-panel .btn {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}

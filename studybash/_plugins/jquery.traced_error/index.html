@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>TracedError</title>
+
+    <!-- CSS
+    ********************* -->
+
+    <!-- required -->
+    <link href='http://getbootstrap.com/dist/css/bootstrap.css' rel='stylesheet'>
+
+    <!-- project-specific -->
+    <link href='css/app.css' rel='stylesheet'>
+
+    <!-- JAVASCRIPT
+    ********************* -->
+
+    <!-- required -->
+    <script src="http://code.jquery.com/jquery-2.0.2.js"></script>
+    <script src='http://plasticthoughts.com/plugins/jquery.types/jquery.types.js'></script>
+    <script src='http://cloud.github.com/downloads/eriwen/javascript-stacktrace/stacktrace-0.4.js'></script>    
+
+    <!-- project-specific -->
+    <script src='jquery.traced_error.js'></script>
+    <script src='js/app.js'></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+            $("#begin").on("click",function(){
+                app.init();
+            });
+
+        }); // end ready
+
+    </script>
+</head>
+
+<body>
+    <div id='wrapper-body' class='container'>
+
+        <div id='content'>            
+        </div>        
+
+        <div id='buttons'>
+            <button id='begin' type='button'>Create Error</button>
+        </div>
+
+    </div>
+</body>
+</html>

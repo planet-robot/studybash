@@ -1,0 +1,103 @@
+/*
+	CSS:			section.studying.browse.css
+	DESCRIPTION:	The styles that are shared within this section
+*/
+
+/* page breadcrumb */
+
+div#section-studying div.content-breadcrumb ol.breadcrumb {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 740px;
+	margin: 0 auto;
+
+	border: 1px solid #bbb;	
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 10px;
+
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
+
+/* page toolbar */
+
+div#section-studying div.content-toolbar > div.widget-toolbar {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 740px;
+	margin: 0 auto;
+
+	border: 1px solid #bbb;
+	border-top: 0;
+	padding: 10px;
+
+	/*	
+		could also consider using .btn-group-justified. sticking with this approach,
+		solution from: http://stackoverflow.com/questions/21392834/centering-bootstrap-button-group-in-an-element
+	*/
+	text-align: center;
+}
+
+div#section-studying div.content-toolbar div.widget-toolbar div.btn-group .btn {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+div#section-studying div.content-toolbar div.widget-toolbar div.btn-group a {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	text-align: left;
+}
+
+/* page form */
+
+div#section-studying div.content-form div.widget-form {
+	margin-top: 20px;
+}
+
+/* page list-headings */
+
+div#section-studying div.content-list-headings {
+	width: 100%;
+	max-width: 740px;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+div#section-studying div.content-list-headings h1 {
+	display:inline-block;
+	margin:0;
+	padding:0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* record-editable */
+
+div#section-studying div.content-list div.widget-list div.widget-record-editable-copy {
+
+	border: 1px solid #ebeb2a;
+	-webkit-box-shadow: 0 0 10px #ebeb2a; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #ebeb2a; /* horz, vert, blur, col */
+}
+
+div#section-studying div.content-list div.widget-list div.widget-record-editable-cut {
+
+	border: 1px solid #fa1121;
+	-webkit-box-shadow: 0 0 10px #fa1121; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #fa1121; /* horz, vert, blur, col */
+}
+
+div#section-studying div.content-list div.widget-list div.widget-record-editable-highlighted {
+
+	border: 1px solid #228c23;
+	-webkit-box-shadow: 0 0 10px #228c23; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #228c23; /* horz, vert, blur, col */
+}

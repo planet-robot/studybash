@@ -1,0 +1,9 @@
+/*
+	CSS:			account.css
+	DESCRIPTION:	This houses all of the styles that are applied to any of
+					the pages in the "account" section.
+*/
+
+div.section-page-welcome {
+	margin-top: 22px;
+}

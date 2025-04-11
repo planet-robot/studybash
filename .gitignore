@@ -1,0 +1,14 @@
+# Ignore specific directories
+_build/
+_db_structure/
+_docs/
+cfg/
+ROOT/
+sysop/
+
+# Ignore specific files
+error_log.txt
+
+# Ignore all files that match the following
+*.bk!
+*.sh

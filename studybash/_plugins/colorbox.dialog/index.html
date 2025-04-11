@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>colorbox.dialog - plugin test</title>
+
+    <link href='lib/colorbox/css/colorbox.css' rel='stylesheet'>
+    <link href='colorbox.dialog.css' rel='stylesheet'>
+
+    <script src="http://code.jquery.com/jquery-2.0.2.js"></script>
+    <script src='http://underscorejs.org/underscore.js'></script>
+    <script src='lib/colorbox/js/jquery.colorbox.js'></script>
+
+    <script src='http://jchavannes.com/include/scripts/3p/jquery.timer.js'></script>
+    <script src='http://plasticthoughts.com/plugins/leftovers/jquery.leftovers.js'></script>
+    <script src='colorbox.dialog.js'></script>
+    
+    <script>
+
+        $(document).ready(function() {
+
+            $("#load_button").on("click",function(){
+                ColorboxDialog.get("Studybash").open({
+                    msg : "Failed to load cuz bad",
+                    callback : function(){console.log("done");}
+                });
+            });
+
+        }); // end ready
+
+    </script>
+</head>
+
+<body>
+    <div id='wrapper-body'>
+
+        <div id='content'>
+            <button id='load_button' type='button'>Load</button>
+        </div>        
+
+    </div>
+</body>
+</html>

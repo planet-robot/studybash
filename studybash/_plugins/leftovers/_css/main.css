@@ -1,0 +1,10 @@
+#wrapper-body {
+    width : 960px;
+    margin : 10px auto;
+    font-family: Georgia, Garamond, Times, serif;
+    font-size: 14px;
+}
+
+#parse_test {
+	display: none;
+}

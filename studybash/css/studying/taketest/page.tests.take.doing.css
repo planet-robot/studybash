@@ -1,0 +1,94 @@
+/*
+	CSS:			page.tests.take.taking.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* page heading */
+
+div#page-tests-take-doing div.page-content > h1 {	
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* page panels */
+
+div#page-tests-take-doing div.content-panels {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 100%;
+
+	margin: 0 auto;
+
+	margin-top: 20px;
+	border: 1px solid #bbb;	
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 10px;
+
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+}
+
+div#page-tests-take-doing div.content-panels p {
+	padding:0;
+	margin:0;
+}
+
+div#page-tests-take-doing div.content-panels p > span {
+	font-weight: bold;
+}
+
+div#page-tests-take-doing div.content-panels p.instructions {
+	font-style: italic;
+}
+
+/* slideshow */
+
+div#page-tests-take-doing div.widget-tests-take-doing-slideshow {
+	margin-top: 20px;
+}
+
+/* slideshow toolbar */
+
+@media (min-width: 768px) {
+	div#page-tests-take-doing div#widget-tests-take-doing-slideshow-toolbar div.row div.col-sm-6:first-of-type {
+		text-align: right;
+	}
+	div#page-tests-take-doing div#widget-tests-take-doing-slideshow-toolbar div.row div.col-sm-6:nth-of-type(2) {
+		text-align: left;
+	}
+}
+
+div#page-tests-take-doing div#widget-tests-take-doing-slideshow-toolbar {
+	
+	background-color: #fff;
+
+	width:100%;
+	max-width: 100%;
+	margin: 0 auto;
+	border: 1px solid #bbb;
+	text-align: center;
+}
+
+/* record-editable */
+
+div#page-tests-take-doing div.content-record div.widget-record-editable {
+	max-width: 100%;
+}
+
+div#page-tests-take-doing div.content-record div.widget-record-editable div.widget-toolbar {
+	max-width:100%;
+}
+
+/* record-editable-edit */
+
+div#page-tests-take-doing div.widget-record-editable-edit > form {
+	border: 0;
+	padding-top: 0;
+}

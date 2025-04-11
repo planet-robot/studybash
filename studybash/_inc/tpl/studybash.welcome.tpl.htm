@@ -1,0 +1,352 @@
+	<!-- file: account -->
+
+	<!-- LOGIN -->
+
+	<script type='text/template' id='tpl-widget-account-login-form'>
+
+		<div class='sb-panel-form sb-panel-form-xs'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Please Login
+			</div>
+
+			<form role='form' method='post' action='<%= ROOT %>session.php'>
+
+				<div class='form-group'>
+					<label for='email' class='control-label'>Email:</label>				
+					<input autocapitalize="off" type='text' class='form-control' name='email'/>
+					<p class='help-block'>Do you need to <a href="<%= ROOT %>#register/" class="navigate">register</a> an account?</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='password' class='control-label'>Password:</label>				
+					<input type='password' class='form-control' name='password'/>
+					<p class='help-block'>Forgotten your password? <a href="<%= ROOT %>#reset/" class="navigate">Reset</a> it.</p>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='keep'/> Keep me logged in (for up to 30 days)
+					</label>
+				</div>
+
+				<button type='button' class='btn btn-lg btn-primary btn-block' name='button_save'>Login</button>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>	
+
+	<!-- REGISTER -->
+
+	<script type='text/template' id='tpl-widget-account-register-form'>	
+
+		<div class='sb-panel-form sb-panel-form-xs'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Register An Account
+			</div>
+
+			<form role='form' class='form_register'>
+
+				<div class='form-group'>
+					<label for='email' class='control-label'>Email:</label>
+					<input type='text' class='form-control' name='email' placeholder='e.g., jmsmith@domain.com' autocomplete="off">
+					<p class='help-block'>A verification email will be sent here.</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='first_name' class='control-label'>First name:</label>
+					<input type='text' class='form-control' name='first_name' placeholder='e.g., Jane' autocomplete="off">					
+				</div>
+
+				<div class='form-group'>
+					<label for='last_name' class='control-label'>Last name:</label>
+					<input type='text' class='form-control' name='last_name' placeholder='e.g., Smith' autocomplete="off">
+					<p class='help-block'>Please use your real name. You will NOT be able to change this later.</p>
+				</div>					
+
+				<div>
+					<img src='<%= ROOT %>img/captcha.php?<%= randomStr %>' class='img-thumbnail' name='captcha'>
+				</div>
+
+				<div class='form-group'>
+					<label for='captcha' class='control-label'>Please prove that you are human:</label>
+					<input type='text' class='form-control' name='captcha' autocomplete="off">
+					<p class='help-block'>Enter the characters from the image above (click the image to get a new one).</p>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='agree' disabled> I agree to the <a href="#" name='terms'>terms and conditions</a>.
+					</label>
+				</div>
+
+				<button type='button' class='btn btn-lg btn-primary btn-block' name='button_save'>Register</button>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>	
+
+	<script type='text/template' id='tpl-widget-account-register-form-terms'>
+
+		<h2>In Brief</h2>
+		<p>
+			Don't violate anyone's copyright, do anything illegal, anything "really stupid", or anything offensive with Studybash. Oh, and by reading this you are agreeing to everything written below as well. Finally, and perhaps most importantly, if anything bad happens, it is your fault, not ours.
+		</p>
+
+		<h2>In Detail</h2>
+
+		<p>
+			You accept all risk and liability. Studybash and its creators/operators/contributors (The People) are not responsible for any loss, damages, emotional breakdowns, psychiatrist visits, or any other "bad thing" that comes about either directly or indirectly because of Studybash.
+		</p>
+
+		<p>
+			Neither Studybash nor The People make any warranty about your use of this site or the content you will find in it. Neither Studybash nor The People shall be held accountable for the accuracy (or lack thereof) of content here nor damage done regarding how people use (or abuse) the content.
+		</p>
+
+		<p>
+			You are responsible and liable for the content you add to Studybash and you agree not to do any of the following immature things:
+			<ol>
+				<li>
+					Harrass, threaten, or say untrue things about anyone - that can result in hurt feelings and all sorts of other misunderstandings.
+				</li>
+				<li>
+					Break the law (especially Copyright law), any of it (local, provincial, national, international).
+				</li>
+				<li>
+					Advertising of your goods or services is not allowed.
+				</li>
+			</ol>
+		</p>
+
+		<p>
+			You accept all risk and liability for all content you add to Studybash. Studybash and The People are not responsible for your decision to add content. We do not screen content added, although we do reserve the right to remove it at will for any reason, especially content we deem inappropriate or in violation of this agreement.
+		</p>
+
+		<p>
+			We may monitor content if we so choose, and we may deny access to individuals who break these rules. You have been warned.
+		</p>		
+
+		<p>
+			Any information you retrieve or use from Studybash is done at your own risk.
+		</p>
+
+	</script>
+
+	<!-- VERIFY/CHANGE PWD -->
+
+	<script type='text/template' id='tpl-widget-account-verify-form'>	
+
+		<div class='sb-panel-form sb-panel-form-xs'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				<%= form_title %>
+			</div>
+
+			<form role='form' class='form_verify'>
+
+				<div class='form-group'>
+					<label for='email' class='control-label'>Email:</label>
+					<input type='text' class='form-control' name='email' autocomplete="off">
+				</div>
+
+				<div class='form-group'>
+					<label for='code' class='control-label'>Verification Code:</label>
+					<input type='text' class='form-control' name='code' autocomplete="off">
+					<p class='help-block'>This will have been e-mailed to you. Do you need us to <a href='<%= ROOT %>#sendcode/' class='navigate'>send</a> you a new one?</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='password1' class='control-label'>Create a password:</label>
+					<input type='password' class='form-control' name='password1' autocomplete="off">
+					<p class='help-block'>Must be between 6-32 characters.</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='password2' class='control-label'>Re-enter that password:</label>
+					<input type='password' class='form-control' name='password2' autocomplete="off">
+				</div>
+
+				<button type='button' class='btn btn-lg btn-primary btn-block' name='button_save'><%= button_title %></button>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- RESET PWD/SEND CODE -->
+
+	<script type='text/template' id='tpl-widget-account-reset-form'>	
+
+		<div class='sb-panel-form sb-panel-form-xs'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				<%= form_title %>
+			</div>
+
+			<form role='form' class='form_reset'>
+
+				<div class='form-group'>
+					<label for='email' class='control-label'>Email:</label>
+					<input type='text' class='form-control' name='email' autocomplete="off">
+				</div>
+
+				<div>
+					<img src='<%= ROOT %>img/captcha.php?<%= randomStr %>' class='img-thumbnail' name='captcha'>
+				</div>
+
+				<div class='form-group'>
+					<label for='captcha' class='control-label'>Please prove that you are human:</label>
+					<input type='text' class='form-control' name='captcha' autocomplete="off">
+					<p class='help-block'>Enter the characters from the image above (click the image for a new one).</p>
+				</div>
+
+				<button type='button' class='btn btn-lg btn-primary btn-block' name='button_save'><%= button_title %></button>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- file: base -->
+
+	<!-- SECTIONS (2 types) -->
+
+	<script type='text/template' id='tpl-section-welcome'>
+
+		<div class='section-header'>
+		</div>
+
+		<div class='section-page section-page-welcome container'>
+		</div>
+
+	</script>
+
+	<script type='text/template' id='tpl-section-user'>
+
+		<div class='section-header'>
+		</div>
+
+		<div class='section-page section-page-user container'>
+		</div>
+
+	</script>
+
+	<!-- SECTION-HEADERS (2 types) -->
+
+	<script type='text/template' id='tpl-section-header-welcome'>
+
+		<div class="header-welcome">
+			<div class='site-name'>
+				<a href="<%= ROOT %>#login/" class="navigate">
+					<h1>studybash</h1>
+					<h2>test yo self before you wreck yo self!</h2>
+				</a>
+			</div>
+		</div>
+		
+	</script>
+
+	<script type='text/template' id='tpl-section-header-user'>
+		
+		<div class="navbar navbar-sb navbar-static-top">
+
+			<div class='container'>
+			
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand navigate" href="<%= ROOT %>#dash/">studybash</a>
+				</div>
+
+				<div class="navbar-collapse collapse">
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li class='classes'><a href="<%= ROOT %>#classes/" class='navigate'>classes</a></li>
+						<li class='studying'><a href="<%= ROOT %>#studying/browse/" class='navigate'>studying</a></li>
+						<li class='help'><a href="<%= ROOT %>#help/" class='navigate'>help</a></li>
+						<li class='logout'><a href="<%= ROOT %>#logout/" class='navigate'>logout</a></li>
+					</ul>
+				
+				</div><!--/nav-collapse -->
+
+			</div> <!-- container -->
+
+		</div> <!-- /static navbar -->
+
+	</script>
+	
+	<!-- PAGE (basic skeleton) -->
+
+	<script type='text/template' id='tpl-page'>
+
+		<div class='page-content'>
+		</div>
+
+		<div class='page-footer'>
+		</div>
+
+	</script>
+
+	<!-- PAGE-FOOTER (3 types) -->
+
+	<script type='text/template' id='tpl-page-footer-welcome'>
+		
+		<div class='sb-footer'>
+
+			<div class='copyright'>
+				<p>&copy; 2013-<%= YEAR %> Studybash</p>
+			</div>
+
+		</div> <!-- sb-footer -->
+
+	</script>
+
+	<script type='text/template' id='tpl-page-footer-user'>
+
+		<div class='sb-footer'>
+	
+			<div class='copyright'>
+				<p>&copy; <%= YEAR %> Studybash</p>
+				<p>March, 2014 - version 1.0.0</p>
+				<p class='blurb'>This is a work in progress. Please offer any <a href="<%= ROOT %>#help/contact/" class="navigate newtab">feedback</a> you can to help improve the site!</p>
+			</div>
+
+		</div> <!-- sb-footer -->
+
+	</script>
+
+<!-- file: general -->
+
+<!-- ALERTS -->
+
+<script type="text/template" id="tpl-alert">
+	<div class='alert <%= classes %>'>
+		<%= msg %>
+	</div>
+</script>
+
+<script type="text/template" id="tpl-alert-dismiss">
+	<div class='alert alert-dismissable <%= classes %>'>
+		<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+		<%= msg %>
+	</div>
+</script>
+
+	<!-- file: notfound -->
+
+	<script type="text/template" id="tpl-widget-notfound-panel">
+
+		<img src='<%= ROOT %>img/rage_404.jpg' alt='Y U NO TYPE CAREFULLY?' class='img-thumbnail'>
+
+	</script>
+

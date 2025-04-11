@@ -1,0 +1,1606 @@
+/*
+	CSS:			app.css
+	DESCRIPTION:	This houses all of the styles that are applied globally
+*/
+
+body {
+	overflow-y: scroll;
+	height: 100%;
+	background-color: #eee;
+}
+
+div.imagePreload {
+	display: none;
+}
+
+/* see: https://github.com/ivaynberg/select2/issues/2078 */
+.form-hidden-select2 {
+	display: block;
+	width: 100%;
+}
+
+/* drop all pages down from the menu a bit */
+div.section-page {
+	margin-top: 20px;
+}
+
+/* styling external links */
+a.navigate.newtab,
+a.navigate:not([href*="studybash"]) {
+	background: url("../../img/link_new_window.png") no-repeat right center;
+	padding-right: 14px;
+}
+
+/* bootstrap dialogs */
+
+div.modal div.modal-dialog div.modal-content div.modal-body > h2:first-of-type {
+	margin-top: 0;
+}
+
+/* disabled buttons */
+
+.btn[disabled] {
+	opacity: 0.3;
+}
+
+/* record-editable */
+
+div.widget-record-editable {
+
+	background-color: #fff;
+
+	width: 100%;
+	margin: 0 auto;
+
+	margin-top: 20px;	
+	border: 1px solid #bbb;
+}
+
+/* record-editable-toolbar */
+
+div.widget-record-editable > div.toolbar {
+	width: 100%;
+	border-bottom: 1px solid #bbb;
+	padding: 4px;
+}
+
+div.widget-record-editable > div.toolbar > div.widget-toolbar {
+	float: right;
+}
+
+div.widget-record-editable > div.toolbar > div.widget-toolbar button.btn {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	padding:2px 8px;
+}
+
+/* record-editable-display */
+
+div.widget-record-editable > div.record-content > div.widget-record-editable-display {
+	padding: 10px;
+}
+
+div.widget-record-editable-display h1 {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+div.widget-record-editable-display h2 {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+	font-weight: none;
+}
+
+div.widget-record-editable-display p {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	line-height: 1.1;
+}
+
+div.widget-record-editable-display p:first-of-type {
+	margin-top: 4px;
+}
+
+div.widget-record-editable-display p > span {
+	font-style: italic;
+}
+
+div.widget-record-editable-display > a,
+div.widget-record-editable-display > a:hover,
+div.widget-record-editable-display > a:visited,
+div.widget-record-editable-display > a:focus {
+	text-decoration: none;
+	color: inherit;
+	display:block;
+}
+
+div.widget-record-editable-display > div.footer {
+	
+	border-top: 1px dotted #666;
+	margin-top: 6px;
+	padding-top: 4px;
+
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	color: #228c23;
+}
+
+div.widget-record-editable-display > div.footer > span,
+div.widget-record-editable-display > div.footer > div, 
+div.widget-record-editable-display > div.footer > p {
+	cursor:default;
+}
+
+div.widget-record-editable-selected {
+
+	border: 1px solid #428bca;
+	-webkit-box-shadow: 0 0 10px #428bca; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #428bca; /* horz, vert, blur, col */
+}
+
+/* record-editable-edit */
+
+div.widget-record-editable > div.record-content > div.widget-record-editable-edit {
+	padding: 10px;
+}
+
+div.widget-record-editable-edit > p {
+	padding:0;
+	margin:0;
+	font-style: italic;
+}
+
+div.widget-record-editable-edit > form {
+	border-top: 1px dotted #666;
+	margin-top: 6px;
+	padding-top: 10px;
+}
+
+div.widget-record-editable-edit > form p.help-block {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+div.widget-record-editable-edit > form > div.footer {
+	border-top: 1px dotted #666;
+	margin-top: 6px;
+	padding-top: 10px;
+}
+
+/*
+	CSS:			components.css
+	DESCRIPTION:	This houses all of the styles for standalone components used
+					within the site. All are prefixed with "sb-".
+*/
+
+/*
+	Component:		.sb-panel-form
+	Description:	Simple container that gives a border and border shadow.
+					We have a heading and then the form itself.
+*/
+
+.sb-panel-form {
+	
+	border: 2px solid black;
+	background-color: #fff;
+
+	-webkit-box-shadow: 0 0 8px #000; /* horz, vert, blur, col */
+	box-shadow: 0 0 8px #000; /* horz, vert, blur, col */
+}
+
+.sb-panel-form-xs {
+	
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.sb-panel-form-sm {
+	
+	max-width: 740px;
+	margin: 0 auto;
+}
+
+.sb-panel-form-heading {
+	text-align: center;
+	padding: 4px;
+}
+
+.sb-panel-form-heading-default {
+	background-color: #666;
+	color: #fff;
+}
+
+.sb-panel-form form {
+	padding: 14px;
+}
+
+.sb-panel-form form p.help-block {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+.sb-panel-form form label.checkbox {
+	font-weight: normal;
+}
+
+.sb-panel-form form label.checkbox {
+	margin-bottom: 20px;
+}
+
+.sb-panel-form form .sb-panel-form-footer {
+	border-top: 1px dotted #666;
+	margin-top: 6px;
+	padding-top: 10px;
+}
+
+/*
+	Component:		.sb-tabs
+	Description:	Simple container for a group of tabs.
+*/
+
+div.sb-tabs {
+	margin-bottom: -1px;
+}
+
+div.sb-tabs > ul {
+	width:100%;
+	background-color: #eee;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+
+div.sb-tabs > ul a,
+div.sb-tabs > ul a:hover,
+div.sb-tabs > ul a:visited,
+div.sb-tabs > ul a:focus {
+	text-decoration: none;
+	color: #000;
+}
+
+div.sb-tabs > ul li {
+	
+	border: 1px solid #ddd;
+	border-bottom: 1px solid #bbb;
+	-webkit-border-radius: 6px 6px 0 0;	
+	border-radius: 6px 6px 0 0;
+
+	display: inline-block;
+
+	padding-top:6px;
+	padding-bottom:6px;
+	padding-left:6px;
+	padding-right:6px;
+
+	color: #000;
+	background-color: #ddd;
+}
+
+div.sb-tabs > ul li.sb-tab-active {
+	border: 1px solid #bbb;
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+	color: #000;
+}
+
+/*
+	Callouts
+
+	Not quite alerts, but custom and helpful notes for folks reading the
+	docs. Requires a base and modifier class.
+
+	- source: http://getbootstrap.com/docs-assets/css/docs.css
+*/
+
+/* Common styles for all types */
+.bs-callout {
+	margin: 20px 0;
+	padding: 20px;
+	border-left: 3px solid #eee;
+}
+.bs-callout h4 {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+	margin-bottom: 0;
+}
+
+/* Variations */
+.bs-callout-danger {
+	background-color: #fdf7f7;
+	border-color: #eed3d7;
+}
+.bs-callout-danger h4 {
+	color: #b94a48;
+}
+.bs-callout-warning {
+	background-color: #faf8f0;
+	border-color: #faebcc;
+}
+.bs-callout-warning h4 {
+	color: #c09853;
+}
+.bs-callout-info {
+	background-color: #f4f8fa;
+	border-color: #bce8f1;
+}
+.bs-callout-info h4 {
+	color: #3a87ad;
+}
+
+/*
+	CSS:			headers.css
+	DESCRIPTION:	There are two headers used in studybash: welcome (i.e., not 
+					logged in) and user (i.e., logged in). Both of their styles are
+					contained here.
+*/
+
+/*
+	header "user": navigation menu.
+	The HTML for the navigation menu was taken from: http://getbootstrap.com/examples/navbar-static-top/
+	The CSS for "navbar-sb" was a modification of "navbar-inverse" from: http://getbootstrap.com/dist/css/bootstrap.css
+*/
+
+.navbar-static-top {
+	margin-bottom: 0px;
+}
+
+.navbar-sb {
+	background-color: #abc;
+	border-color: #abcdef;
+}
+
+.navbar-sb .navbar-brand {
+	color: #fff;
+	font-family: 'Paytone One', sans-serif;
+	font-size: 24px;
+}
+
+.navbar-sb .navbar-brand:hover,
+.navbar-sb .navbar-brand:focus {
+	color: #ffffff;
+	background-color: transparent;
+}
+
+.navbar-sb .navbar-text {
+	color: #999999;
+}
+
+.navbar-sb .navbar-nav > li > a {
+	color: #333;
+}
+
+.navbar-sb .navbar-nav > li > a:hover,
+.navbar-sb .navbar-nav > li > a:focus {
+	color: #ffffff;
+	background-color: transparent;
+}
+
+.navbar-sb .navbar-nav > .active > a,
+.navbar-sb .navbar-nav > .active > a:hover,
+.navbar-sb .navbar-nav > .active > a:focus {
+	color: #ffffff;
+	background-color: #89a;
+}
+
+.navbar-sb .navbar-nav > .disabled > a,
+.navbar-sb .navbar-nav > .disabled > a:hover,
+.navbar-sb .navbar-nav > .disabled > a:focus {
+	color: #444444;
+	background-color: transparent;
+}
+
+.navbar-sb .navbar-toggle {
+	border-color: #89a;
+}
+
+.navbar-sb .navbar-toggle:hover,
+.navbar-sb .navbar-toggle:focus {
+	background-color: #89a;
+}
+
+.navbar-sb .navbar-toggle .icon-bar {
+	background-color: #ffffff;
+}
+
+.navbar-sb .navbar-collapse,
+.navbar-sb .navbar-form {
+	border-color: #101010;
+}
+
+.navbar-sb .navbar-nav > .open > a,
+.navbar-sb .navbar-nav > .open > a:hover,
+.navbar-sb .navbar-nav > .open > a:focus {
+	color: #ffffff;
+	background-color: #080808;
+}
+
+@media (max-width: 767px) {
+	.navbar-sb .navbar-nav .open .dropdown-menu > .dropdown-header {
+		border-color: #080808;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu .divider {
+		background-color: #080808;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu > li > a {
+		color: #999999;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-sb .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #ffffff;
+		background-color: transparent;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu > .active > a,
+	.navbar-sb .navbar-nav .open .dropdown-menu > .active > a:hover,
+	.navbar-sb .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #ffffff;
+		background-color: #080808;
+	}
+	.navbar-sb .navbar-nav .open .dropdown-menu > .disabled > a,
+	.navbar-sb .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+	.navbar-sb .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+		color: #444444;
+		background-color: transparent;
+	}
+}
+
+.navbar-sb .navbar-link {
+	color: #999999;
+}
+
+.navbar-sb .navbar-link:hover {
+	color: #ffffff;
+}
+
+/*
+	header "welcome": splash header
+*/
+
+div.header-welcome {
+	
+	width: 100%;
+	background-color: #abc;
+}
+
+div.header-welcome div.site-name {
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+div.header-welcome div.site-name a {
+	text-decoration: none;
+	display: block;
+}
+
+div.header-welcome div.site-name h1,
+div.header-welcome div.site-name h2 {
+	padding: 0;
+	margin: 0;
+}
+
+div.header-welcome div.site-name h1 {
+	font-family: 'Paytone One', sans-serif;
+	font-size: 42px;
+	color: #fff;
+}
+
+div.header-welcome div.site-name h2 {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: italic;
+	color: #333;
+}
+
+/*
+	CSS:			footer.css
+	DESCRIPTION:	All pages use the same footer class, but they differ on their layout and content.
+*/
+
+div.sb-footer {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+div.sb-footer > div.copyright {	
+	width: 100%;
+	margin:0;
+	border-top: 1px solid #89a;
+	padding-top: 10px;
+}
+
+div.sb-footer > div.copyright a:hover {	
+	text-decoration: none;
+}
+
+div.sb-footer > div.copyright p {
+	margin:0;
+}
+
+div.sb-footer > div.copyright p.blurb {
+	margin-top: 6px;
+}
+
+
+/*
+	CSS:			section.browserfail.css
+	DESCRIPTION:	All of the styles that belong to the 'browserfail' section.
+*/
+
+/* panel */
+
+div#section-page-browserfail div.page-content {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 518px;
+}
+
+div#section-page-browserfail div.page-content img {
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+}
+
+div#section-page-browserfail div.page-content p {
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+/*
+	CSS:			section.noscript.css
+	DESCRIPTION:	All of the styles that belong to the 'noscript' section.
+*/
+
+/* panel */
+
+div#section-page-noscript {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 518px;
+}
+
+div#section-page-noscript img {
+	display: block;
+	margin: auto;
+}
+
+div#section-page-noscript p {
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+/*
+	CSS:			section.notfound.css
+	DESCRIPTION:	All of the styles that belong to the 'notfound' (i.e., 404) section.
+*/
+
+/* panel */
+
+div#page-notfound div.widget-panel {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 518px;
+}
+
+div#page-notfound div.widget-panel > img {
+	display: block;
+	margin: auto;
+}
+
+/*
+	CSS:			account.css
+	DESCRIPTION:	This houses all of the styles that are applied to any of
+					the pages in the "account" section.
+*/
+
+div.section-page-welcome {
+	margin-top: 22px;
+}
+
+/*
+	CSS:			classes.css
+	DESCRIPTION:	All of the styles that belong to the classes section (which is only one page now).
+*/
+
+/* page toolbar */
+
+div#page-classes div.widget-classes-toolbar {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 740px;
+	margin: 0 auto;
+
+	border: 1px solid #bbb;
+	padding: 10px;
+
+	/*	
+		could also consider using .btn-group-justified. sticking with this approach,
+		solution from: http://stackoverflow.com/questions/21392834/centering-bootstrap-button-group-in-an-element
+	*/
+	text-align: center;	
+}
+
+div#page-classes div.widget-classes-toolbar > .btn {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+/* page form */
+
+div#page-classes div.widget-form-create {
+	margin-top: 20px;
+}
+
+/* record-editable */
+
+div#page-classes div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-display */
+
+div.widget-classes-record-editable-display > p {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+}
+
+div.widget-classes-record-editable-display > p.codes {
+	font-weight: bold;
+}
+
+div.widget-classes-record-editable-display > p.optional {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+/*
+	CSS:			dash.css
+	DESCRIPTION:	All of the styles that belong to the dash section.
+*/
+
+/* page content */
+
+div#page-dash div.widget-panel {
+	
+	margin: 0 auto;
+	background-color: #fff;
+	border: 1px solid #bbb;
+	padding: 20px;
+	
+	width: 100%;
+	max-width: 740px;
+}
+
+div#page-dash div.widget-panel > h1 {
+	font-size: 16px;
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+
+div#page-dash div.widget-panel span {	
+	
+	display:block;
+	padding:0;
+	margin:0;
+	
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+}
+
+div#page-dash div.widget-panel > span:first-of-type {
+	margin-top: 10px;
+}
+
+div#page-dash div.widget-panel > p {	
+	padding:0;
+	margin:0;
+	margin-top:10px;		
+	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	font-style: italic;
+}
+
+/*
+	CSS:			help.css
+	DESCRIPTION:	All of the styles that belong to the help section.
+*/
+
+/*
+	page content.
+	make sure this is all set UNDERNEATH the tabs on top.
+*/
+
+div#section-help div.page-content > div.sb-tabs {
+}
+
+div#section-help div.page-content > div.content {	
+	background-color: #fff;
+	border: 1px solid #bbb;
+	padding: 20px;
+}
+
+/*
+	panel content
+*/
+
+div#section-help div.widget-panel > div.bs-callout:first-child {
+	margin-top: 0;
+}
+
+div#section-help div.widget-panel > h1 {
+	font-size: 20px;
+	font-weight: bold;	
+}
+
+div#section-help div.widget-panel > h1:first-of-type {
+	margin-top: 0px;
+}
+
+div#section-help div.widget-panel > h2 {
+	font-size: 18px;
+	font-weight: bold;	
+	font-style: italic;
+	margin-top: 6px;
+}
+
+div#section-help div.widget-panel > h3 {
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 6px;
+}
+
+div#section-help div.widget-panel span.field-label {
+	font-weight: bold;
+}
+
+div#section-help div.widget-panel span.field-text {
+	font-style: italic;
+}
+
+/*
+	CSS:			dash.css
+	DESCRIPTION:	All of the styles that belong to the dash section.
+*/
+
+/* page content */
+
+div#page-logout div.widget-panel {
+	
+	margin: 0 auto;
+	background-color: #fff;
+	border: 1px solid #bbb;
+	padding: 20px;
+	
+	width: 100%;
+	max-width: 740px;
+}
+
+div#page-logout div.widget-panel > h1 {
+	font-size: 16px;
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+
+div#page-logout div.widget-panel > p {	
+	padding:0;
+	margin:0;
+	margin-top:10px;		
+	
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	font-style: italic;
+}
+
+/*
+	CSS:			studying.shared.css
+	DESCRIPTION:	Any styles that are shared within the various sections of "studying" super-section
+*/
+
+/* record-editable-toolbar */
+
+div#page-studying-browse-sets div.widget-record-editable div.widget-toolbar button.btn[name=flag],
+div#page-studying-browse-cards div.widget-record-editable div.widget-toolbar button.btn[name=flag],
+div#page-studying-browse-tests div.widget-record-editable div.widget-toolbar button.btn[name=flag],
+div#page-tests-take-doing div.widget-record-editable div.widget-toolbar button.btn[name=flag] {
+	color:#de0d0d;
+}
+
+div#page-studying-browse-sets div.widget-record-editable div.widget-toolbar button.btn[name=flag][disabled],
+div#page-studying-browse-cards div.widget-record-editable div.widget-toolbar button.btn[name=flag][disabled],
+div#page-studying-browse-tests div.widget-record-editable div.widget-toolbar button.btn[name=flag][disabled],
+div#page-tests-take-doing div.widget-record-editable div.widget-toolbar button.btn[name=flag][disabled] {
+	color:inherit;
+}
+
+/*
+	record-editable-display-flashcard
+
+	Shared in "browse cards" and "taketest-doing"
+
+	This is particularly large because, due to pagedown, we have a lot of tags that can show up in here.
+	And we want to style them all.
+*/
+
+/* footer */
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.footer p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.footer p {
+	font-size: 13px;	
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.footer span.tag,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.footer span.tag {
+	display: inline-block;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+
+/* "question" and "answer" headings */
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.heading,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.heading {
+	font-size: 12px;
+	font-weight: bold;
+	font-style: italic;
+	margin: 0;
+	padding: 0;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer div.heading,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer div.heading {
+	margin-top: 10px;
+}
+
+/* content */
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer {
+	padding:0;
+	margin:0;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question p,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer p,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question ol,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer ol,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question ol,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer ol,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question ul,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer ul,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question ul,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer ul {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 12px;	
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question p,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question p,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer p {
+	margin-top: 10px;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question p:first-of-type,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer p:first-of-type,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question p:first-of-type,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer p:first-of-type {
+	margin: 0;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h1,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h1,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h1,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h1 {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h2,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h2,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h2,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h2 {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 16px;
+}
+
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h3,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h4,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h5,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.question h6,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h3,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h4,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h5,
+div#page-studying-browse-cards div.widget-record-editable-display-flashcard div.answer h6,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h3,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h4,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h5,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.question h6,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h3,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h4,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h5,
+div#page-tests-take-doing div.widget-record-editable-display-flashcard div.answer h6 {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 14px;
+}
+
+/*
+	CSS:			section.studying.browse.css
+	DESCRIPTION:	The styles that are shared within this section
+*/
+
+/* page breadcrumb */
+
+div#section-studying div.content-breadcrumb ol.breadcrumb {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 740px;
+	margin: 0 auto;
+
+	border: 1px solid #bbb;	
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 10px;
+
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
+
+/* page toolbar */
+
+div#section-studying div.content-toolbar > div.widget-toolbar {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 740px;
+	margin: 0 auto;
+
+	border: 1px solid #bbb;
+	border-top: 0;
+	padding: 10px;
+
+	/*	
+		could also consider using .btn-group-justified. sticking with this approach,
+		solution from: http://stackoverflow.com/questions/21392834/centering-bootstrap-button-group-in-an-element
+	*/
+	text-align: center;
+}
+
+div#section-studying div.content-toolbar div.widget-toolbar div.btn-group .btn {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+div#section-studying div.content-toolbar div.widget-toolbar div.btn-group a {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	text-align: left;
+}
+
+/* page form */
+
+div#section-studying div.content-form div.widget-form {
+	margin-top: 20px;
+}
+
+/* page list-headings */
+
+div#section-studying div.content-list-headings {
+	width: 100%;
+	max-width: 740px;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+div#section-studying div.content-list-headings h1 {
+	display:inline-block;
+	margin:0;
+	padding:0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* record-editable */
+
+div#section-studying div.content-list div.widget-list div.widget-record-editable-copy {
+
+	border: 1px solid #ebeb2a;
+	-webkit-box-shadow: 0 0 10px #ebeb2a; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #ebeb2a; /* horz, vert, blur, col */
+}
+
+div#section-studying div.content-list div.widget-list div.widget-record-editable-cut {
+
+	border: 1px solid #fa1121;
+	-webkit-box-shadow: 0 0 10px #fa1121; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #fa1121; /* horz, vert, blur, col */
+}
+
+div#section-studying div.content-list div.widget-list div.widget-record-editable-highlighted {
+
+	border: 1px solid #228c23;
+	-webkit-box-shadow: 0 0 10px #228c23; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #228c23; /* horz, vert, blur, col */
+}
+
+/*
+	CSS:			page.studying.browse.modules.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* page breadcrumb */
+
+div#page-studying-browse-modules div.content-breadcrumb {
+	display: none;
+}
+
+/* page toolbar */
+
+div#page-studying-browse-modules div.content-toolbar > div.widget-toolbar {
+	border-top: 1px solid #bbb; /* no breadcrumb to connect to */
+}
+
+/* record-editable */
+
+div#page-studying-browse-modules div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-toolbar */
+
+div#page-studying-browse-modules div.widget-record-editable > div.toolbar {
+	display:none;
+}
+
+/*
+	CSS:			page.studying.browse.groups.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* record-editable */
+
+div#page-studying-browse-groups div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-edit */
+
+div#page-studying-browse-groups div.widget-record-editable-edit > form {
+	border: 0;
+	padding-top: 0;
+}
+
+/*
+	CSS:			page.studying.browse.users.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* record-editable */
+
+div#page-studying-browse-users div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-toolbar */
+
+div#page-studying-browse-users div.widget-record-editable > div.toolbar {
+	display:none;
+}
+
+/*
+	CSS:			page.studying.browse.types.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* record-editable */
+
+div#page-studying-browse-types div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-toolbar */
+
+div#page-studying-browse-types div.widget-record-editable > div.toolbar {
+	display:none;
+}
+
+/*
+	CSS:			page.studying.browse.sets.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* page-toolbar */
+
+@media (min-width: 768px) {
+	div#page-studying-browse-sets div.content-toolbar div.widget-toolbar div.row div.col-sm-6:first-of-type {
+		text-align: right;
+	}
+	div#page-studying-browse-sets div.content-toolbar div.widget-toolbar div.row div.col-sm-6:nth-of-type(2) {
+		text-align: left;
+	}
+}
+
+/* record-editable */
+
+div#page-studying-browse-sets div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-edit */
+
+div#page-studying-browse-sets div.widget-record-editable-edit > form {
+	border: 0;
+	padding-top: 0;
+}
+
+/*
+	CSS:			page.studying.browse.cards.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* page breadcrumb */
+
+div#page-studying-browse-cards div.content-breadcrumb ol.breadcrumb {
+	max-width: 100%;
+}
+
+/* page toolbar */
+
+div#page-studying-browse-cards div.content-toolbar div.widget-toolbar {
+	max-width: 100%;
+}
+
+@media (min-width: 768px) {
+	div#page-studying-browse-cards div.content-toolbar div.widget-toolbar div.row div.col-sm-6:first-of-type {
+		text-align: right;
+	}
+	div#page-studying-browse-cards div.content-toolbar div.widget-toolbar div.row div.col-sm-6:nth-of-type(2) {
+		text-align: left;
+	}
+}
+
+/* page list-headings */
+
+div#page-studying-browse-cards div.content-list-headings {
+	max-width: 100%;
+}
+
+/* record-editable */
+
+div#page-studying-browse-cards div.widget-record-editable {
+	max-width: 100%;
+}
+
+/* record-editable-edit */
+
+div#page-studying-browse-cards div.widget-record-editable-edit > form {
+	border: 0;
+	padding-top: 0;
+}
+
+/*
+	CSS:			page.studying.browse.tests.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* record-editable */
+
+div#page-studying-browse-tests div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-edit */
+
+div#page-studying-browse-tests div.widget-record-editable-edit > form {
+	border: 0;
+	padding-top: 0;
+}
+
+/*
+	CSS:			section.tests.browse.css
+	DESCRIPTION:	The styles that are shared within this section
+*/
+
+/* page breadcrumb */
+
+div#section-tests-browse div.content-breadcrumb ol.breadcrumb {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 700px;
+	margin: 0 auto;
+
+	margin-top: 20px;
+	border: 1px solid #bbb;	
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 10px;
+
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
+
+/* page toolbar */
+
+div#section-tests-browse div.content-toolbar div.widget-toolbar {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 700px;
+	margin: 0 auto;
+
+	border: 1px solid #bbb;
+	border-top: 0;
+	padding: 10px;
+
+	/*	
+		could also consider using .btn-group-justified. sticking with this approach,
+		solution from: http://stackoverflow.com/questions/21392834/centering-bootstrap-button-group-in-an-element
+	*/
+	text-align: center;
+}
+
+div#section-tests-browse div.content-toolbar div.widget-toolbar div.btn-group .btn,
+div#section-tests-browse div.content-toolbar div.widget-toolbar div.btn-group a {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	text-align: left;
+}
+
+/* page form */
+
+div#section-tests-browse div.content-form div.widget-form {
+	margin-top: 20px;
+}
+
+/* page list-headings */
+
+div#section-tests-browse div.content-list-headings {
+	width: 100%;
+	max-width: 700px;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+div#section-tests-browse div.content-list-headings h1 {
+	display:inline-block;
+	margin:0;
+	padding:0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* record-editable */
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable {
+
+	background-color: #fff;
+
+	width: 100%;
+	max-width: 700px;
+	margin: 0 auto;
+
+	margin-top: 20px;	
+	border: 1px solid #bbb;
+	padding: 10px;
+}
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable-selected {
+
+	max-width: 680px;
+
+	border: 2px solid #428bca;
+	-webkit-box-shadow: 0 0 10px #428bca; /* horz, vert, blur, col */
+	box-shadow: 0 0 10px #428bca; /* horz, vert, blur, col */
+}
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable div.widget-toolbar {
+	float:right;
+}
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable div.widget-toolbar button {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	padding:2px 8px;
+}
+
+/* record-editable-edit */
+
+div#section-tests-browse div.content-list div.widget-list div.widget-record-editable div.widget-record-editable-edit form p.help-block {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+/*
+	CSS:			page.tests.take.intro.css
+	DESCRIPTION:	The styles for this page
+*/
+
+/* page heading */
+
+div#page-tests-take-intro div.page-content > h1 {	
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* page panel */
+
+div#page-tests-take-intro div.widget-panel {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 740px;
+	margin: 0 auto;
+
+	margin-top: 20px;
+	border: 1px solid #bbb;	
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 10px;	
+}
+
+div#page-tests-take-intro div.widget-panel h1 {
+
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+div#page-tests-take-intro div.widget-panel h2 {
+	
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 13px;
+	font-weight: none;
+}
+
+div#page-tests-take-intro div.widget-panel p {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	line-height: 1.1;
+}
+
+div#page-tests-take-intro div.widget-panel p:first-of-type {
+	margin-top: 4px;
+}
+
+div#page-tests-take-intro div.widget-panel p span {
+	font-style: italic;
+}
+
+div#page-tests-take-intro div.widget-panel div.footer {
+	border-top: 1px dotted #666;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+
+div#page-tests-take-intro div.widget-panel .btn {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+/* page form */
+
+div#page-tests-take-intro div.widget-tests-take-intro-form-settings {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 14px;
+}
+
+/*
+	CSS:			page.tests.take.taking.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* page heading */
+
+div#page-tests-take-doing div.page-content > h1 {	
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* page panels */
+
+div#page-tests-take-doing div.content-panels {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 100%;
+
+	margin: 0 auto;
+
+	margin-top: 20px;
+	border: 1px solid #bbb;	
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 10px;
+
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+}
+
+div#page-tests-take-doing div.content-panels p {
+	padding:0;
+	margin:0;
+}
+
+div#page-tests-take-doing div.content-panels p > span {
+	font-weight: bold;
+}
+
+div#page-tests-take-doing div.content-panels p.instructions {
+	font-style: italic;
+}
+
+/* slideshow */
+
+div#page-tests-take-doing div.widget-tests-take-doing-slideshow {
+	margin-top: 20px;
+}
+
+/* slideshow toolbar */
+
+@media (min-width: 768px) {
+	div#page-tests-take-doing div#widget-tests-take-doing-slideshow-toolbar div.row div.col-sm-6:first-of-type {
+		text-align: right;
+	}
+	div#page-tests-take-doing div#widget-tests-take-doing-slideshow-toolbar div.row div.col-sm-6:nth-of-type(2) {
+		text-align: left;
+	}
+}
+
+div#page-tests-take-doing div#widget-tests-take-doing-slideshow-toolbar {
+	
+	background-color: #fff;
+
+	width:100%;
+	max-width: 100%;
+	margin: 0 auto;
+	border: 1px solid #bbb;
+	text-align: center;
+}
+
+/* record-editable */
+
+div#page-tests-take-doing div.content-record div.widget-record-editable {
+	max-width: 100%;
+}
+
+div#page-tests-take-doing div.content-record div.widget-record-editable div.widget-toolbar {
+	max-width:100%;
+}
+
+/* record-editable-edit */
+
+div#page-tests-take-doing div.widget-record-editable-edit > form {
+	border: 0;
+	padding-top: 0;
+}
+
+/*
+	CSS:			page.tests.take.outro.css
+	DESCRIPTION:	The styles for this page
+*/
+
+/* page heading */
+
+div#page-tests-take-outro div.page-content > h1 {	
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* page panel */
+
+div#page-tests-take-outro div.widget-panel {
+
+	background-color: #fff;
+
+	width:100%;
+	max-width: 740px;
+	margin: 0 auto;
+
+	margin-top: 20px;
+	border: 1px solid #bbb;	
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 10px;	
+}
+
+div#page-tests-take-outro div.widget-panel h1 {
+
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+div#page-tests-take-outro div.widget-panel h2 {
+	
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 14px;
+	font-weight: none;
+}
+
+div#page-tests-take-outro div.widget-panel p {
+	padding:0;
+	margin:0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+	line-height: 1.1;
+}
+
+div#page-tests-take-outro div.widget-panel p:first-of-type {
+	margin-top: 4px;
+}
+
+div#page-tests-take-outro div.widget-panel p span {
+	font-style: italic;
+}
+
+div#page-tests-take-outro div.widget-panel div.footer {
+	border-top: 1px dotted #666;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+
+div#page-tests-take-outro div.widget-tests-take-outro-panel .btn {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+

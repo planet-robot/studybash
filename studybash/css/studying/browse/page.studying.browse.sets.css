@@ -1,0 +1,28 @@
+/*
+	CSS:			page.studying.browse.sets.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* page-toolbar */
+
+@media (min-width: 768px) {
+	div#page-studying-browse-sets div.content-toolbar div.widget-toolbar div.row div.col-sm-6:first-of-type {
+		text-align: right;
+	}
+	div#page-studying-browse-sets div.content-toolbar div.widget-toolbar div.row div.col-sm-6:nth-of-type(2) {
+		text-align: left;
+	}
+}
+
+/* record-editable */
+
+div#page-studying-browse-sets div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-edit */
+
+div#page-studying-browse-sets div.widget-record-editable-edit > form {
+	border: 0;
+	padding-top: 0;
+}

@@ -1,0 +1,16 @@
+/*
+	CSS:			page.studying.browse.types.css
+	DESCRIPTION:	The styles for this page.
+*/
+
+/* record-editable */
+
+div#page-studying-browse-types div.widget-record-editable {
+	max-width: 740px;
+}
+
+/* record-editable-toolbar */
+
+div#page-studying-browse-types div.widget-record-editable > div.toolbar {
+	display:none;
+}

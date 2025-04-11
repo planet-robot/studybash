@@ -1,0 +1,2452 @@
+	<!-- file: account -->
+
+	<!-- LOGIN -->
+
+	<script type='text/template' id='tpl-widget-account-login-form'>
+
+		<div class='sb-panel-form sb-panel-form-xs'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Please Login
+			</div>
+
+			<form role='form' method='post' action='<%= ROOT %>session.php'>
+
+				<div class='form-group'>
+					<label for='email' class='control-label'>Email:</label>				
+					<input autocapitalize="off" type='text' class='form-control' name='email'/>
+					<p class='help-block'>Do you need to <a href="<%= ROOT %>#register/" class="navigate">register</a> an account?</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='password' class='control-label'>Password:</label>				
+					<input type='password' class='form-control' name='password'/>
+					<p class='help-block'>Forgotten your password? <a href="<%= ROOT %>#reset/" class="navigate">Reset</a> it.</p>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='keep'/> Keep me logged in (for up to 30 days)
+					</label>
+				</div>
+
+				<button type='button' class='btn btn-lg btn-primary btn-block' name='button_save'>Login</button>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>	
+
+	<!-- REGISTER -->
+
+	<script type='text/template' id='tpl-widget-account-register-form'>	
+
+		<div class='sb-panel-form sb-panel-form-xs'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Register An Account
+			</div>
+
+			<form role='form' class='form_register'>
+
+				<div class='form-group'>
+					<label for='email' class='control-label'>Email:</label>
+					<input type='text' class='form-control' name='email' placeholder='e.g., jmsmith@domain.com' autocomplete="off">
+					<p class='help-block'>This must be your College/University email address.</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='first_name' class='control-label'>First name:</label>
+					<input type='text' class='form-control' name='first_name' placeholder='e.g., Jane' autocomplete="off">					
+				</div>
+
+				<div class='form-group'>
+					<label for='last_name' class='control-label'>Last name:</label>
+					<input type='text' class='form-control' name='last_name' placeholder='e.g., Smith' autocomplete="off">
+					<p class='help-block'>Please use your real name. You will NOT be able to change this later.</p>
+				</div>					
+
+				<div>
+					<img src='<%= ROOT %>img/captcha.php?<%= randomStr %>' class='img-thumbnail' name='captcha'>
+				</div>
+
+				<div class='form-group'>
+					<label for='captcha' class='control-label'>Please prove that you are human:</label>
+					<input type='text' class='form-control' name='captcha' autocomplete="off">
+					<p class='help-block'>Enter the characters from the image above (click the image to get a new one).</p>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='agree' disabled> I agree to the <a href="#" name='terms'>terms and conditions</a>.
+					</label>
+				</div>
+
+				<button type='button' class='btn btn-lg btn-primary btn-block' name='button_save'>Register</button>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>	
+
+	<script type='text/template' id='tpl-widget-account-register-form-terms'>
+
+		<h2>In Brief</h2>
+		<p>
+			Don't violate anyone's copyright, do anything illegal, anything "really stupid", or anything offensive with Studybash. Oh, and by reading this you are agreeing to everything written below as well. Finally, and perhaps most importantly, if anything bad happens, it is your fault, not ours.
+		</p>
+
+		<h2>In Detail</h2>
+
+		<p>
+			You accept all risk and liability. Studybash and its creators/operators/contributors (The People) are not responsible for any loss, damages, emotional breakdowns, psychiatrist visits, or any other "bad thing" that comes about either directly or indirectly because of Studybash.
+		</p>
+
+		<p>
+			Neither Studybash nor The People make any warranty about your use of this site or the content you will find in it. Neither Studybash nor The People shall be held accountable for the accuracy (or lack thereof) of content here nor damage done regarding how people use (or abuse) the content.
+		</p>
+
+		<p>
+			You are responsible and liable for the content you add to Studybash and you agree not to do any of the following immature things:
+			<ol>
+				<li>
+					Harrass, threaten, or say untrue things about anyone - that can result in hurt feelings and all sorts of other misunderstandings.
+				</li>
+				<li>
+					Break the law (especially Copyright law), any of it (local, provincial, national, international).
+				</li>
+				<li>
+					Advertising of your goods or services is not allowed.
+				</li>
+			</ol>
+		</p>
+
+		<p>
+			You accept all risk and liability for all content you add to Studybash. Studybash and The People are not responsible for your decision to add content. We do not screen content added, although we do reserve the right to remove it at will for any reason, especially content we deem inappropriate or in violation of this agreement.
+		</p>
+
+		<p>
+			We may monitor content if we so choose, and we may deny access to individuals who break these rules. You have been warned.
+		</p>		
+
+		<p>
+			Any information you retrieve or use from Studybash is done at your own risk.
+		</p>
+
+	</script>
+
+	<!-- VERIFY/CHANGE PWD -->
+
+	<script type='text/template' id='tpl-widget-account-verify-form'>	
+
+		<div class='sb-panel-form sb-panel-form-xs'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				<%= form_title %>
+			</div>
+
+			<form role='form' class='form_verify'>
+
+				<div class='form-group'>
+					<label for='email' class='control-label'>Email:</label>
+					<input type='text' class='form-control' name='email' autocomplete="off">
+				</div>
+
+				<div class='form-group'>
+					<label for='code' class='control-label'>Verification Code:</label>
+					<input type='text' class='form-control' name='code' autocomplete="off">
+					<p class='help-block'>This will have been e-mailed to you. Do you need us to <a href='<%= ROOT %>#sendcode/' class='navigate'>send</a> you a new one?</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='password1' class='control-label'>Create a password:</label>
+					<input type='password' class='form-control' name='password1' autocomplete="off">
+					<p class='help-block'>Must be between 6-32 characters.</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='password2' class='control-label'>Re-enter that password:</label>
+					<input type='password' class='form-control' name='password2' autocomplete="off">
+				</div>
+
+				<button type='button' class='btn btn-lg btn-primary btn-block' name='button_save'><%= button_title %></button>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- RESET PWD/SEND CODE -->
+
+	<script type='text/template' id='tpl-widget-account-reset-form'>	
+
+		<div class='sb-panel-form sb-panel-form-xs'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				<%= form_title %>
+			</div>
+
+			<form role='form' class='form_reset'>
+
+				<div class='form-group'>
+					<label for='email' class='control-label'>Email:</label>
+					<input type='text' class='form-control' name='email' autocomplete="off">
+				</div>
+
+				<div>
+					<img src='<%= ROOT %>img/captcha.php?<%= randomStr %>' class='img-thumbnail' name='captcha'>
+				</div>
+
+				<div class='form-group'>
+					<label for='captcha' class='control-label'>Please prove that you are human:</label>
+					<input type='text' class='form-control' name='captcha' autocomplete="off">
+					<p class='help-block'>Enter the characters from the image above (click the image for a new one).</p>
+				</div>
+
+				<button type='button' class='btn btn-lg btn-primary btn-block' name='button_save'><%= button_title %></button>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- file: base -->
+
+	<!-- SECTIONS (2 types) -->
+
+	<script type='text/template' id='tpl-section-welcome'>
+
+		<div class='section-header'>
+		</div>
+
+		<div class='section-page section-page-welcome container'>
+		</div>
+
+	</script>
+
+	<script type='text/template' id='tpl-section-user'>
+
+		<div class='section-header'>
+		</div>
+
+		<div class='section-page section-page-user container'>
+		</div>
+
+	</script>
+
+	<!-- SECTION-HEADERS (2 types) -->
+
+	<script type='text/template' id='tpl-section-header-welcome'>
+
+		<div class="header-welcome">
+			<div class='site-name'>
+				<a href="<%= ROOT %>#login/" class="navigate">
+					<h1>studybash</h1>
+					<h2>test yo self before you wreck yo self!</h2>
+				</a>
+			</div>
+		</div>
+		
+	</script>
+
+	<script type='text/template' id='tpl-section-header-user'>
+		
+		<div class="navbar navbar-sb navbar-static-top">
+
+			<div class='container'>
+			
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand navigate" href="<%= ROOT %>#dash/">studybash</a>
+				</div>
+
+				<div class="navbar-collapse collapse">
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li class='classes'><a href="<%= ROOT %>#classes/" class='navigate'>classes</a></li>
+						<li class='studying'><a href="<%= ROOT %>#studying/browse/" class='navigate'>studying</a></li>
+						<li class='help'><a href="<%= ROOT %>#help/" class='navigate'>help</a></li>
+						<li class='logout'><a href="<%= ROOT %>#logout/" class='navigate'>logout</a></li>
+					</ul>
+				
+				</div><!--/nav-collapse -->
+
+			</div> <!-- container -->
+
+		</div> <!-- /static navbar -->
+
+	</script>
+	
+	<!-- PAGE (basic skeleton) -->
+
+	<script type='text/template' id='tpl-page'>
+
+		<div class='page-content'>
+		</div>
+
+		<div class='page-footer'>
+		</div>
+
+	</script>
+
+	<!-- PAGE-FOOTER (3 types) -->
+
+	<script type='text/template' id='tpl-page-footer-welcome'>
+		
+		<div class='sb-footer'>
+
+			<div class='copyright'>
+				<p>&copy; 2013-<%= YEAR %> Studybash</p>
+			</div>
+
+		</div> <!-- sb-footer -->
+
+	</script>
+
+	<script type='text/template' id='tpl-page-footer-user'>
+
+		<div class='sb-footer'>
+	
+			<div class='copyright'>
+				<p>&copy; <%= YEAR %> Studybash</p>
+				<p>March, 2014 - version 1.0.0</p>
+				<p class='blurb'>This is a work in progress. Please offer any <a href="<%= ROOT %>#help/contact/" class="navigate newtab">feedback</a> you can to help improve the site!</p>
+			</div>
+
+		</div> <!-- sb-footer -->
+
+	</script>
+
+	<!-- file: browse -->
+
+	<!-- PAGE-CONTENT -->
+
+	<script type='text/template' id='tpl-page-browse-content'>		
+
+		<div class="content-breadcrumb">
+		</div>		
+
+		<div class="content-toolbar">
+		</div>
+
+		<div class="content-form">
+		</div>
+
+		<div class='content-list-headings'>
+			<h1><%= heading %></h1>
+		</div>
+
+		<div class="content-list">
+		</div>
+
+	</script>
+
+	<!-- BROWSE-FORM-FILTER -->
+
+	<script type="text/template" id="tpl-widget-browse-form-filter">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Set Filter
+			</div>
+
+			<form role='form'>
+
+				<div class='form-group'>
+					<label for='keywords' class='control-label'>Keywords:</label>
+					<input type='hidden' class='form-hidden-select2' name='keywords'/>
+				</div>
+
+				<div class='form-group'>
+					<label for='tags' class='control-label'>Tags:</label>
+					<input type='hidden' class='form-hidden-select2' name='tags'/>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Apply</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- file: classes -->
+
+	<!-- PAGE-CONTENT -->
+	
+	<script type='text/template' id='tpl-page-classes'>
+
+		<div class='content'>
+			
+			<div class="content-toolbar">
+			</div>
+
+			<div class="content-form">
+			</div>
+
+			<div class="content-list">
+			</div>
+
+		</div>
+
+	</script>
+
+	<!-- FORM -->
+
+	<script type="text/template" id="tpl-widget-classes-form-add">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Add New Class
+			</div>
+
+			<form role='form'>
+
+				<div class='form-group'>
+					<label for='codes' class='control-label'>Subject/Class Code:</label>
+					<input type='hidden' class='form-hidden-select2' name='codes' />
+					<p class='help-block'>If the subject/class code you want is not already in the list, just type it in and press ENTER.</p>
+				</div>					
+
+				<div class='form-group'>
+					<label for='year' class='control-label'>Year:</label>
+					<input type='hidden' class='form-hidden-select2' name='year' />
+				</div>
+
+				<div class='form-group'>
+					<label for='semester' class='control-label'>Semester:</label>
+					<input type='hidden' class='form-hidden-select2' name='semester' />
+				</div>
+
+				<div class='form-group'>
+					<label for='class_name' class='control-label'>Class Name (optional):</label>
+					<input type='hidden' class='form-hidden-select2' name='class_name' />
+				</div>
+
+				<div class='form-group'>
+					<label for='lecturer_name' class='control-label'>Lecturer Name (optional):</label>
+					<input type='hidden' class='form-hidden-select2' name='lecturer_name' />
+				</div>
+
+				<div class='form-group'>
+					<label for='textbook_url' class='control-label'>Textbook URL (optional):</label>
+					<input type='hidden' class='form-hidden-select2' name='textbook_url' />
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='completed' data-toggle="tooltip" title="Is the class finished?" data-placement="auto top"> Completed
+					</label>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Add</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- TOOLBAR -->
+
+	<script type="text/template" id="tpl-widget-classes-toolbar">
+		
+		<button type="button" class="btn btn-default toolbar_action" name="add">Add New Class</button>
+
+	</script>
+
+	<!-- RECORD-EDITABLE -->
+
+	<script type="text/template" id="tpl-widget-classes-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-classes-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-classes-record-editable-display">
+
+		<p class='codes'><%- subject_code %> <%- class_code %></p>
+		<p class='semester_year'><span class='semester'><%- semester %></span>, <span class='year'><%- year %></span></p>
+		<% if ( class_name ) { %>
+			<p class='optional class_name'><%- class_name %></p>
+		<% } %>
+		<% if ( lecturer_name ) { %>
+			<p class='optional lecturer_name'><%- lecturer_name %></p>
+		<% } %>
+		<% if ( textbook_url ) { %>
+			<p class='optional textbook_url'><%- textbook_url %></p>
+		<% } %>
+
+		<% if ( completed ) { %>
+			<div class='footer'>
+				<span class='glyphicon glyphicon-ok' data-toggle="tooltip" title="Completed" data-container="body" data-placement="auto top"></span>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-classes-record-editable-edit">
+
+		<p class='codes'><%- subject_code %> <%- class_code %></p>
+		<p class='semester_year'><span class='semester'><%- semester %></span>, <span class='year'><%- year %></span></p>
+
+		<form role='form'>
+
+  			<div class='form-group'>
+				<label for='class_name' class='control-label'>Class Name:</label>
+				<input type='hidden' class='form-hidden-select2' name='class_name'/>
+			</div>
+
+			<div class='form-group'>
+				<label for='lecturer_name' class='control-label'>Lecturer Name:</label>
+				<input type='hidden' class='form-hidden-select2' name='lecturer_name'/>
+			</div>
+
+			<div class='form-group'>
+				<label for='textbook_url' class='control-label'>Textbook URL:</label>
+				<input type='hidden' class='form-hidden-select2' name='textbook_url' />
+			</div>
+
+			<div class='checkbox'>
+				<label>
+					<input type='checkbox' name='completed' <%= completed ? 'checked' : '' %>> Completed
+				</label>
+			</div>
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<!-- file: dash -->
+
+	<!-- PAGE-CONTENT -->
+	
+	<script type='text/template' id='tpl-page-dash'>
+
+		<div class='content'>
+			
+			<div class="content-panel">
+			</div>
+
+		</div>
+
+	</script>
+
+	<!-- DASHBOARD -->
+
+	<script type="text/template" id="tpl-dash-profile">
+
+  		<h1>Hi, <%- first_name %>!</h1>
+  		<span>You have logged in <%- num_logins %> times.</span>
+  		<span>Your last login was at: <%- last_login %></span>
+  		<p>This is your dashboard. Some day soon it will have cool stuff in it.</p>
+
+  	</script>
+
+<!-- file: general -->
+
+<!-- ALERTS -->
+
+<script type="text/template" id="tpl-alert">
+	<div class='alert <%= classes %>'>
+		<%= msg %>
+	</div>
+</script>
+
+<script type="text/template" id="tpl-alert-dismiss">
+	<div class='alert alert-dismissable <%= classes %>'>
+		<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+		<%= msg %>
+	</div>
+</script>
+
+	<!-- file: help -->
+
+	<!-- PAGE-CONTENT -->
+
+	<script type='text/template' id='tpl-page-help'>
+
+		<div class='sb-tabs'>
+
+			<ul class='hidden-xs'>
+				<a href="<%= ROOT %>#help/" class="navigate"><li name="general">general</li></a>
+				<a href="<%= ROOT %>#help/classes/" class="navigate"><li name="classes">classes</li></a>
+				<a href="<%= ROOT %>#help/studying/" class="navigate"><li name="studying">studying</li></a>
+				<a href="<%= ROOT %>#help/groups/" class="navigate"><li name="groups">groups</li></a>
+				<a href="<%= ROOT %>#help/flashcards/" class="navigate"><li name="flashcards">flashcards</li></a>
+				<a href="<%= ROOT %>#help/tests/" class="navigate"><li name="tests">tests</li></a>
+				<a href="<%= ROOT %>#help/contact/" class="navigate"><li name="contact">contact us</li></a>
+			</ul>
+
+			<div class='visible-xs btn-group clearfix'>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Section <span class="caret"></span></button>
+					<ul class="dropdown-menu" role="menu">
+						<li name="general"><a href="<%= ROOT %>#help/" class="navigate">general</a></li>
+						<li name="classes"><a href="<%= ROOT %>#help/classes/" class="navigate">classes</a></li>
+						<li name="studying"><a href="<%= ROOT %>#help/studying/" class="navigate">studying</a></li>
+						<li name="groups"><a href="<%= ROOT %>#help/groups/" class="navigate">groups</a></li>
+						<li name="flashcards"><a href="<%= ROOT %>#help/flashcards/" class="navigate">flashcards</a></li>
+						<li name="tests"><a href="<%= ROOT %>#help/tests/" class="navigate">tests</a></li>
+						<li name="contact"><a href="<%= ROOT %>#help/contact/" class="navigate">contact us</a></li>
+					</ul>
+				</button>
+			</div>
+
+		</div>
+
+		<div class="content">
+			
+			<div class='content-panel'>
+			</div>
+
+			<div class='content-form'>
+			</div>
+
+		</div>
+
+	</script>
+
+<!-- file: help-general -->
+
+<!-- GENERAL-PANEL -->
+
+<script type='text/template' id='tpl-widget-help-general-panel'>
+
+	<h1>Overview</h1>
+
+	<p>
+		In a nutshell, the purpose of Studybash is to help students study - as individuals, in groups, and as an entire class. It is completely free (no ads).
+	</p>
+
+	<h1>What's the point?</h1>
+
+	<div class='bs-callout bs-callout-danger'>
+		<h4>Proverb:</h4>
+		<p>
+			Tell me and I may forget<br>
+			Show me and I may remember<br>
+			Involve me and I will understand
+		</p>
+	</div>
+
+	<p>
+		Studybash is built around the idea of flashcards (i.e., notes taken in a Q/A format). Although flashcards are traditionally associated with rote memorization of simple vocabularly or definitions, that needn't be the case. Indeed, one might suggest that flashcards are even more useful for helping you to learn complex material. In such cases, the main benefit comes not from being able to test yourself on the material after you've made the flashcards (which is still very useful), but in the process of constructing the flashcards themselves.
+	</p>
+
+	<p>
+		The studying method of just repeatedly reading over your notes relies heavily on recognition memory: When the material in your notes begins to feel overly famililar to you, you consider it learned and move on to the next section. In contrast to this passive approach of copying down and then re-reading notes from lecture slides and/or a textbook, creating flashcards forces you to actively engage with the material - i.e., examining how concepts relate to one another and thinking about how the lecturer might evaluate your understanding of them. In other words, rather than just writing down content that you expect to maybe be an answer for some type of question in the future, for every piece of content you add to your notes you must now think of a specific question that it would be an answer to. This active engagement with the material (assuming you don't just think up super-lame questions!) should, hopefully, provide a substantially deeper level of memory encoding than simply relying on recognition memory alone.
+	</p>
+
+	<p>
+		Accordingly, to make full use of Studybash's capabilities, all you need to do is slightly adjust your current note-taking method: Rather than just writing down information that you believe to be important (i.e., potential answers), you will now be making explicit the question that the information would be an answer for. Of course, if you're not sold regarding the whole flashcard routine, Studybash can also be used for traditional-style notes (see the <a href="<%= ROOT %>#help/flashcards/" class="navigate">flashcards</a> help section for more info).
+	</p>
+
+	<h1>How does it work?</h1>
+
+	<p>
+		In brief, here's how you would use Studybash for a single class (see the <a href="<%= ROOT %>#help/flashcards/" class="navigate">flashcards</a> help section for more info):
+		<ol>
+			<li>Add the class that you are taking (e.g., PSYC 101, Fall <%= YEAR %>)</li>
+			<li>For that class, create <a href="#" data-toggle="tooltip" title="'Set': Collection of one or more flashcards" data-placement="auto top">sets</a> of flashcards (e.g., "Lecture 1", "Lecture 2", etc...)</li>
+			<li>Based upon lecture slides, notes taken in class, and your textbook, create a number of flashcards and add them to those sets.</li>
+			<li>Test yourself on the flashcards you've added.</li>
+			<li>A+s for everyone!<a href="#" data-toggle="tooltip" title="Yes, this is hyperbole." data-placement="auto top">*</a></li>
+		</ol>
+	</p>
+
+	<h1>Tell me more!</h1>
+
+	<p>
+		Okay then! Despite its simplicity in concept and design, you can actually do quite a bit with Studybash. Here are some of its key features:
+		<ol>
+			<li>Convert pages of notes quickly into flashcards, simply by putting <code>{{q}}</code> before each question and <code>{{a}}</code> before each answer in your notes.</li>			
+			<li>Tag flashcards as <code>difficult</code>, <code>follow-up</code>, <code>lecture</code>, <code>textbook</code>, etc...</li>
+			<li>Filter flashcards by tags and/or keywords, showing only the ones that match.</li>			
+			<li>Create tests based upon flashcard filters (e.g., only include cards from "Lecture 1" and "Lecture 4" that are <code>difficult</code>)</li>
+			<li>Create and share traditional-style notes - a flashcard with an empty answer field is automatically tagged as a <code>note</code>.</li>
+			<li>Share your notes, flashcards, and tests with the whole class or just a private studygroup (or not at all)</li>			
+			<li>Easily apply <a href="http://stackoverflow.com/editing-help" class="navigate">Markdown</a> to flashcards to include text formatting (e.g., bullet points) as well as pictures, links, etc...</li>
+			<li>Designed to work on mobile, tablets, laptops, and desktops (e.g., using your phone, test yourself while going to/from University on the bus).
+		</ol>
+	</p>
+
+	<h1>Okay I'm ready to start!</h1>
+
+	<p>
+		Great! You might want to take a quick glance through the rest of the help sections, preferably in order, so that you have a better idea of how to use the site. Studybash is very easy to use, so it shouldn't take you more than 4-5 minutes. Alternatively, if you're the adventurous type, just jump in there and start making flashcards, using the navigation menu at the top of the page! Should you have any questions along the way, please don't hestitate to <a href='<%= ROOT %>#help/contact/' class='navigate'>contact us</a>!
+	</p>
+
+</script>
+
+<!-- file: help-classes -->
+
+<!-- CLASSES-PANEL -->
+
+<script type='text/template' id='tpl-widget-help-classes-panel'>
+
+	<h1>Overview</h1>
+
+	<p>
+		Each flashcard you make will belong to a particular class. Accordingly, before you can create any flashcards you must first add one or more classes. The <code>Classes</code> section (accessible through the navigation menu at the top of the page) allows you to create, remove, and edit classes.
+	</p>
+
+	<h2>How do I add a class?</h2>
+
+	<p>
+		Simply click the <code>Add New Class</code> button, located in the top toolbar. You will then be asked to enter the following information:
+		<ul>
+		<li><span class='field-label'>Subject/Class Code:</span> Every class you take will have both a subject code (e.g., PSYC) and a class code (e.g., 101). Here you will have a listing of all of the classes that other students have added. If you don't see the class that you want, simply type it in yourself and press ENTER.</li>
+		<li><span class='field-label'>Year:</span> Select the year that you are taking the class in (e.g., <%= YEAR %>)</li>
+		<li><span class='field-label'>Semester:</span> Select the semester that you are taking the class in, for the given year (e.g., Fall)</li>
+		<li><span class='field-label'>Class Name:</span> You may choose to enter the name of the class.</li>
+		<li><span class='field-label'>Lecturer Name:</span> You may choose to enter the name of the class's lecturer.</li>
+		<li><span class='field-label'>Textbook URL:</span> You may choose to enter a link to the textbook used in the class.</li>
+		<li><span class='field-label'>Completed:</span> If you have already completed the class, simply tick this box.</li>
+		</ul>
+	</p>
+
+	<p>
+		The last three fields of the form are optional (<span class='field-text'>Class Name</span>, <span class='field-text'>Lecturer Name</span>, <span class='field-text'>Textbook URL</span>). Clicking the drop-down for each field will display the values entered by other students taking that class. This enables you to be sure that you've got the right class.
+	</p>
+
+	<h2>Why are there numbers beside some of the values I can select when adding a class?</h2>
+
+	<p>
+		For the <span class='field-text'>Subject/Class Code</span> field, it lets you know how many students have added that class, for any year/semester. For the <span class='field-text'>Year</span> field, it lets you know how many students have added that class for that particular year, ignoring semester. For the <span class='field-text'>Semester</span> field, it tells you how many students have added that class for that particular year and semester.
+	</p>
+
+	<p>
+		For the last three fields (<span class='field-text'>Class Name</span>, <span class='field-text'>Lecturer Name</span>, <span class='field-text'>Textbook URL</span>), it simply tells you how many students have used those particular values.
+	</p>
+
+	<h2>How do I remove a class?</h2>
+
+	<p>
+		Click the <code><span class="glyphicon glyphicon-trash"></span></code> icon on the toolbar of the class that you want to remove. However, assuming you have just finished the class, you might want to consider editing it and simply checking the <code>Completed</code> box instead. That way, you can keep all the content that you have created for the class, and just hide <code>Completed</code> classes when you are browsing your flashcards or tests later on (see the <a href="<%= ROOT %>#help/studying/">Studying</a> help section for more info).
+	</p>
+
+	<h2>How do I edit a class?</h2>
+
+	<p>
+		Click the <code><span class="glyphicon glyphicon-pencil"></span></code> icon on the toolbar of the class that you want to edit. This allows you to change the <span class='field-text'>Class Name</span>, <span class='field-text'>Lecturer Name</span>, and <span class='field-text'>Textbook URL</span> fields. If you want to change the <span class='field-text'>Subject/Class Code</span>, <span class='field-text'>Year</span>, or <span class='field-text'>Semester</span> fields, you will have to add a new class.
+	</p>
+
+</script>
+
+	<!-- file: help-studying -->
+
+	<!-- STUDYING-PANEL -->
+
+	<script type='text/template' id='tpl-widget-help-studying-panel'>
+
+		<h1>Overview</h1>
+
+		<p>
+			The <code>studying</code> section (accessible from the navigation menu at the top of the page) is organized in a sort of hierarchy, allowing you to browse (and create) a variety of content. From here, you can create/join studygroups, view other students' flashcards and tests, and create your own flashcards and tests.
+		</p>
+
+		<h2>Browsing Hierarchy?</h2>
+
+		<p>
+			Indeed. The hierarchy is laid out like so: <code>Class -> Group -> Student -> Content Type -> Flashcards [or] Tests</code>. Each level of the hieararchy is briefly described here. For detailed information, see the other help sections.
+		</p>
+
+		<h3>Class</h3>
+
+		<p>
+			All of the classes that you have added will show up here. Using the <code>display</code> button in the top toolbar you can choose to hide/show the classes that you've completed.
+		</p>
+
+		<h3>Group</h3>
+
+		<p>
+			Here you can choose to browse your own content or to see the content that other students have shared, within the studygroups that you belong to for that class. You can also create your own private studygroup.
+		</p>
+
+		<h3>Student</h3>
+
+		<p>
+			When browsing either <code>Public Studygroup</code> or a <code>Private Studygroup</code>, this displays all of the students that are sharing <em>one or more</em> flashcards. For example, although there may be 8 students in the <code>Public Studygroup</code>, if only 4 of them are sharing any flashcards, then only those 4 students will be listed here.
+		</p>
+
+		<p>
+			At this stage in the hierarchy, you can now apply a <code>filter</code>, using the button in the top toolbar. This limits the flashcards that are displayed, and once you apply a filter the number of cards that match that filter will be displayed below each student's name. Existing tests are not affected by filters (see the <a href="<%= ROOT %>#help/flashcards/" class="navigate">flashcards</a> and <a href="<%= ROOT %>#help/tests/" class="navigate">tests</a> sections for more info).
+		</p>
+
+		<h3>Content Type</h3>
+
+		<p>
+			Here you are presented with two types of content: Flashcards and Tests.
+		</p>
+
+		<h3>Flashcards</h3>
+
+		<p>
+			This displays all of the the sets owned by a particular student, for that class and group. A set is simply a container, to help you to organize your flashcards (i.e., like a directory does for files). Each flashcard that you create must belong to a particular set (e.g., "Lecture 1"). Clicking on a given set will allow you to browse the flashcards that reside within that set. From here you can create sets, flashcards, <em>and</em> tests.</li>
+		</p>
+
+		<h3>Tests</h3>
+
+		<p>
+			This displays the tests owned by that student, for that class and group. From here you can take a test that was saved previously or, if they are your tests, you can edit them as well.
+		</p>
+
+	</script>
+
+<!-- file: help-groups -->
+
+<!-- GROUPS-PANEL -->
+
+<script type='text/template' id='tpl-widget-help-groups-panel'>
+
+	<h1>Overview</h1>
+
+	<p>
+		When browsing <span class='field-text'>Groups</span>, you are presented with a list that will include:
+		<ol>
+			<li><span class='field-label'>My Stuff</span>: This group contains only your content - i.e., your flashcards and tests..</li>
+			<li><span class='field-label'>Public Studygroup</span>: Every student that added this particular class (i.e., same year/semester) is automatically put into this group. Any flashcards and tests that they created, with a <code>Sharing</code> value of "public", will be accessible through here.</li>
+		</ol>
+	</p>
+
+	<p>
+		If you have created, or joined, a private studygroup, you will also see one or more of:
+		<ol start="3">
+			<li><span class='field-label'>Private Studygroup</span>: Only the students that specifically joined the studygroup will be visible in here. Any flashcards and tests that they created, with a <code>Sharing</code> value of "public" or "studygroup", will be accessible through here.</li>
+		</ol>
+	</p>
+
+	<h2>How do I join a private studygroup?</h2>
+
+	<p>
+		Simply click the <code>Find Studygroup</code> button, located in the top toolbar. You must then enter the <span class='field-text'>Search Code</span> for the studygroup, which will have been given to you by its owner. After you've done that, click the <code>Search</code> button. If a studygroup was found that matches that code, it will show up in the list. Finally, just click the <code>Join</code> button on the toolbar of the group.
+	</p>
+
+	<h2>How do I leave a private studygroup?</h2>
+
+	<p>
+		Simply click the <code>Leave</code> button on the toolbar of the group you want to leave. If you were the owner, another member of the group will be assigned ownership. If you are the last member of the group, the group is removed completely.
+	</p>
+
+	<h2>How do I create a private studygroup?</h2>
+
+	<p>
+		Simply click the <code>Create Studygroup</code> button, located in the top toolbar. It will automatically create one for you and assign it a random <span class='field-text'>Search Code</span>. Click on the <code><span class="glyphicon glyphicon-pencil"></span></code> icon on the toolbar for that group if you want to change the code.
+	</p>
+
+</script>
+
+	<!-- file: help-flashcards -->
+
+	<!-- FLASHCARDS-PANEL -->
+
+	<script type='text/template' id='tpl-widget-help-flashcards-panel'>
+
+		<h1>Overview</h1>
+
+		<p>
+			Here is one possible method for creating flashcards for a given class, using Studybash:
+			<ul>
+				<li>During lectures, copy down anything the lecturer says that expands upon what's already in the lecture slides.</li>
+				<li>Go through those notes and highlight the key points, trying to group them based upon the concepts they relate to.</li>
+				<li>Download and install the free software <a href="http://notepad-plus-plus.org/" class="navigate">Notepad++</a> (see below for tips on how to use this in collaboration with the <code>Card Batch</code> function).</li>
+				<li>Go through the groups in your notes and create a series of questions and answers for each (using Notepad++), keeping in mind the testing style of the lecturer (e.g., short-answer vs. multiple choice).</li>
+				<li>Go through the textbook, focusing on anything that expands upon what's already your my questions and answers. You might to consider following the "rule of 3s": If there aren't three points that you can say about a new concept or idea, consider leaving it out.</li>
+				<li>Using the <code>Card Batch</code> function (see below), create flashcards from your Notepad++ document.
+				<li>At this stage, all of the questions are fairly cut-and-dry - i.e., just based off of direct information from the lecture/text. Once you've learned the material, you might want to go back and come up with some more <code>creative</code> questions. For example, how is concept X different from concept Y? Even though it's not directly discussed in the class material, questions like this can really help to solidify the information.</li>
+			</ul>
+		</p>
+
+		<h1>Sets</h1>
+
+		<h2>How do I add a set?</h2>
+
+		<p>
+			Just click the <code>Add</code> button on the main toolbar. You will then be asked to enter the following information:
+			<ul>
+				<li><span class='field-label'>Set Name:</span> Your name for the set (e.g., "Lecture 1").</li>
+				<li><span class='field-label'>Description:</span> If you have multiple sets with the same name, you can provide more information here (e.g., "Notes" or "Cards").</li>
+				<li><span class='field-label'>Sharing:</span> This dictates who else will be able to access this set of yours: <span class='field-text'>public</span> (anyone in the public studygroup for that class); <span class='field-text'>studygroup</span> (only those in a private studygroup with you for that class); <span class='field-text'>none</span> (only you).</li>
+				<li><span class='field-label'>Create Auto Test:</span> If you check this box, then a test is automatically created for you, consisting only of this set. Un-checking the box removes the test.</li>
+			</ul>
+		</p>
+
+		<h2>How do I edit or delete a set?</h2>
+
+		<p>
+			Click the <code><span class="glyphicon glyphicon-pencil"></span></code> icon or the <code><span class="glyphicon glyphicon-trash"></span></code> icon on the toolbar of the set you want to edit or delete, respectively. Alternatively, you can select multiple sets and then click the <code>Delete</code button in the top toolbar.
+		</p>		
+
+		<h1>Flashcards</h2>
+
+		<h2>How do I add a flashcard?</h2>
+
+		<p>
+			Once you've chosen and clicked on a set, you will now be browsing flashcards. At this point, simply click the <code>Add</code> button on the top toolbar and select <span class='field-text'>Card</span>. You will then be asked to enter the following information:
+			<ul>
+				<li><span class='field-label'>Tags:</span> These are used in collaboration with filters (see below).</li>
+				<li><span class='field-label'>Question:</span> The question.</li>
+				<li><span class='field-label'>Answer:</span> Leave this blank if the flashcard is going to be a 'note'. Otherwise, just put the answer.</li>
+			</ul>
+		</p>
+
+		<h2>How do I edit or delete a flashcard?</h2>
+
+		<p>
+			Click the <code><span class="glyphicon glyphicon-pencil"></span></code> icon or the <code><span class="glyphicon glyphicon-trash"></span></code> icon on the toolbar of the card you want to edit or delete, respectively. Alternatively, you can select multiple flashcards and then click the <code>Delete</code button in the top toolbar.
+		</p>
+
+		<h2>How do I make a multiple choice flashcard?</h2>
+
+		<p>
+			Just put the question and possible choices in the question field and the correct choice in the answer field.
+		</p>
+
+		<h2>What does the <code>Card Batch</code> option do, under the <code>Add</code> button?</h2>
+
+		<p>
+			You will likely be using this function more than any other function here, as it allows you to add multiple flashcards at the same time, as long as you separate them with <code>{{q}}</code> and <code>{{a}}</code> strings. However, rather than entering all the text directly into the <span class='field-text'>Text</span> field, it is easier to use a program like Notepad++ to construct all of your questions and answers. Once you're finished, just copy the whole document into the <span class='field-text'>Text</span> field.
+		</p>
+
+		<p>
+			For instance, using Notepad++, you can easily setup macros that enable you to add <code>{{q}}</code> and <code>{{a}}</code> by pressing a single button. Here's how you would do it for <code>{{q}}</code>:
+			<ol>
+				<li>Click the "Start Recording" button in the top toolbar (red circle).</li>
+				<li>Type {{q}} and then click the "Stop Recording" button.</li>
+				<li>Click the "Save Current Recorded Macro" button, a few buttons to the right of the "Stop Recording" button.</li>
+				<li>Name it (e.g., "Question"), assign a keystroke (e.g., ALT+F1), and then save it.</li>
+				<li>Now, whenever you are typing in your notes, just hit ALT+F1 and it will automatically insert {{q}} into the text.</li>
+			</ol>
+		</p>
+
+		<h2>What is this 'Markdown' formatting all about?</h2>
+
+		<p>
+			A detailed description of <span class='field-label'>Markdown</span> is available <a href="http://stackoverflow.com/editing-help" class="navigate">here</a>. In brief, it lets you format your text by adding a few simple characters to it. For instance:
+			<ul>
+				<li><span class='field-label'>Bullet points:</span> Just start each one on a new line, beginning with the <code>-</code> character. You can also use numbers if you want.</li>
+				<li><span class='field-label'>Italics:</span> *italicized words*</li>
+				<li><span class='field-label'>Bold:</span> **bold words**</li>
+				<li><span class='field-label'>Heading:</span> # My Heading #</li>
+				<li><span class='field-label'>Horizontal line:</span> ---</li>
+				<li><span class='field-label'>Including an image:</span> e.g., ![Text shown before loaded](http://imageshack.us/myimage.jpg)</li>
+				<li><span class='field-label'>Including a link:</span> e.g., [Click on me](http://youclickedonme.com)
+			</ul>
+		</p>		
+
+		<h2>What does the <code>Filter</code> button do?</h2>
+
+		<p>
+			This works while browsing sets and flashcards. It allows you to filter the number of flashcards displayed. For instance, if you set the <span class='field-text'>keywords</span> field to "fluffy doggy" and the <span class='field-text'>tags</span> field to "lecture" then you will only ever be shown flashcards that have the words "fluffy" and "doggy" in them as well as being tagged with "lecture".
+		</p>
+
+		<h1>Can I cut/copy my sets to another class, or my flashcards to another set?</h1>
+
+		<p>
+			Yep! Just select the ones you want to cut/copy and click the <code>Clipboard</code> button in the top toolbar, followed by <span class='field-text'>Cut</span> or <span class='field-text'>Copy</span>. Then navigate to the class or set that you want to move them to and click the <code>Clipboard</code> button again, followed by <span class='field-text'>Paste</span>
+		</p>
+
+		<h1>What does the <code>Test</code> button do?</h1>
+
+		<p>
+			This allows you to take a test right now, based upon the sets you have selected, or to save a test to take at a later date. Take a wander over to the <a href="<%= ROOT %>#help/tests/" class="navigate">tests</a> help section for more info.
+		</p>
+
+	</script>
+
+	<!-- file: help-tests -->
+
+	<!-- TESTS-PANEL -->
+
+	<script type='text/template' id='tpl-widget-help-tests-panel'>
+
+		<h1>Overview</h1>
+
+		<p>
+			Here is one possible method for creating tests for a given class, using Studybash:
+			<ul>
+				<li>Initially, create a test that consists of all of the flashcards for that class.</li>
+				<li>Take the test several times. Flag the cards that you get wrong once with <code>difficulty1</code>, twice with <code>difficulty2</code> and three times with <code>difficulty3</code>.</li>
+				<li>Eventually, create a new test consisting of only the cards that have been flagged with one or more of the <code>difficulty</code> tags.</li>
+				<li>If you're still having trouble, reset all the tags and start again.</li>
+			</ul>
+		</p>
+
+		<h1>How do I create a test?</h1>
+
+		<p>
+			You can make tests while browsing the <span class='field-text'>flashcards</span> content type. There are two ways to create a test:
+			<ul>
+				<li><span class='field-text'>While browsing sets</span>: Select the sets you want to include. You can also set a filter if you want (optional).</li>
+				<li><span class='field-text'>While browsing flashcards</span>: Only the set that contains those flaschards is included in the test. Again, you can also set a filter if you want (optional).</li>
+			</ul>
+		</p>
+
+		<p>
+			When you have decided on what is going to be in your test, simply click the <code>Test</code> button in the main toolbar.
+		</p>
+
+		<h1>What is the difference between <code>Take</code> and <code>Save As</code> options, displayed under the <code>Test</code> button?</h1>
+
+		<p>
+			<span class='field-text'>Take</span> creates a temporary test that you can take as many times as you want right now. However, if you are going to want to save the test so that it can be taken again at a later date, then you should select <span class='field-text'>Save As</span>. The options presented when you ask to save a test are exactly the same as those presented when you ask to create a set - i.e., <span class='field-text'>Test Name</span>, etc... (see the <a href="<%= ROOT %>#help/flashcards/" class="navigate">flashcards</a> help section for more info).
+		</p>
+
+		<h1>What happens when I alter flashcards that are included in a test?</h1>
+
+		<p>
+			When a test is created, it only stores a reference to the sets included - not the individual cards. Accordingly, when you take a test, it will include whatever cards are <em>currently</em> inside the included sets; assuming they match the filter information, of course (if any was specified).
+		</p>
+
+		<h1>How do I edit or delete a test?</h1>
+
+		<p>
+			While browsing <span class='field-text'>tests</span>, just click the <code><span class="glyphicon glyphicon-pencil"></span></code> icon or the <code><span class="glyphicon glyphicon-trash"></span></code> icon on the toolbar of the test you want to edit or delete, respectively. Note that you can only change the <span class='field-text'>name</span>, <span class='field-text'>description</span>, and <span class='field-text'>sharing</span> values of the test. If you want to change the <span class='field-text'>sets</span> and/or <span class='field-text'>filter</span> values, you need to create a new one.
+		</p>
+
+		<h1>How do I take a test?</h1>
+
+		<p>
+			If the test has been saved previously, just click the <code>Take Test</code> button on the toolbar of the test you want to take, while you're browsing tests. Alternatively, as mentioned above, when you are browsing <span class='field-text'>Flashcards</span>, you can click the <code>Test</code> button in the main toolbar and then select <code>Take</code>.
+		</p>
+
+		<h1>When I'm taking a test, what do the <code>1</code>, <code>2</code>, and <code>3</code> buttons on the toolbar of each flashcard do?</h1>
+
+		<p>
+			These are shortcuts. By clicking these, you will tag that flashcard with the <code>difficulty1</code>, <code>difficulty2</code>, or <code>difficulty3</code> tag respectively. For instance, if you get a question wrong once, you might add the <code>difficulty1</code> tag. If you get it wrong twice, you might add the <code>difficulty2</code> tag, etc...
+		</p>
+
+		<h1>What does the <code>Exclude Auto</code> button do, while browsing tests?</h1>
+
+		<p>
+			It simply hides all of the tests that were created by ticking the <em>Create Auto Test</em> checkbox for a given set.
+		</p>
+
+	</script>
+
+	<!-- file: help-contact -->
+
+	<!-- CONTACT-FORM -->
+
+  	<script type='text/template' id='tpl-widget-help-form-contact'>  		
+
+  		<p>Please feel free to contact us using the form below. We will try to respond to all messages within 24 hours.</p>
+
+		<div class='bs-callout bs-callout-danger'>
+			<h4>Important</h4>
+			<p>
+			If you are reporting a problem with the site, please do not just tell us that "the site doesn't work" - as that's not particular helpful :) If you could take a few minutes to answer these specific questions in your message then it's much more likely that we'll be able to address the issue quickly:
+			<ul>				
+				<li>What exactly were you doing on the site (in detail) before the problem occurred?</li>
+				<li>Can you reproduce the problem? i.e., if you reload the site and then try to do the same thing you did before, does the problem happen again?
+				<li>What device, operating system, and browser are you using? (include version numbers if you can)</li>
+				<li>Had you been working on the site for a while before the problem occurred or had you just recently logged in?</li>
+			</ul>
+			</p>
+		</div>
+
+		<div class='panel panel-info'>
+
+			<div class='panel-body'>
+				<form role='form'>
+
+					<div class='form-group'>
+						<label for='subject' class='control-label'>Subject:</label>
+						<select class='form-control' name='subject'>
+							<option>Question</option>
+							<option>Comment</option>
+							<option>Request a new feature</option>
+							<option>Report a problem</option>
+						</select>
+					</div>
+
+					<div class='form-group'>
+						<label for='message' class='control-label'>Message:</label>
+						<textarea class='form-control' rows='6' name='message'></textarea>
+					</div>
+
+					<button type='button' class='btn btn-primary' name='button_save'>Send</button>
+
+				</form>
+			</div>
+		</div>
+
+	</script>
+
+	<!-- file: logout -->	
+
+	<!-- PAGE-CONTENT -->
+	
+	<script type='text/template' id='tpl-page-logout'>
+
+		<div class='content'>
+			
+			<div class="content-panel">
+			</div>
+
+		</div>
+
+	</script>
+
+	<!-- LOGOUT -->
+
+	<script type='text/template' id='tpl-widget-logout-panel'>
+		
+		<h1>You have been logged out</h1>
+		<p>Bye <%- first_name %>, come back soon!</p>
+
+	</script>
+
+	<!-- file: notfound -->
+
+	<script type="text/template" id="tpl-widget-notfound-panel">
+
+		<img src='<%= ROOT %>img/rage_404.jpg' alt='Y U NO TYPE CAREFULLY?' class='img-thumbnail'>
+
+	</script>
+
+	<!-- file: studying.breadcrumbs -->
+
+	<!-- BROWSE GROUPS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-breadcrumb">
+		<% for ( var x=0; x < crumbs.length; x++ ) { %>
+			<li><a href="<%- crumbs[x].crumbHref %>" class="crumb navigate"><%- crumbs[x].crumbDisplay %></a></li>
+		<% } %>
+	</script>
+
+	<!-- BROWSE USERS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-users-breadcrumb">
+		<% for ( var x=0; x < crumbs.length; x++ ) { %>
+			<li><a href="<%- crumbs[x].crumbHref %>" class="crumb navigate"><%- crumbs[x].crumbDisplay %></a></li>
+		<% } %>
+	</script>
+
+	<!-- BROWSE TYPES -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-types-breadcrumb">
+		<% for ( var x=0; x < crumbs.length; x++ ) { %>
+			<li><a href="<%- crumbs[x].crumbHref %>" class="crumb navigate"><%- crumbs[x].crumbDisplay %></a></li>
+		<% } %>
+	</script>
+
+	<!-- BROWSE SETS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-breadcrumb">
+		<% for ( var x=0; x < crumbs.length; x++ ) { %>
+			<li><a href="<%- crumbs[x].crumbHref %>" class="crumb navigate"><%- crumbs[x].crumbDisplay %></a></li>
+		<% } %>
+	</script>
+
+	<!-- BROWSE CARDS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-breadcrumb">
+		<% for ( var x=0; x < crumbs.length; x++ ) { %>
+			<li><a href="<%- crumbs[x].crumbHref %>" class="crumb navigate"><%- crumbs[x].crumbDisplay %></a></li>
+		<% } %>
+	</script>
+
+	<!-- BROWSE TESTS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-breadcrumb">
+		<% for ( var x=0; x < crumbs.length; x++ ) { %>
+			<li><a href="<%- crumbs[x].crumbHref %>" class="crumb navigate"><%- crumbs[x].crumbDisplay %></a></li>
+		<% } %>
+	</script>
+
+	<!-- file: studying.forms -->	
+
+	<!-- GROUPS: SET CODE -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-form-code">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Find Private Studygroup
+			</div>
+
+			<form role='form'>
+
+	  			<div class='form-group'>
+					<label for='code' class='control-label'>Search Code:</label>
+					<input type='text' class='form-control' name='code' value='<%- code %>'>
+					<p class='help-block'>You will have to get this from the owner of the group.</p>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-warning' name='button_clear'>Clear</button>
+					<button type='button' class='btn btn-success' name='button_save'>Search</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- SETS: SAVE TEST -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-form-save-test">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Save As Test
+			</div>
+
+			<form role='form'>
+
+	  			<div class='form-group'>
+					<label for='test_name' class='control-label'>Name:</label>
+					<input type='text' class='form-control' name='test_name' placeholder='e.g., Exam 01'>
+					<p class='help-block'>Sets: <%= numSets %>. Tags: <%= numTags %>. Keywords: <%= numKeywords %></p>
+				</div>
+
+				<div class='form-group'>
+					<label for='description' class='control-label'>Description (optional):</label>
+					<input type='text' class='form-control' name='description' placeholder='e.g., Chapters 01-05'>
+				</div>
+
+				<div class='form-group'>
+					<label for='sharing' class='control-label'>Sharing:</label>
+					<input type='hidden' class='form-hidden-select2' name='sharing'/>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- SETS: ADD -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-form-create">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Add Set
+			</div>
+
+			<form role='form'>
+
+	  			<div class='form-group'>
+					<label for='set_name' class='control-label'>Set Name:</label>
+					<input type='text' class='form-control' name='set_name' placeholder='e.g., Chapter 1'>
+				</div>
+
+				<div class='form-group'>
+					<label for='description' class='control-label'>Set Description (optional):</label>
+					<input type='text' class='form-control' name='description' placeholder='e.g., Introduction'>
+				</div>
+
+				<div class='form-group'>
+					<label for='sharing' class='control-label'>Sharing:</label>
+					<input type='hidden' class='form-hidden-select2' name='sharing'/>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='has_auto_test'> Create Auto Test
+					</label>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- CARDS: SAVE TEST -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-form-save-test">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Save As Test
+			</div>
+
+			<form role='form'>
+
+	  			<div class='form-group'>
+					<label for='test_name' class='control-label'>Name:</label>
+					<input type='text' class='form-control' name='test_name' placeholder='e.g., Exam 01'>
+					<p class='help-block'>Sets: <%= numSets %>. Tags: <%= numTags %>. Keywords: <%= numKeywords %></p>
+				</div>
+
+				<div class='form-group'>
+					<label for='description' class='control-label'>Description (optional):</label>
+					<input type='text' class='form-control' name='description' placeholder='e.g., Chapters 01-05'>
+				</div>
+
+				<div class='form-group'>
+					<label for='sharing' class='control-label'>Sharing:</label>
+					<input type='hidden' class='form-hidden-select2' name='sharing'/>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- CARDS: ADD SINGLE CARD -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-form-create">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Add Flashcard
+			</div>
+
+			<form role='form'>
+
+				<div class='form-group'>
+					<label for='tags' class='control-label'>Tags:</label>
+					<input type='hidden' class='form-hidden-select2' name='tags'/>
+				</div>
+
+	  			<div class='form-group'>
+					<label for='question_text' class='control-label'>Question:</label>
+					<textarea class='form-control' name='question_text' rows='5'></textarea>
+					<p class='help-block'>The question and answer fields use 'Markdown' formatting. Click <a href='http://stackoverflow.com/editing-help' class='navigate'>here</a> for detailed help.</p>
+				</div>
+
+				<div class='form-group'>
+					<label for='answer_text' class='control-label'>Answer (optional):</label>
+					<textarea class='form-control' name='answer_text' rows='5'></textarea>
+					<p class='help-block'>Leave answer field empty to make this card a 'note'.</p>
+				</div>					
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- CARDS: ADD CARD BATCH -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-form-batch">
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Add Multiple Flashcards
+			</div>
+
+			<form role='form'>
+
+				<div class='form-group'>
+					<label for='tags' class='control-label'>Tags:</label>
+					<input type='hidden' class='form-hidden-select2' name='tags'/>
+					<p class='help-block'>These are applied to every card created.</p>
+				</div>
+
+	  			<div class='form-group'>
+					<label for='parse_text' class='control-label'>Text:</label>
+					<textarea class='form-control' name='parse_text' rows='5'></textarea>
+					<p class='help-block'>Questions are marked with {{q}}. Answers are marked with {{a}}.</p>
+				</div>
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Save</button>
+					<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+				</div>
+
+			</form>
+
+		</div> <!-- /sb-panel-form -->
+
+	</script>
+
+	<!-- file: studying.records -->
+
+	<!-- BROWSE MODULES -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-modules-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-modules-record-editable-display">
+
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<h1><%- subject_code %> <%- class_code %></h1>
+			<h2><%- semester %>, <%- year %></h2>
+			<% if ( class_name ) { %>
+				<p><span><%- class_name %></span></p>
+			<% } %>
+			<% if ( lecturer_name ) { %>
+				<p><span><%- lecturer_name %></span></p>
+			<% } %>
+		</a>
+
+		<% if ( completed ) { %>
+			<div class='footer'>
+				<span class='glyphicon glyphicon-ok' data-toggle="tooltip" title="Completed" data-placement="auto top"></span>
+			</div>
+		<% } %>
+
+	</script>
+
+	<!-- BROWSE GROUPS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="join">Join</button>
+			<button type="button" class="btn btn-default toolbar_action" name="leave">Leave</button>
+			<button type="button" class="btn btn-default toolbar_action" name="members" data-toggle="tooltip" title="View members" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-user'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-record-editable-display">
+		
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<% if ( id === "self" ) { %>
+				<h1>My Stuff</h1>
+			<% } %>
+			<% if ( id === "pub" ) { %>
+				<h1>Public Studygroup</h1>
+			<% } %>
+			<% if ( +id === id ) { %>
+				<h1>Private Studygroup</h1>
+				<% if ( !is_user_owner ) { %>
+					<p><span>Owner:</span> <%- owner_first_name %> <%- owner_last_name %></p>
+				<% } %>
+				<p><span>Search Code:</span> <%- code %></p>
+			<% } %>				
+			<% if ( id !== "self" ) { %>
+				<p><span>Num Members:</span> <%- num_members %></p>
+			<% } %>
+		</a>
+
+		<% if ( ( id !== "self" ) && ( is_user_member || is_user_owner ) ) { %>
+			<div class='footer'>
+				<% if ( ( id === "pub" ) || ( is_user_member && !is_user_owner ) ) { %>
+					<span class='glyphicon glyphicon-user' data-toggle="tooltip" title="Member" data-container="body" data-placement="auto top"></span>
+				<% } %>
+				<% if ( ( id === "self" ) || ( is_user_owner ) ) { %>
+					<span class='glyphicon glyphicon-home' data-toggle="tooltip" title="Owner" data-container="body" data-placement="auto top"></span>				
+				<% } %>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-groups-record-editable-edit">
+
+		<form role='form'>
+
+  			<div class='form-group'>
+				<label for='code' class='control-label'>Search Code:</label>
+				<input type='text' class='form-control' name='code' value="<%- typeof code !== 'undefined' ? code : '' %>">
+			</div>
+
+			<div class='footer'>
+				<button type='button' class='btn btn-warning' name='button_generate'>Generate</button>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<!-- BROWSE USERS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-users-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-users-record-editable-display">
+
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<h1><%- full_name %></h1>
+			<p><span>Num Cards:</span> <%- num_filtered_cards %></p>
+			<p><span>Num Tests:</span> <%- num_tests %></p>
+		</a>
+
+	</script>
+
+	<!-- BROWSE TYPES -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-types-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-types-record-editable-display">
+
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<h1><%- type_name %></h1>
+			<p><span>Count:</span> <%- count %></p>
+		</a>
+
+	</script>
+
+	<!-- BROWSE SETS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="select">Select</button>
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="flag" data-toggle="tooltip" title="Flag as inappropriate" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-flag'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-record-editable-display">
+
+		<a href="#" class='widget-record-editable-display-clickable'>
+			<h1><%- set_name %></h1>
+			<% if ( description ) { %> <h2><%- description %></h2> <% } %>
+			<p><span>Cards:</span>  <%- num_filtered_cards %></p>			
+		</a>
+
+		<% if ( ( sharing === "none" ) || ( sharing === "studygroup" ) || ( has_auto_test ) ) { %>
+			<div class='footer'>
+				<% if ( sharing === 'none' ) { %> 
+					<span class='glyphicon glyphicon-lock' data-toggle="tooltip" title="Not shared" data-placement="auto top"></span>
+				<% } %>
+				<% if ( sharing === 'studygroup' ) { %> 
+					<span class='glyphicon glyphicon-book' data-toggle="tooltip" title="Studygroup" data-placement="auto top"></span>
+				<% } %>
+				<% if ( has_auto_test ) { %>
+					<span class='glyphicon glyphicon-font' data-toggle="tooltip" title="Auto test" data-placement="auto top"></span>
+				<% } %>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-sets-record-editable-edit">
+
+		<form role='form'>
+
+  			<div class='form-group'>
+				<label for='set_name' class='control-label'>Set Name:</label>
+				<input type='text' class='form-control' name='set_name' value="<%- typeof set_name !== 'undefined' ? set_name : '' %>">
+			</div>
+
+			<div class='form-group'>
+				<label for='description' class='control-label'>Set Description (optional):</label>
+				<input type='text' class='form-control' name='description' value="<%- typeof description !== 'undefined' ? description : '' %>">
+			</div>
+
+			<div class='form-group'>
+				<label for='sharing' class='control-label'>Sharing:</label>
+				<input type='hidden' class='form-hidden-select2' name='sharing'/>
+			</div>
+
+			<div class='checkbox'>
+				<label>
+					<input type='checkbox' name='has_auto_test' <%= typeof has_auto_test !== 'undefined' ? ( has_auto_test ? 'checked' : '' ) : '' %>> Create Auto Test
+				</label>
+			</div>
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<!-- BROWSE CARDS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="select">Select</button>
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="flag" data-toggle="tooltip" title="Flag as inappropriate" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-flag'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-record-editable-display">		
+		
+		<div class='question'>
+			<% if ( answer_text ) { %>
+				<div class='heading'>Question:</div>
+			<% } %>
+			<%= question_text %>
+		</div>
+		<% if ( answer_text ) { %>			
+			<div class='answer'>
+				<div class='heading'>Answer:</div>
+				<%= answer_text %>
+			</div>
+		<% } %>
+		<div class='footer'>
+			<p class='order_id'><%- order_id %></p>
+			<% if ( tags.length ) { %>
+				<div class='row'>
+					<% for ( x=0; x < tags.length; x++ ) { %> <div class='tag col-xs-12'><%- tags[x].tag_text %></div> <% } %>
+				</div>
+			<% } %>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-cards-record-editable-edit">
+
+		<form role='form'>
+
+			<div class='form-group'>
+				<label for='tags' class='control-label'>Tags:</label>
+				<input type='hidden' class='form-hidden-select2' name='tags'/>
+			</div>
+
+			<div class='form-group'>
+				<label for='order_id' class='control-label'>Order ID:</label>
+				<input type='text' class='form-control' name='order_id' value="<%- typeof order_id !== 'undefined' ? order_id : '' %>">				
+			</div>
+
+			<div class='form-group'>
+				<label for='question_text' class='control-label'>Question:</label>
+				<textarea class='form-control' name='question_text' rows='5'><%- typeof question_text !== 'undefined' ? question_text : '' %></textarea>				
+				<p class='help-block'>The question and answer fields use 'Markdown' formatting. Click <a href='http://stackoverflow.com/editing-help' class='navigate'>here</a> for detailed help.</p>
+			</div>
+
+			<div class='form-group'>
+				<label for='answer_text' class='control-label'>Answer:</label>
+				<textarea class='form-control' name='answer_text' rows='5'><%- typeof answer_text !== 'undefined' ? answer_text : '' %></textarea>
+				<p class='help-block'>Leave answer field empty to make this card a 'note'.</p>
+			</div>			
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<!-- BROWSE TESTS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="select">Select</button>
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="flag" data-toggle="tooltip" title="Flag as inappropriate" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-flag'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="info" data-toggle="tooltip" title="Info" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-info-sign'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="take">Take Test</button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable-display">
+
+		<h1><%- test_name %></h1>
+		<% if ( description ) { %> <h2><%- description %></h2> <% } %>
+		<p><span>Sets:</span>  <%- setIDs.length %></p>
+		<p><span>Cards:</span>  <%- num_filtered_cards %></p>
+
+		<% if ( ( sharing === "none" ) || ( sharing === "studygroup" ) || ( is_auto_test ) || ( ( tags.length ) || ( keywords.length ) ) ) { %>
+			<div class='footer'>
+				<% if ( sharing === 'none' ) { %> 
+					<span class='glyphicon glyphicon-lock' data-toggle="tooltip" title="Not shared" data-container="body" data-placement="auto top"></span>
+				<% } %>
+				<% if ( sharing === 'studygroup' ) { %> 
+					<span class='glyphicon glyphicon-book' data-toggle="tooltip" title="Studygroup" data-container="body" data-placement="auto top"></span>
+				<% } %>
+				<% if ( is_auto_test ) { %>
+					<span class='glyphicon glyphicon-font' data-toggle="tooltip" title="Auto test" data-container="body" data-placement="auto top"></span>
+				<% } %>
+				<% if ( tags.length || keywords.length ) { %>
+					<span class='glyphicon glyphicon-filter' data-toggle="tooltip" title="Filter" data-container="body" data-placement="auto top"></span>
+				<% } %>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable-info">
+
+		<% if ( setsInfo ) { %>
+			<p>
+				<span>Total Sets:</span> 
+				<%- setIDs.length %> (<%- setsInfo.length %>)
+			</p>
+			<p>
+				<span>Keywords:</span> 
+				<%- keywordsText %>
+			</p>
+			<p>
+				<span>Tags:</span> 
+				<%- tagsText %>
+			</p>
+			<p>
+				Sets Info:
+			</p>
+
+			<ul class='list-group'>
+				<% for ( var x=0; x < setsInfo.length; x++ ) { %>
+					<li class='list-group-item'>
+						<%- setsInfo[x].set_name %><br>
+						<%- setsInfo[x].description %>
+					</li>
+				<% } %>
+			</ul>
+		<% } %>
+
+		<% if ( !setsInfo ) { %>			
+			<p>
+				<span>Total Sets:</span> 1 (auto)
+			</p>
+		<% } %>		
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-record-editable-edit">
+
+		<form role='form'>
+
+  			<div class='form-group'>
+				<label for='test_name' class='control-label'>Test Name:</label>
+				<input type='text' class='form-control test_name' name='test_name' value="<%- typeof test_name !== 'undefined' ? test_name : '' %>">
+			</div>
+
+			<div class='form-group'>
+				<label for='description' class='control-label'>Test Description (optional):</label>
+				<input type='text' class='form-control description' name='description' value="<%- typeof description !== 'undefined' ? description : '' %>">
+			</div>
+
+			<div class='form-group'>
+				<label for='sharing' class='control-label'>Sharing:</label>
+				<input type='hidden' class='form-hidden-select2 sharing' name='sharing'/>
+			</div>
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<!-- file: studying.toolbars -->
+
+	<!-- BROWSE MODULES -->
+	
+	<script type="text/template" id="tpl-widget-studying-browse-modules-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" name="display" data-toggle="dropdown">
+				Display
+				<span class='caret'></span>
+			</button>
+			<ul class='dropdown-menu'>
+				<li><a href="#" class="toolbar_action" name="display_completed">Show Completed</a></li>
+			</ul>
+		</div>
+
+	</script>
+
+	<!-- BROWSE GROUPS -->
+	
+	<script type="text/template" id="tpl-widget-studying-browse-groups-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="code">Find Studygroup</button>
+			<button type="button" class="btn btn-default toolbar_action" name="add">Create Studygroup</button>
+		</div>
+
+	</script>
+
+	<!-- BROWSE USERS -->
+	
+	<script type="text/template" id="tpl-widget-studying-browse-users-toolbar">
+
+		<div class="btn-group">
+
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" name="display" data-toggle="dropdown">
+					Display <span class='caret'></span>
+				</button>
+				<ul class='dropdown-menu'>
+					<li><a href="#" class="toolbar_action" name="display_sort_criteria">Sort By Num Cards</a></li>
+					<li><a href="#" class="toolbar_action" name="display_sort_order">Sort Descending</a></li>
+				</ul>
+			</div>
+			
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" name="filter" data-toggle="dropdown">
+					Filter <span class='caret'></span>
+				</button>
+				<ul class='dropdown-menu'>
+					<li><a href="#" class="toolbar_action" name="filter_set">Set</a></li>
+					<li><a href="#" class="toolbar_action" name="filter_clear">Clear</a></li>
+				</ul>
+			</div>
+			
+		</div>
+
+	</script>
+
+	<!-- BROWSE TYPES -->
+	
+	<script type="text/template" id="tpl-widget-studying-browse-types-toolbar">
+
+		<div class="btn-group">
+
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" name="filter" data-toggle="dropdown">
+					Filter <span class='caret'></span>
+				</button>
+				<ul class='dropdown-menu'>
+					<li><a href="#" class="toolbar_action" name="filter_set">Set</a></li>
+					<li><a href="#" class="toolbar_action" name="filter_clear">Clear</a></li>
+				</ul>
+			</div>
+			
+		</div>
+
+	</script>
+
+	<!-- BROWSE SETS -->
+	
+	<script type="text/template" id="tpl-widget-studying-browse-sets-toolbar">
+
+		<div class='row'>
+
+			<div class='col-sm-6'>
+
+				<div class="btn-group">
+
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" name="display" data-toggle="dropdown">
+							Display <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu'>
+							<li><a href="#" class="toolbar_action" name="display_sort_criteria">Sort By Num Cards</a></li>
+							<li><a href="#" class="toolbar_action" name="display_sort_order">Sort Descending</a></li>
+							<li><a href="#" class="toolbar_action" name="display_select_all">Select All</a></li>
+							<li><a href="#" class="toolbar_action" name="display_clear_selected">Clear Selected</a></li>
+						</ul>
+					</div>
+
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" name="clipboard" data-toggle="dropdown">
+							Clipboard <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu'>
+							<li><a href="#" class="toolbar_action" name="clipboard_cut">Cut</a></li>
+							<li><a href="#" class="toolbar_action" name="clipboard_copy">Copy</a></li>
+							<li><a href="#" class="toolbar_action" name="clipboard_paste">Paste</a></li>
+							<li><a href="#" class="toolbar_action" name="clipboard_clear">Clear</a></li>
+						</ul>
+					</div>
+
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" name="filter" data-toggle="dropdown">
+							Filter <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu'>
+							<li><a href="#" class="toolbar_action" name="filter_set">Set</a></li>
+							<li><a href="#" class="toolbar_action" name="filter_clear">Clear</a></li>
+						</ul>
+					</div>
+					
+				</div>
+
+			</div>
+
+			<div class='col-sm-6'>
+
+				<div class="btn-group">
+					
+					<button type="button" class="btn btn-default toolbar_action" name="add">Add</button>
+					<button type="button" class="btn btn-default toolbar_action" name="delete">Delete</button>
+
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" name="test" data-toggle="dropdown">
+							Test <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu'>
+							<li><a href="#" class="toolbar_action" name="test_take">Take</a></li>
+							<li><a href="#" class="toolbar_action" name="test_save">Save As</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</script>
+
+	<!-- BROWSE CARDS -->
+	
+	<script type="text/template" id="tpl-widget-studying-browse-cards-toolbar">
+
+		<div class='row'>
+
+			<div class='col-sm-6'>
+
+				<div class="btn-group">
+
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" name="display" data-toggle="dropdown">
+							Display <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu'>
+							<li><a href="#" class="toolbar_action" name="display_sort">Sort Descending</a></li>
+						</ul>
+					</div>
+
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" name="clipboard" data-toggle="dropdown">
+							Clipboard <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu'>
+							<li><a href="#" class="toolbar_action" name="clipboard_cut">Cut</a></li>
+							<li><a href="#" class="toolbar_action" name="clipboard_copy">Copy</a></li>
+							<li><a href="#" class="toolbar_action" name="clipboard_paste">Paste</a></li>
+							<li><a href="#" class="toolbar_action" name="clipboard_clear">Clear</a></li>
+						</ul>
+					</div>
+
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" name="filter" data-toggle="dropdown">
+							Filter <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu'>
+							<li><a href="#" class="toolbar_action" name="filter_set">Set</a></li>
+							<li><a href="#" class="toolbar_action" name="filter_clear">Clear</a></li>
+						</ul>
+					</div>
+					
+				</div>
+
+			</div>
+
+			<div class='col-sm-6'>
+
+				<div class="btn-group">
+					
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" name="add" data-toggle="dropdown">
+							Add <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu'>
+							<li><a href="#" class="toolbar_action" name="add_card">Card</a></li>
+							<li><a href="#" class="toolbar_action" name="add_batch">Card Batch</a></li>
+						</ul>
+					</div>
+
+					<button type="button" class="btn btn-default toolbar_action" name="delete">Delete</button>
+
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" name="test" data-toggle="dropdown">
+							Test <span class='caret'></span>
+						</button>
+						<ul class='dropdown-menu'>
+							<li><a href="#" class="toolbar_action" name="test_take">Take</a></li>
+							<li><a href="#" class="toolbar_action" name="test_save">Save As</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</script>
+
+	<!-- BROWSE TESTS -->
+
+	<script type="text/template" id="tpl-widget-studying-browse-tests-toolbar">
+
+		<div class="btn-group">
+			
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" name="display" data-toggle="dropdown">
+					Display <span class='caret'></span>
+				</button>
+				<ul class='dropdown-menu'>
+					<li><a href="#" class="toolbar_action" name="display_sort">Sort Descending</a></li>
+				</ul>
+			</div>
+
+			<button type="button" class="btn btn-default toolbar_action" name="delete">Delete</button>
+			<button type="button" class="btn btn-default toolbar_action" name="hide_auto">Exclude Auto</button>
+		</div>
+
+	</script>
+
+	<!-- file: tests.take.doing -->
+
+	<!-- PAGE-CONTENT -->
+	
+	<script type='text/template' id='tpl-page-content-tests-take-doing'>
+
+		<h1>Take a Test</h1>
+
+		<div class='content-panels'>
+
+			<div class="content-panel-timer">
+			</div>
+
+			<div class="content-panel-details">
+			</div>
+
+		</div>
+
+		<div class="content-slideshow">
+		</div>
+
+	</script>
+
+	<!-- PANEL -->
+	
+	<script type='text/template' id='tpl-widget-tests-take-doing-panel-timer'>
+		
+		<p>
+			<span>Time:</span> <%= minutes_spent %>
+			<% if ( minutes_spent === 1 ) { %>
+				minute
+			<% } %>
+			<% if ( minutes_spent !== 1 ) { %>
+				minutes
+			<% } %>
+		</p>
+
+	</script>
+
+	<script type='text/template' id='tpl-widget-tests-take-doing-panel-details'>
+
+		<p>
+			<span>Current Card:</span> <%= idx+1 %>
+			<% if ( settings.show_remaining ) { %>
+				(<%= num_cards %>)
+			<% } %>
+		</p>
+		<p>
+			<span>Current Set:</span>
+			<% if ( settings.display_set_name ) { %>
+				<%- set_name %><br>
+			<% } %>
+			<% if ( !settings.display_set_name ) { %>
+				Not shown<br>
+			<% } %>
+		</p>
+		<p class='instructions'><span>Keyboard shortcuts:</span> LEFT, RIGHT, SPACE, ENTER, ESC, 1, 2, 3</p>
+
+	</script>
+
+	<!-- SLIDESHOW -->
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-slideshow">
+
+		<div class="content-toolbar">
+		</div>
+
+		<div class="content-record">
+		</div>
+
+	</script>
+
+	<!-- TOOLBARS -->
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-slideshow-toolbar">
+
+		<div class='row'>
+
+			<div class='col-sm-6'>
+
+				<div class="btn-group">			
+					<button type="button" class="btn btn-default toolbar_action" name="prev">Previous</button>
+					<button type="button" class="btn btn-default toolbar_action" name="next">Next</button>
+				</div>
+
+			</div>
+
+			<div class='col-sm-6'>
+
+				<div class="btn-group">
+					<button type="button" class="btn btn-default toolbar_action" name="show_answer">Show Answer</button>
+					<button type="button" class="btn btn-default toolbar_action" name="correct">Correct</button>
+					<button type="button" class="btn btn-default toolbar_action" name="end">End Test</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</script>	
+
+	<!-- RECORD-EDITABLE -->
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="difficulty1" data-toggle="tooltip" title="Toggle `difficulty1` tag" data-container="body" data-placement="auto top">1</button>
+			<button type="button" class="btn btn-default toolbar_action" name="difficulty2" data-toggle="tooltip" title="Toggle `difficulty2` tag" data-container="body" data-placement="auto top">2</button>
+			<button type="button" class="btn btn-default toolbar_action" name="difficulty3" data-toggle="tooltip" title="Toggle `difficulty3` tag" data-container="body" data-placement="auto top">3</button>
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="flag" data-toggle="tooltip" title="Flag as inappropriate" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-flag'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-record-editable-display">
+
+		<div class='question'>
+			<% if ( answer_text && isShowingAnswer ) { %>
+				<div class='heading'>Question:</div>
+			<% } %>
+			<%= question_text %>
+		</div>
+		<% if ( answer_text && isShowingAnswer ) { %>			
+			<div class='answer'>
+				<div class='heading'>Answer:</div>
+				<%= answer_text %>
+			</div>
+		<% } %>
+		<% if ( tags.length && isShowingTags ) { %>
+			<div class='footer'>
+				<div class='row'>
+					<% for ( x=0; x < tags.length; x++ ) { %> <div class='tag col-xs-12'><%- tags[x].tag_text %></div> <% } %>
+				</div>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-record-editable-edit">
+
+		<form role='form'>
+
+			<div class='form-group'>
+				<label for='tags' class='control-label'>Tags:</label>
+				<input type='hidden' class='form-hidden-select2' name='tags'/>
+			</div>
+
+			<div class='form-group'>
+				<label for='order_id' class='control-label'>Order ID:</label>
+				<input type='text' class='form-control' name='order_id' value="<%- typeof order_id !== 'undefined' ? order_id : '' %>">				
+			</div>
+
+			<div class='form-group'>
+				<label for='question_text' class='control-label'>Question:</label>
+				<textarea class='form-control' name='question_text' rows='5'><%- typeof question_text !== 'undefined' ? question_text : '' %></textarea>				
+				<p class='help-block'>The question and answer fields use 'Markdown' formatting. Click <a href='http://stackoverflow.com/editing-help' class='navigate'>here</a> for detailed help.</p>
+			</div>
+
+			<div class='form-group'>
+				<label for='answer_text' class='control-label'>Answer:</label>
+				<textarea class='form-control' name='answer_text' rows='5'><%- typeof answer_text !== 'undefined' ? answer_text : '' %></textarea>
+				<p class='help-block'>Leave answer field empty to make this card a 'note'.</p>
+			</div>			
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<!-- file: tests.take.intro -->
+
+	<!-- PAGE-CONTENT -->
+	<script type='text/template' id='tpl-page-content-tests-take-intro'>
+
+		<h1>Take a Test</h1>
+
+		<div class="content-panel">
+		</div>
+
+		<div class="content-form">
+		</div>
+
+	</script>
+
+	<!-- PANEL -->
+	
+	<script type='text/template' id='tpl-widget-tests-take-intro-panel'>
+
+		<h1><%- test_name %></h1>
+
+		<% if ( description ) { %> <h2><%- description %></h2> <% } %>
+
+		<% if ( is_auto_test ) { %>			
+			<p>
+				<span>Total Sets:</span> 1 (auto)
+			</p>
+			<p>
+				<span>Total cards:</span>
+				<%= num_cards %>
+			</p>
+		<% } %>
+
+		<% if ( !is_auto_test ) { %>
+			<p>
+				<span>Total Sets:</span> 
+				<%= setIDs.length %> (<%= setsInfo.length %>)
+			</p>
+			<p>
+				<span>Total cards:</span>
+				<%= num_cards %>
+			</p>
+			<p>
+				<span>Keywords:</span> 
+				<%- keywordsText %>
+			</p>
+			<p>
+				<span>Tags:</span> 
+				<%- tagsText %>
+			</p>
+		<% } %>
+
+		<div class='footer'>
+			<button class='btn btn-info' name='button_ok'>More Info</button>
+		</div>
+
+	</script>
+
+	<!-- PANEL (MORE INFO) -->
+	
+	<script type='text/template' id='tpl-widget-tests-take-intro-panel-more-info'>
+
+		<p>
+			<span>Total Sets:</span> 
+			<%= setIDs.length %> (<%= setsInfo.length %>)
+		</p>
+		<ul class='list-group'>
+			<% for ( var x=0; x < setsInfo.length; x++ ) { %>
+				<li class='list-group-item'>
+					<%- setsInfo[x].set_name %><br>
+					<%- setsInfo[x].description %>
+				</li>
+			<% } %>
+		</ul>
+
+	</script>
+
+	<!-- FORM -->
+
+	<script type='text/template' id='tpl-widget-tests-take-intro-form-settings'>
+
+		<div class='sb-panel-form sb-panel-form-sm'>
+
+			<div class='sb-panel-form-heading sb-panel-form-heading-default'>
+				Test Settings
+			</div>
+
+			<form role='form'>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='randomize' checked> Randomize
+					</label>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='display_set_name'> Display Set Names
+					</label>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='display_card_tags'> Display Card Tags
+					</label>
+				</div>
+
+				<div class='checkbox'>
+					<label>
+						<input type='checkbox' name='show_remaining' checked> Show Remaining Count
+					</label>
+				</div>					
+
+				<div class='sb-panel-form-footer'>
+					<button type='button' class='btn btn-success' name='button_save'>Start Test</button>
+				</div>
+
+			</form>			
+
+		</div>
+
+	</script>
+
+	<!-- file: tests.take.outro -->
+
+	<!-- PAGE-CONTENT -->
+	
+	<script type='text/template' id='tpl-page-content-tests-take-outro'>
+
+		<h1>Test Summary</h1>
+
+		<div class="content-breadcrumb">
+		</div>
+
+		<div class="content-panel">
+		</div>
+
+	</script>
+
+	<!-- PANEL -->
+	
+	<script type='text/template' id='tpl-widget-tests-take-outro-panel'>
+		
+		<h1><%- test_name %></h1>
+		<% if ( description ) { %> <h2><%- description %></h2> <% } %>
+		<p>
+			<span>Time:</span> <%= minutes_spent %>
+			<% if ( minutes_spent === 1 ) { %>
+				minute
+			<% } %>
+			<% if ( minutes_spent !== 1 ) { %>
+				minutes
+			<% } %>
+		</p>
+		<p><span>Correct:</span> <%= num_correct_string %></p>
+
+		<div class='footer'>
+			<button class='btn btn-success' name='button_ok'>Re-Take Test</button>
+			<button class='btn btn-danger' name='button_cancel'>Back To Class Content</button>
+		</div>
+
+	</script>
+

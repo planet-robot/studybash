@@ -1,0 +1,184 @@
+	<!-- file: tests.take.doing -->
+
+	<!-- PAGE-CONTENT -->
+	
+	<script type='text/template' id='tpl-page-content-tests-take-doing'>
+
+		<h1>Take a Test</h1>
+
+		<div class='content-panels'>
+
+			<div class="content-panel-timer">
+			</div>
+
+			<div class="content-panel-details">
+			</div>
+
+		</div>
+
+		<div class="content-slideshow">
+		</div>
+
+	</script>
+
+	<!-- PANEL -->
+	
+	<script type='text/template' id='tpl-widget-tests-take-doing-panel-timer'>
+		
+		<p>
+			<span>Time:</span> <%= minutes_spent %>
+			<% if ( minutes_spent === 1 ) { %>
+				minute
+			<% } %>
+			<% if ( minutes_spent !== 1 ) { %>
+				minutes
+			<% } %>
+		</p>
+
+	</script>
+
+	<script type='text/template' id='tpl-widget-tests-take-doing-panel-details'>
+
+		<p>
+			<span>Current Card:</span> <%= idx+1 %>
+			<% if ( settings.show_remaining ) { %>
+				(<%= num_cards %>)
+			<% } %>
+		</p>
+		<p>
+			<span>Current Set:</span>
+			<% if ( settings.display_set_name ) { %>
+				<%- set_name %><br>
+			<% } %>
+			<% if ( !settings.display_set_name ) { %>
+				Not shown<br>
+			<% } %>
+		</p>
+		<p class='instructions'><span>Keyboard shortcuts:</span> LEFT, RIGHT, SPACE, ENTER, ESC, 1, 2, 3</p>
+
+	</script>
+
+	<!-- SLIDESHOW -->
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-slideshow">
+
+		<div class="content-toolbar">
+		</div>
+
+		<div class="content-record">
+		</div>
+
+	</script>
+
+	<!-- TOOLBARS -->
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-slideshow-toolbar">
+
+		<div class='row'>
+
+			<div class='col-sm-6'>
+
+				<div class="btn-group">			
+					<button type="button" class="btn btn-default toolbar_action" name="prev">Previous</button>
+					<button type="button" class="btn btn-default toolbar_action" name="next">Next</button>
+				</div>
+
+			</div>
+
+			<div class='col-sm-6'>
+
+				<div class="btn-group">
+					<button type="button" class="btn btn-default toolbar_action" name="show_answer">Show Answer</button>
+					<button type="button" class="btn btn-default toolbar_action" name="correct">Correct</button>
+					<button type="button" class="btn btn-default toolbar_action" name="end">End Test</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</script>	
+
+	<!-- RECORD-EDITABLE -->
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-record-editable">
+
+		<div class='toolbar clearfix'>
+		</div>
+
+		<div class='record-content'>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-record-editable-toolbar">
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default toolbar_action" name="difficulty1" data-toggle="tooltip" title="Toggle `difficulty1` tag" data-container="body" data-placement="auto top">1</button>
+			<button type="button" class="btn btn-default toolbar_action" name="difficulty2" data-toggle="tooltip" title="Toggle `difficulty2` tag" data-container="body" data-placement="auto top">2</button>
+			<button type="button" class="btn btn-default toolbar_action" name="difficulty3" data-toggle="tooltip" title="Toggle `difficulty3` tag" data-container="body" data-placement="auto top">3</button>
+			<button type="button" class="btn btn-default toolbar_action" name="edit" data-toggle="tooltip" title="Edit" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-pencil'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="flag" data-toggle="tooltip" title="Flag as inappropriate" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-flag'></span></button>
+			<button type="button" class="btn btn-default toolbar_action" name="delete" data-toggle="tooltip" title="Delete" data-container="body" data-placement="auto top"><span class='glyphicon glyphicon-trash'></span></button>
+		</div>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-record-editable-display">
+
+		<div class='question'>
+			<% if ( answer_text && isShowingAnswer ) { %>
+				<div class='heading'>Question:</div>
+			<% } %>
+			<%= question_text %>
+		</div>
+		<% if ( answer_text && isShowingAnswer ) { %>			
+			<div class='answer'>
+				<div class='heading'>Answer:</div>
+				<%= answer_text %>
+			</div>
+		<% } %>
+		<% if ( tags.length && isShowingTags ) { %>
+			<div class='footer'>
+				<div class='row'>
+					<% for ( x=0; x < tags.length; x++ ) { %> <div class='tag col-xs-12'><%- tags[x].tag_text %></div> <% } %>
+				</div>
+			</div>
+		<% } %>
+
+	</script>
+
+	<script type="text/template" id="tpl-widget-tests-take-doing-record-editable-edit">
+
+		<form role='form'>
+
+			<div class='form-group'>
+				<label for='tags' class='control-label'>Tags:</label>
+				<input type='hidden' class='form-hidden-select2' name='tags'/>
+			</div>
+
+			<div class='form-group'>
+				<label for='order_id' class='control-label'>Order ID:</label>
+				<input type='text' class='form-control' name='order_id' value="<%- typeof order_id !== 'undefined' ? order_id : '' %>">				
+			</div>
+
+			<div class='form-group'>
+				<label for='question_text' class='control-label'>Question:</label>
+				<textarea class='form-control' name='question_text' rows='5'><%- typeof question_text !== 'undefined' ? question_text : '' %></textarea>				
+				<p class='help-block'>The question and answer fields use 'Markdown' formatting. Click <a href='http://stackoverflow.com/editing-help' class='navigate'>here</a> for detailed help.</p>
+			</div>
+
+			<div class='form-group'>
+				<label for='answer_text' class='control-label'>Answer:</label>
+				<textarea class='form-control' name='answer_text' rows='5'><%- typeof answer_text !== 'undefined' ? answer_text : '' %></textarea>
+				<p class='help-block'>Leave answer field empty to make this card a 'note'.</p>
+			</div>			
+
+			<div class='footer'>
+				<button type='button' class='btn btn-success' name='button_save'>Save</button>
+				<button type='button' class='btn btn-danger' name='button_cancel'>Cancel</button>
+			</div>
+
+		</form>
+
+	</script>

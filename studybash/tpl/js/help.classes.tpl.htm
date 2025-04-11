@@ -1,0 +1,54 @@
+<!-- file: help-classes -->
+
+<!-- CLASSES-PANEL -->
+
+<script type='text/template' id='tpl-widget-help-classes-panel'>
+
+	<h1>Overview</h1>
+
+	<p>
+		Each flashcard you make will belong to a particular class. Accordingly, before you can create any flashcards you must first add one or more classes. The <code>Classes</code> section (accessible through the navigation menu at the top of the page) allows you to create, remove, and edit classes.
+	</p>
+
+	<h2>How do I add a class?</h2>
+
+	<p>
+		Simply click the <code>Add New Class</code> button, located in the top toolbar. You will then be asked to enter the following information:
+		<ul>
+		<li><span class='field-label'>Subject/Class Code:</span> Every class you take will have both a subject code (e.g., PSYC) and a class code (e.g., 101). Here you will have a listing of all of the classes that other students have added. If you don't see the class that you want, simply type it in yourself and press ENTER.</li>
+		<li><span class='field-label'>Year:</span> Select the year that you are taking the class in (e.g., <%= YEAR %>)</li>
+		<li><span class='field-label'>Semester:</span> Select the semester that you are taking the class in, for the given year (e.g., Fall)</li>
+		<li><span class='field-label'>Class Name:</span> You may choose to enter the name of the class.</li>
+		<li><span class='field-label'>Lecturer Name:</span> You may choose to enter the name of the class's lecturer.</li>
+		<li><span class='field-label'>Textbook URL:</span> You may choose to enter a link to the textbook used in the class.</li>
+		<li><span class='field-label'>Completed:</span> If you have already completed the class, simply tick this box.</li>
+		</ul>
+	</p>
+
+	<p>
+		The last three fields of the form are optional (<span class='field-text'>Class Name</span>, <span class='field-text'>Lecturer Name</span>, <span class='field-text'>Textbook URL</span>). Clicking the drop-down for each field will display the values entered by other students taking that class. This enables you to be sure that you've got the right class.
+	</p>
+
+	<h2>Why are there numbers beside some of the values I can select when adding a class?</h2>
+
+	<p>
+		For the <span class='field-text'>Subject/Class Code</span> field, it lets you know how many students have added that class, for any year/semester. For the <span class='field-text'>Year</span> field, it lets you know how many students have added that class for that particular year, ignoring semester. For the <span class='field-text'>Semester</span> field, it tells you how many students have added that class for that particular year and semester.
+	</p>
+
+	<p>
+		For the last three fields (<span class='field-text'>Class Name</span>, <span class='field-text'>Lecturer Name</span>, <span class='field-text'>Textbook URL</span>), it simply tells you how many students have used those particular values.
+	</p>
+
+	<h2>How do I remove a class?</h2>
+
+	<p>
+		Click the <code><span class="glyphicon glyphicon-trash"></span></code> icon on the toolbar of the class that you want to remove. However, assuming you have just finished the class, you might want to consider editing it and simply checking the <code>Completed</code> box instead. That way, you can keep all the content that you have created for the class, and just hide <code>Completed</code> classes when you are browsing your flashcards or tests later on (see the <a href="<%= ROOT %>#help/studying/">Studying</a> help section for more info).
+	</p>
+
+	<h2>How do I edit a class?</h2>
+
+	<p>
+		Click the <code><span class="glyphicon glyphicon-pencil"></span></code> icon on the toolbar of the class that you want to edit. This allows you to change the <span class='field-text'>Class Name</span>, <span class='field-text'>Lecturer Name</span>, and <span class='field-text'>Textbook URL</span> fields. If you want to change the <span class='field-text'>Subject/Class Code</span>, <span class='field-text'>Year</span>, or <span class='field-text'>Semester</span> fields, you will have to add a new class.
+	</p>
+
+</script>

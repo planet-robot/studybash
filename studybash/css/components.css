@@ -1,0 +1,161 @@
+/*
+	CSS:			components.css
+	DESCRIPTION:	This houses all of the styles for standalone components used
+					within the site. All are prefixed with "sb-".
+*/
+
+/*
+	Component:		.sb-panel-form
+	Description:	Simple container that gives a border and border shadow.
+					We have a heading and then the form itself.
+*/
+
+.sb-panel-form {
+	
+	border: 2px solid black;
+	background-color: #fff;
+
+	-webkit-box-shadow: 0 0 8px #000; /* horz, vert, blur, col */
+	box-shadow: 0 0 8px #000; /* horz, vert, blur, col */
+}
+
+.sb-panel-form-xs {
+	
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.sb-panel-form-sm {
+	
+	max-width: 740px;
+	margin: 0 auto;
+}
+
+.sb-panel-form-heading {
+	text-align: center;
+	padding: 4px;
+}
+
+.sb-panel-form-heading-default {
+	background-color: #666;
+	color: #fff;
+}
+
+.sb-panel-form form {
+	padding: 14px;
+}
+
+.sb-panel-form form p.help-block {
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+}
+
+.sb-panel-form form label.checkbox {
+	font-weight: normal;
+}
+
+.sb-panel-form form label.checkbox {
+	margin-bottom: 20px;
+}
+
+.sb-panel-form form .sb-panel-form-footer {
+	border-top: 1px dotted #666;
+	margin-top: 6px;
+	padding-top: 10px;
+}
+
+/*
+	Component:		.sb-tabs
+	Description:	Simple container for a group of tabs.
+*/
+
+div.sb-tabs {
+	margin-bottom: -1px;
+}
+
+div.sb-tabs > ul {
+	width:100%;
+	background-color: #eee;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+
+div.sb-tabs > ul a,
+div.sb-tabs > ul a:hover,
+div.sb-tabs > ul a:visited,
+div.sb-tabs > ul a:focus {
+	text-decoration: none;
+	color: #000;
+}
+
+div.sb-tabs > ul li {
+	
+	border: 1px solid #ddd;
+	border-bottom: 1px solid #bbb;
+	-webkit-border-radius: 6px 6px 0 0;	
+	border-radius: 6px 6px 0 0;
+
+	display: inline-block;
+
+	padding-top:6px;
+	padding-bottom:6px;
+	padding-left:6px;
+	padding-right:6px;
+
+	color: #000;
+	background-color: #ddd;
+}
+
+div.sb-tabs > ul li.sb-tab-active {
+	border: 1px solid #bbb;
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+	color: #000;
+}
+
+/*
+	Callouts
+
+	Not quite alerts, but custom and helpful notes for folks reading the
+	docs. Requires a base and modifier class.
+
+	- source: http://getbootstrap.com/docs-assets/css/docs.css
+*/
+
+/* Common styles for all types */
+.bs-callout {
+	margin: 20px 0;
+	padding: 20px;
+	border-left: 3px solid #eee;
+}
+.bs-callout h4 {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+	margin-bottom: 0;
+}
+
+/* Variations */
+.bs-callout-danger {
+	background-color: #fdf7f7;
+	border-color: #eed3d7;
+}
+.bs-callout-danger h4 {
+	color: #b94a48;
+}
+.bs-callout-warning {
+	background-color: #faf8f0;
+	border-color: #faebcc;
+}
+.bs-callout-warning h4 {
+	color: #c09853;
+}
+.bs-callout-info {
+	background-color: #f4f8fa;
+	border-color: #bce8f1;
+}
+.bs-callout-info h4 {
+	color: #3a87ad;
+}

@@ -1,0 +1,69 @@
+	<!-- file: help-tests -->
+
+	<!-- TESTS-PANEL -->
+
+	<script type='text/template' id='tpl-widget-help-tests-panel'>
+
+		<h1>Overview</h1>
+
+		<p>
+			Here is one possible method for creating tests for a given class, using Studybash:
+			<ul>
+				<li>Initially, create a test that consists of all of the flashcards for that class.</li>
+				<li>Take the test several times. Flag the cards that you get wrong once with <code>difficulty1</code>, twice with <code>difficulty2</code> and three times with <code>difficulty3</code>.</li>
+				<li>Eventually, create a new test consisting of only the cards that have been flagged with one or more of the <code>difficulty</code> tags.</li>
+				<li>If you're still having trouble, reset all the tags and start again.</li>
+			</ul>
+		</p>
+
+		<h1>How do I create a test?</h1>
+
+		<p>
+			You can make tests while browsing the <span class='field-text'>flashcards</span> content type. There are two ways to create a test:
+			<ul>
+				<li><span class='field-text'>While browsing sets</span>: Select the sets you want to include. You can also set a filter if you want (optional).</li>
+				<li><span class='field-text'>While browsing flashcards</span>: Only the set that contains those flaschards is included in the test. Again, you can also set a filter if you want (optional).</li>
+			</ul>
+		</p>
+
+		<p>
+			When you have decided on what is going to be in your test, simply click the <code>Test</code> button in the main toolbar.
+		</p>
+
+		<h1>What is the difference between <code>Take</code> and <code>Save As</code> options, displayed under the <code>Test</code> button?</h1>
+
+		<p>
+			<span class='field-text'>Take</span> creates a temporary test that you can take as many times as you want right now. However, if you are going to want to save the test so that it can be taken again at a later date, then you should select <span class='field-text'>Save As</span>. The options presented when you ask to save a test are exactly the same as those presented when you ask to create a set - i.e., <span class='field-text'>Test Name</span>, etc... (see the <a href="<%= ROOT %>#help/flashcards/" class="navigate">flashcards</a> help section for more info).
+		</p>
+
+		<h1>What happens when I alter flashcards that are included in a test?</h1>
+
+		<p>
+			When a test is created, it only stores a reference to the sets included - not the individual cards. Accordingly, when you take a test, it will include whatever cards are <em>currently</em> inside the included sets; assuming they match the filter information, of course (if any was specified).
+		</p>
+
+		<h1>How do I edit or delete a test?</h1>
+
+		<p>
+			While browsing <span class='field-text'>tests</span>, just click the <code><span class="glyphicon glyphicon-pencil"></span></code> icon or the <code><span class="glyphicon glyphicon-trash"></span></code> icon on the toolbar of the test you want to edit or delete, respectively. Note that you can only change the <span class='field-text'>name</span>, <span class='field-text'>description</span>, and <span class='field-text'>sharing</span> values of the test. If you want to change the <span class='field-text'>sets</span> and/or <span class='field-text'>filter</span> values, you need to create a new one.
+		</p>
+
+		<h1>How do I take a test?</h1>
+
+		<p>
+			If the test has been saved previously, just click the <code>Take Test</code> button on the toolbar of the test you want to take, while you're browsing tests. Alternatively, as mentioned above, when you are browsing <span class='field-text'>Flashcards</span>, you can click the <code>Test</code> button in the main toolbar and then select <code>Take</code>.
+		</p>
+
+		<h1>When I'm taking a test, what do the <code>1</code>, <code>2</code>, and <code>3</code> buttons on the toolbar of each flashcard do?</h1>
+
+		<p>
+			These are shortcuts. By clicking these, you will tag that flashcard with the <code>difficulty1</code>, <code>difficulty2</code>, or <code>difficulty3</code> tag respectively. For instance, if you get a question wrong once, you might add the <code>difficulty1</code> tag. If you get it wrong twice, you might add the <code>difficulty2</code> tag, etc...
+		</p>
+
+		<h1>What does the <code>Exclude Auto</code> button do, while browsing tests?</h1>
+
+		<p>
+			It simply hides all of the tests that were created by ticking the <em>Create Auto Test</em> checkbox for a given set.
+		</p>
+
+	</script>

@@ -1,0 +1,110 @@
+	<!-- file: base -->
+
+	<!-- SECTIONS (2 types) -->
+
+	<script type='text/template' id='tpl-section-welcome'>
+
+		<div class='section-header'>
+		</div>
+
+		<div class='section-page section-page-welcome container'>
+		</div>
+
+	</script>
+
+	<script type='text/template' id='tpl-section-user'>
+
+		<div class='section-header'>
+		</div>
+
+		<div class='section-page section-page-user container'>
+		</div>
+
+	</script>
+
+	<!-- SECTION-HEADERS (2 types) -->
+
+	<script type='text/template' id='tpl-section-header-welcome'>
+
+		<div class="header-welcome">
+			<div class='site-name'>
+				<a href="<%= ROOT %>#login/" class="navigate">
+					<h1>studybash</h1>
+					<h2>test yo self before you wreck yo self!</h2>
+				</a>
+			</div>
+		</div>
+		
+	</script>
+
+	<script type='text/template' id='tpl-section-header-user'>
+		
+		<div class="navbar navbar-sb navbar-static-top">
+
+			<div class='container'>
+			
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand navigate" href="<%= ROOT %>#dash/">studybash</a>
+				</div>
+
+				<div class="navbar-collapse collapse">
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li class='classes'><a href="<%= ROOT %>#classes/" class='navigate'>classes</a></li>
+						<li class='studying'><a href="<%= ROOT %>#studying/browse/" class='navigate'>studying</a></li>
+						<li class='help'><a href="<%= ROOT %>#help/" class='navigate'>help</a></li>
+						<li class='logout'><a href="<%= ROOT %>#logout/" class='navigate'>logout</a></li>
+					</ul>
+				
+				</div><!--/nav-collapse -->
+
+			</div> <!-- container -->
+
+		</div> <!-- /static navbar -->
+
+	</script>
+	
+	<!-- PAGE (basic skeleton) -->
+
+	<script type='text/template' id='tpl-page'>
+
+		<div class='page-content'>
+		</div>
+
+		<div class='page-footer'>
+		</div>
+
+	</script>
+
+	<!-- PAGE-FOOTER (3 types) -->
+
+	<script type='text/template' id='tpl-page-footer-welcome'>
+		
+		<div class='sb-footer'>
+
+			<div class='copyright'>
+				<p>&copy; <%= YEAR %> Studybash</p>
+			</div>
+
+		</div> <!-- sb-footer -->
+
+	</script>
+
+	<script type='text/template' id='tpl-page-footer-user'>
+
+		<div class='sb-footer'>
+	
+			<div class='copyright'>
+				<p>&copy; <%= YEAR %> Studybash</p>
+				<p>March, 2014 - version 1.0.0</p>
+				<p class='blurb'>This is a work in progress. Please offer any <a href="<%= ROOT %>#help/contact/" class="navigate newtab">feedback</a> you can to help improve the site!</p>
+			</div>
+
+		</div> <!-- sb-footer -->
+
+	</script>

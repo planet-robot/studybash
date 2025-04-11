@@ -1,0 +1,22 @@
+/*
+	CSS:			section.noscript.css
+	DESCRIPTION:	All of the styles that belong to the 'noscript' section.
+*/
+
+/* panel */
+
+div#section-page-noscript {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 518px;
+}
+
+div#section-page-noscript img {
+	display: block;
+	margin: auto;
+}
+
+div#section-page-noscript p {
+	margin: 0 auto;
+	margin-top: 10px;
+}
